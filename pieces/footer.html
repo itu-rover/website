@@ -1,0 +1,21 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <p>Hello!</p>
+        </div>
+        <div class="col-md-4">
+            <p class="text-center egg-toggle" id="egg-toggle"><i class="fa fa-angle-down" aria-hidden="true"></i></p>
+        </div>
+        <div class="col-md-4">
+            <p>Hey!</p>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function(){
+        $("#egg-toggle").click(function(){
+            $("#egg-index").toggleClass("hidden");
+        });
+    });
+</script>

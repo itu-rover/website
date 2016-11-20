@@ -11,8 +11,11 @@
         <script src="../static/js/jquery-1.10.2.min.js"></script>
         <script src="https://use.fontawesome.com/a92223afb3.js"></script>
         <script>
-            $(function(){
-              $("#navbar-index").load("../pieces/navbar.html");
+            $(function() {
+                $("#navbar-index").load("../pieces/navbar.html");
+                $("#content-index").load("../pieces/<content>.html");
+                $("#footer-index").load("../pieces/footer.html");
+                $("#egg-index").load("../pieces/egg.html");
             });
         </script>
 
@@ -24,8 +27,13 @@
         <nav class="navbar navbar-default navbar-fixed-top" id="navbar-index">
         </nav>
 
-        <div class="container" id="content">
+        <div class="container" id="content-index">
+        </div>
 
+        <footer class="footer" id="footer-index">
+        </footer>
+
+        <div class="hidden" id="egg-index">
         </div>
     </body>
 

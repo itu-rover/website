@@ -1,4 +1,47 @@
 body {
-  padding-top: 70px;
+    padding-top: 70px;
+    padding-bottom: -260px;
 }
 
+.font-thin {
+    font-weight: 300;
+}
+
+.font-thick {
+    font-weight: 600;
+}
+
+.footer {
+    background-color: #DBDBDB;
+    min-height: 250px;
+}
+
+.latte {
+    font-size: 16px;
+    background-color: #FFF8E7;
+    min-height: 100px;
+}
+
+.emptiness {
+    min-height: 300px;
+}
+
+.restaurant {
+    font-size: 16px;
+    background-color: black;
+    min-height: 100px;
+}
+
+.grey-to-latte {
+    font-size: 16px;
+    background: linear-gradient(180deg, #DBDBDB, #FFF8E7);
+}
+
+.latte-to-black {
+    font-size: 16px;
+    background: linear-gradient(0deg, black, black 20%, #FFF8E7);
+}
+
+.egg-toggle {
+    margin-top: 225px;
+}
