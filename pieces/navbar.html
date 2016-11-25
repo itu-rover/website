@@ -31,9 +31,19 @@
                 <li><a href="../pages/news-media.html"><i class="fa fa-lg fa-newspaper-o" aria-hidden="true"></i> <b>HABERLER VE MEDYA</b></a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
+                <li><a tabindex="0" class="font-thick" role="button" data-toggle="popover" data-trigger="focus" title="" data-placement="bottom" data-content="
+                        <p><b>E-POSTA:</b><br>iturover@gmail.com</p>
+                        <p><b>TELEFON:</b><br>TELNUM</p>
+                        "><i class="fa fa-lg fa-fire" aria-hidden="true"></i> <b>İLETİŞİM</b></a></li>
                 <li><a target="_blank" href="https://www.facebook.com/ituroverteam/"><i class="fa fa-lg fa-facebook-official" style="color: #3B5998;" aria-hidden="true"></i> <b>ituroverteam</b></a></li>
             </ul>
         </div>
     </div>
 </nav>
 
+<script>
+    $("[data-toggle=popover]").popover({html:true});
+    $(function () {
+      $('[data-toggle="popover"]').popover()
+    })
+</script>
