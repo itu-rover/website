@@ -15,6 +15,9 @@ body {
     background-color: #DBDBDB;
     min-height: 250px;
     margin-top: 40px;
+    border-top-style: inset;
+    border-top-color: #f8f8f8;
+    border-top-width: 2px;
 }
 
 .latte {
@@ -44,7 +47,7 @@ body {
 }
 
 .egg-toggle {
-    margin-top: 225px;
+    margin-top: 0px;
 }
 
 @media (max-width:995px){
@@ -86,5 +89,10 @@ body {
 
 .text-big {
     font-size: 18px;
+}
+
+.footer-logo {
+    width: 280px;
+    margin-top: 28px;
 }
 
