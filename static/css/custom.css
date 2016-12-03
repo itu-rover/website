@@ -50,7 +50,7 @@ body {
     margin-top: 0px;
 }
 
-@media (max-width:995px){
+@media (max-width: 995px) {
     .navbar-header {
         float: none;
     }
@@ -102,6 +102,10 @@ body {
 
 .department {
     margin-top: -5px;
+}
+
+.font-default-color {
+    color: #666666 !important;
 }
 
 .h4 > a {
