@@ -1,5 +1,8 @@
 RewriteEngine on
 
+RewriteCond %{REQUEST_URI} !^/pages/
+RewriteRule ^(.*)$ /pages/$1 [NC,L]
+
 RewriteCond %{THE_REQUEST} /([^.]+)\.html [NC]
 RewriteRule ^ /%1 [NC,L,R]
 
