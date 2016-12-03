@@ -97,14 +97,13 @@ body {
 }
 
 .role-in-team {
-    margin-top: -12px;
+    margin-top: -15px;
 }
 
-.team-advisor {
-    padding: 50px;
+.department {
+    margin-top: -5px;
 }
 
-.team-advisor-name {
-    margin-top: -36px;
+.h4 > a {
+    color: #444444 !important;
 }
-
