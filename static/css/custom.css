@@ -1,6 +1,7 @@
 body {
     padding-top: 80px;
     padding-bottom: -260px;
+    background-color: #F8F8F8;
 }
 
 .font-thin {
@@ -111,3 +112,4 @@ body {
 .h4 > a {
     color: #444444 !important;
 }
+
