@@ -113,3 +113,9 @@ body {
     color: #444444 !important;
 }
 
+.vcenter {
+    display: inline-block;
+    vertical-align: middle;
+    float: none;
+}
+
