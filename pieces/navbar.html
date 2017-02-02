@@ -1,3 +1,9 @@
+<style type="text/css">
+    .popover{
+        width:300px;
+    }
+</style>
+
 <div class="container">
     <div class="navbar-header">
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -30,14 +36,21 @@
         </ul>
         <ul class="nav navbar-nav navbar-right">
             <li class="visible-xs visible-sm"><a class="font-thick" role="button" data-toggle="popover" title="" data-placement="bottom" data-content="
-                <i class='fa fa-envelope' aria-hidden='true'></i> <a href='mailto:ituroverteam@gmail.com' target='_blank' class='font-default-color'>ituroverteam@gmail.com</a>
-                    <!--0537 499 8828-->
+                    <i class='fa fa-fw fa-envelope' aria-hidden='true'></i> <a href='mailto:ituroverteam@gmail.com' target='_blank' class='font-default-color'><b>ituroverteam@gmail.com</b></a>
+                    <br>
+                    <i class='fa fa-fw fa-phone' aria-hidden='true'></i> <b>0537 499 8828</b>
+                    <br>
+                    Bize sosyal medya hesaplarımızdan da ulaşabilirsiniz.
                     "><i class="fa fa-fw fa-fire" aria-hidden="true"></i> İletişim</a></li>
             <li class="hidden-xs hidden-sm"><a tabindex="0" class="font-thick" role="button" data-toggle="popover" data-trigger="focus" title="" data-placement="bottom" data-content="
-                    <b><a href='mailto:ituroverteam@gmail.com' target='_blank' class='font-default-color'>ituroverteam@gmail.com</a></b>
-                    <!--<b>TELEFON:</b><br>0537 499 8828-->
+                    <i class='fa fa-fw fa-envelope' aria-hidden='true'></i> <b>ituroverteam@gmail.com</b>
+                    <br>
+                    <i class='fa fa-fw fa-phone' aria-hidden='true'></i> <b>0537 499 8828</b>
+                    <br>
+                    Bize sosyal medya hesaplarımızdan da ulaşabilirsiniz.
                     "><i class="fa fa-fw fa-fire" aria-hidden="true"></i> İletişim</a></li>
-            <li><a target="_blank" href="https://www.facebook.com/ituroverteam/" class="font-thick"><i class="fa fa-fw fa-facebook-f" style="" aria-hidden="true"></i>/ituroverteam</a></li>
+            <li><a target="_blank" href="https://www.facebook.com/ituroverteam/" class="font-thick"><i class="fa fa-fw fa-lg fa-facebook-official" style="" aria-hidden="true"></i></a></li>
+            <li><a target="_blank" href="https://www.twitter.com/ituroverteam" class="font-thick"><i class="fa fa-fw fa-lg fa-twitter" style="" aria-hidden="true"></i></a></li>
         </ul>
     </div>
 </div>
@@ -48,7 +61,7 @@
       $('[data-toggle="popover"]').popover()
     })
 
-    jQuery('body').bind('click', function(e) {
+    jQuery('row').bind('click', function(e) {
         if(jQuery(e.target).closest('.navbar').length == 0) {
             // click happened outside of .navbar, so hide
             var opened = jQuery('.navbar-collapse').hasClass('collapse in');
