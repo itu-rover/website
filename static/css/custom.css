@@ -92,6 +92,10 @@ body {
     font-size: 18px;
 }
 
+.text-medium {
+    font-size: 15px;
+}
+
 .footer-logo {
     width: 240px;
     margin-top: 32px;
@@ -131,5 +135,9 @@ body {
     .navbar-fixed-top {
         max-height: 65px;
     }
+}
+
+.tooltip {
+    font-size: 15px;
 }
 
