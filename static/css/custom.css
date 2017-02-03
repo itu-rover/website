@@ -118,12 +118,18 @@ body {
 }
 
 .navbar-icon {
-    margin-bottom: 4px;
+    margin-bottom: 3px;
 }
 
 .vcenter {
     display: inline-block;
     vertical-align: middle;
     float: none;
+}
+
+@media (min-width: 995px) {
+    .navbar-fixed-top {
+        max-height: 65px;
+    }
 }
 
