@@ -141,3 +141,13 @@ body {
     font-size: 15px;
 }
 
+.deactive {
+    -webkit-filter: blur(5px);
+    -webkit-transition: -webkit-filter .20s;
+}
+
+.deactive:hover {
+    -webkit-filter: none;
+    -webkit-transition: -webkit-filter .20s;
+}
+
