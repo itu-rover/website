@@ -142,12 +142,13 @@ body {
 }
 
 .deactive {
-    -webkit-filter: blur(5px);
-    -webkit-transition: -webkit-filter .20s;
+    filter: url(filters.svg#grayscale);
+    filter: gray;
+    -webkit-filter: grayscale(1);
 }
 
 .deactive:hover {
+    filter: none;
     -webkit-filter: none;
-    -webkit-transition: -webkit-filter .20s;
 }
 
