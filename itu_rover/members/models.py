@@ -4,7 +4,7 @@ from .utils import validate_team_leader
 
 
 class Person(models.Model):
-    """ A person """
+    """ Abstract base class representing a person """
     first_name = models.CharField(
         max_length=25,
         verbose_name='first name',
@@ -21,6 +21,10 @@ class Person(models.Model):
         max_length=13,
         blank=True,
         verbose_name='phone number',
+    )
+    is_retired = models.BooleanField(
+        default=False,
+        verbose_name='is member retired?',
     )
 
     class Meta:
@@ -44,10 +48,6 @@ class Member(Person):
         max_length=75,
         blank=True,
         verbose_name='description (e.g. department)',
-    )
-    is_retired = models.BooleanField(
-        default=False,
-        verbose_name='is member retired?',
     )
 
 
@@ -98,8 +98,4 @@ class TeamAdvisor(Person):
     description = models.CharField(
         max_length=75,
         verbose_name='description (e.g. department)',
-    )
-    is_retired = models.BooleanField(
-        default=False,
-        verbose_name='is member retired?',
     )
