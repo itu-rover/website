@@ -58,6 +58,7 @@ INSTALLED_APPS = [
 
     # itu_rover
     'members',
+    'sponsors',
 ]
 
 MIDDLEWARE = [
