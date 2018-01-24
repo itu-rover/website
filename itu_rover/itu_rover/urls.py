@@ -16,6 +16,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from about.views import AboutPage
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('hakkinda/', AboutPage.as_view(), name='about'),
 ]
