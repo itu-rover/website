@@ -9,6 +9,7 @@ class Sponsor(models.Model):
         max_length=50,
         verbose_name='name',
     )
+    website = models.URLField(verbose_name='website')
     sponsorship_type = models.ForeignKey(
         "SponsorshipType",
         on_delete=models.SET_NULL,
