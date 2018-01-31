@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block body %}
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 text-center">
+      <div class="hidden-xs">
+        <img style="margin-top: -16px;" class="img-responsive" src="{% static 'img/team.jpg' %}">
+        <p style="margin-top: 8px;"><i>İTÜ Rover Takımı</i></p>
+      </div>
+      <div class="row">
+
+        <div class="col-md-7">
+          <h4 class="font-thick text-center">TAKIM DANIŞMANLARI</h4>
+          <hr>
+
+          {% for advisor in advisors %}
+          <div class="col-md-6">
+            {% include 'pieces/person.html' with person=advisor %}
+          </div>
+          {% empty %}
+          Burası boş! Ah, artık değil.
+          {% endfor %}
+        </div>
+
+        <div class="col-md-3 col-md-offset-1">
+          <h4 class="font-thick text-center">TAKIM KAPTANI</h4>
+          <hr>
+          {% include 'pieces/person.html' with person=leader.leader %}
+        </div>
+
+      </div>
+
+      {% for subteam in subteams %}
+      <h4 class="font-thick text-center">{{ subteam.name }}</h4>
+      <hr>
+      <div class="row">
+        {% for member in subteam.members.all %}
+        <div class="col-md-3">
+          {% include 'pieces/person.html' with person=member %}
+        </div>
+        {% empty %}
+        Burası boş! Ah, artık değil.
+        {% endfor %}
+      </div>
+      {% empty %}
+      Burası boş! Ah, artık değil.
+      {% endfor %}
+
+      <hr>
+      <div class="row text-big">
+        <div class="col-md-12">
+          <p class="well well-sm">Takım yapısı hakkında daha detaylı bilgiye ulaşmak için <a class="font-primary-color" href="source" target="_blank"><u>Team Proposal</u></a> dosyasını inceleyebilirsiniz.</p>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+</div>
+{% endblock body %}

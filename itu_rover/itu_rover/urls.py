@@ -19,10 +19,12 @@ from django.conf.urls import include, url
 from django.conf import settings
 
 from about.views import AboutPage
+from members.views import MembersPage
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('hakkinda/', AboutPage.as_view(), name='about'),
+    path('hakkında/', AboutPage.as_view(), name='about'),
+    path('takım-üyeleri/', MembersPage.as_view(), name='members'),
 ]
 
 if settings.DEBUG:
