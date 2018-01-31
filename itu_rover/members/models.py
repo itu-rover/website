@@ -7,6 +7,7 @@ class Person(models.Model):
     """ Abstract base class representing a person """
     first_name = models.CharField(
         max_length=25,
+        db_index=True,
         verbose_name='first name',
     )
     last_name = models.CharField(
@@ -35,6 +36,7 @@ class Person(models.Model):
 
     class Meta:
         abstract = True
+        ordering = ('first_name', 'last_name')
 
     def __str__(self):
         return self.first_name + " " + self.last_name
@@ -64,6 +66,7 @@ class SubTeam(models.Model):
     """
     name = models.CharField(
         max_length=50,
+        db_index=True,
         verbose_name='subteam name',
     )
     leader = models.OneToOneField(
@@ -74,6 +77,9 @@ class SubTeam(models.Model):
         related_name='leader_of',
         verbose_name='subteam leader',
     )
+
+    class Meta:
+        ordering = ('name', )
 
     def __str__(self):
         return self.name
