@@ -1,6 +1,6 @@
 body {
     padding-top: 80px;
-    padding-bottom: -260px;
+    padding-bottom: -285px;
     background-color: #F8F8F8;
 }
 
@@ -14,7 +14,7 @@ body {
 
 .footer {
     background-color: #DBDBDB;
-    min-height: 250px;
+    min-height: 275px;
     margin-top: 10px;
     border-top-style: inset;
     border-top-color: #f8f8f8;
