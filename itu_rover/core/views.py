@@ -1,3 +1,9 @@
-from django.shortcuts import render
+from django.views.generic.list import ListView
 
-# Create your views here.
+from .models import SliderImage
+
+
+class MainPage(ListView):
+    model = SliderImage
+    template_name = 'main.html'
+    context_object_name = 'slide_images'

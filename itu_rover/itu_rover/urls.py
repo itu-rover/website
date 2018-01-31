@@ -21,9 +21,11 @@ from django.conf import settings
 
 from about.views import AboutPage
 from members.views import MembersPage
+from core.views import MainPage
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', MainPage.as_view(), name='main'),
     path('hakkında/', AboutPage.as_view(), name='about'),
     path('takım-üyeleri/', MembersPage.as_view(), name='members'),
     path('sponsorlar/', MembersPage.as_view(), name='sponsors'),
