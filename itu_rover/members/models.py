@@ -1,6 +1,6 @@
 from django.db import models
 
-from .utils import validate_team_leader
+from .utils import validate_team_leader, get_upload_path
 
 
 class Person(models.Model):
@@ -16,6 +16,12 @@ class Person(models.Model):
     email = models.EmailField(
         blank=True,
         verbose_name='email address'
+    )
+    photo = models.ImageField(
+        upload_to=get_upload_path,
+        blank=True,
+        null=True,
+        verbose_name='photo'
     )
     phone = models.CharField(
         max_length=13,
