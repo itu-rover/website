@@ -1,3 +1,4 @@
+{% load static %}
 <footer class="footer" id="footer-index">
   <div class="container">
     <div class="row">
@@ -28,7 +29,7 @@
         </div>
       </div>
       <div class="col-md-4 col-sm-6 col-xs-12 text-center">
-        <img class="footer-logo" src="/static/img/itu_rover.png">
+        <img class="footer-logo" src="{% static 'img/itu_rover.png' %}">
         <h5 class="font-thick">İTÜ ROVER TAKIMI</h5>
         <p class="font-thin">2017</p>
       </div>
@@ -37,7 +38,7 @@
         <div class="row" style="margin-top: 60px;">
           <div class="col-md-offset-6 col-md-6 text-right">
             <a href="http://www.itu.edu.tr" target="_blank">
-              <img width="100px;" src="/static/img/itu.png">
+              <img width="100px;" src="{% static 'img/footer/itu.png' %}">
             </a>
           </div>
         </div>
