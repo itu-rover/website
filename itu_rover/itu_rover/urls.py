@@ -26,6 +26,10 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('hakkında/', AboutPage.as_view(), name='about'),
     path('takım-üyeleri/', MembersPage.as_view(), name='members'),
+    path('sponsorlar/', MembersPage.as_view(), name='sponsors'),
+    path('rover/', MembersPage.as_view(), name='rover'),
+    path('destek-ol/', MembersPage.as_view(), name='support'),
+    path('medya/', MembersPage.as_view(), name='media'),
 ]
 
 if settings.DEBUG:

@@ -16,25 +16,25 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle font-thick" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img width="24px" class="navbar-icon" src="{% static 'img/navbar/team.svg' %}"> TAKIM<i class="fa fa-fw fa-lg fa-angle-down" aria-hidden="true"></i></a>
           <ul class="dropdown-menu">
-            <li><a href="/hakkinda"><b>HAKKINDA</b></a></li>
-            <li><a href="/takim-uyeleri"><b>TAKIM ÜYELERİ</b></a></li>
+            <li><a href="{% url 'about' %}"><b>HAKKINDA</b></a></li>
+            <li><a href="{% url 'members' %}"><b>TAKIM ÜYELERİ</b></a></li>
           </ul>
         </li>
-        <li><a href="/rover" class="font-thick"><img class="navbar-icon" width="24px" src="{% static 'img/navbar/rover.svg' %}"> ROVER</a></li>
+        <li><a href="{% url 'rover' %}" class="font-thick"><img class="navbar-icon" width="24px" src="{% static 'img/navbar/rover.svg' %}"> ROVER</a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle font-thick" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img class="navbar-icon" width="24px" src="{% static 'img/navbar/sponsorship.svg' %}">SPONSORLUK <i class="fa fa-fw fa-lg fa-angle-down" aria-hidden="true"></i></a>
           <ul class="dropdown-menu">
-            <li><a href="/sponsorlar"><b>SPONSORLAR</b></a></li>
-            <li><a href="/destek-olun"><b>DESTEK OLUN!</b></a></li>
+            <li><a href="{% url 'sponsors' %}"><b>SPONSORLAR</b></a></li>
+            <li><a href="{% url 'support' %}"><b>DESTEK OLUN!</b></a></li>
           </ul>
         </li>
-        <li><a href="/medya" class="font-thick"><img class="navbar-icon" width="24px" src="{% static 'img/navbar/news.svg' %}"> MEDYA</a></li>
+        <li><a href="{% url 'media' %}" class="font-thick"><img class="navbar-icon" width="24px" src="{% static 'img/navbar/news.svg' %}"> MEDYA</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li class="visible-xs visible-sm"><a class="font-thick" role="button" data-toggle="popover" title="" data-placement="bottom" data-content="
             <i class='fa fa-fw fa-envelope' aria-hidden='true'></i> <a href='mailto:ituroverteam@gmail.com' target='_blank' class='font-default-color'><b>ituroverteam@gmail.com</b></a>
             <br>
-            <i class='fa fa-fw fa-phone' aria-hidden='true'></i> <b>0537 499 8828</b>
+            <i class='fa fa-fw fa-phone' aria-hidden='true'></i> <b>{{ phone }}</b>
             <br>
             Bize sosyal medya hesaplarımızdan da ulaşabilirsiniz.
             "><i class="fa fa-fw fa-lg fa-fire" aria-hidden="true"></i> İletişim</a></li>
