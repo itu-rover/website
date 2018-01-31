@@ -15,10 +15,10 @@
   </head>
 
   <body>
-    {% include 'navbar.html' %}
+    {% include 'pieces/navbar.html' %}
     {% block body %}{% endblock body %}
-    {% include 'footer.html' %}
-    {% include 'egg.html' %}
+    {% include 'pieces/footer.html' %}
+    {% include 'pieces/egg.html' %}
 
     {% block javascript %}
     <script src="{% static 'js/jquery-1.10.2.min.js' %}"></script>
