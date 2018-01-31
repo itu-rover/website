@@ -10,3 +10,6 @@ class AboutEntry(models.Model):
     detail = models.TextField(
         verbose_name='detail',
     )
+
+    def __str__(self):
+        return self.title
