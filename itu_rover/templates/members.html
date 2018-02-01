@@ -27,7 +27,9 @@
         <div class="col-md-3 col-md-offset-1">
           <h4 class="font-thick text-center">TAKIM KAPTANI</h4>
           <hr>
-          {% include 'pieces/person.html' with person=leader.leader %}
+          <div class="col-md-12">
+            {% include 'pieces/person.html' with person=leader.leader %}
+          </div>
         </div>
 
       </div>
@@ -36,13 +38,15 @@
       <h4 class="font-thick text-center">{{ subteam.name }}</h4>
       <hr>
       <div class="row">
-        {% for member in subteam.members.all %}
-        <div class="col-md-3">
-          {% include 'pieces/person.html' with person=member %}
+        <div class="col-md-12">
+          {% for member in subteam.members.all %}
+          <div class="col-md-3">
+            {% include 'pieces/person.html' with person=member %}
+          </div>
+          {% empty %}
+          Burası boş! Ah, artık değil.
+          {% endfor %}
         </div>
-        {% empty %}
-        Burası boş! Ah, artık değil.
-        {% endfor %}
       </div>
       {% empty %}
       Burası boş! Ah, artık değil.
