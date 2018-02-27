@@ -36,7 +36,8 @@ class SponsorshipType(models.Model):
         max_length=30,
         verbose_name='type name',
     )
-    priority = models.PositiveSmallIntegerField()
+    priority = models.PositiveSmallIntegerField(default=0)
+    description = models.TextField()
 
     class Meta:
         ordering = ('priority', )

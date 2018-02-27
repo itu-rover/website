@@ -3,3 +3,6 @@ psycopg2==2.7.3.2
 Pillow==5.0.0
 django-debug-toolbar
 ipython
+django-pagedown
+django-markdown-deux
+django-admin-sortable2

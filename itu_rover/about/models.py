@@ -10,6 +10,10 @@ class AboutEntry(models.Model):
     detail = models.TextField(
         verbose_name='detail',
     )
+    order = models.PositiveSmallIntegerField(default=0)
+
+    class Meta:
+        ordering = ('order', )
 
     def __str__(self):
         return self.title

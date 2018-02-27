@@ -56,6 +56,9 @@ INSTALLED_APPS = [
 
     # third-party
     'debug_toolbar',
+    'pagedown',
+    'markdown_deux',
+    'adminsortable2',
 
     # itu_rover
     'members',
