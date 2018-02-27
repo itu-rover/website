@@ -31,3 +31,11 @@ class SliderImage(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class Document(models.Model):
+    title = models.CharField(max_length=20)
+    document = models.FileField(upload_to='documents')
+
+    def __str__(self):
+        return self.title
