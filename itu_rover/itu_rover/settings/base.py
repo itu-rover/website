@@ -65,6 +65,8 @@ INSTALLED_APPS = [
     'sponsors',
     'about',
     'core',
+    'main',
+    'rover',
 ]
 
 MIDDLEWARE = [
