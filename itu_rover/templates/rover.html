@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load markdown_deux_tags %}
+{% load itu_rover %}
+
+{% block body %}
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h4 class="font-thick text-center">ROVER</h4>
+      <hr>
+      <div class="col-md-9 text-big">
+        {% for entry in entries %}
+        <div id="{{ entry.title | lower | cut:" " }}">
+          <h5 class="font-thick">{{ entry.title | uppercase }}</h5>
+          {{ entry.detail | markdown }}
+          {% if entry.image %}<div class="row justify-content-center"><div class="col-12"><img class="img-responsive" src="{{ entry.image.url }}"></div></div>{% endif %}
+          <hr>
+        </div>
+        {% empty %}
+        Buraya henüz bir şey yazılmadı.
+        {% endfor %}
+      </div>
+
+      <div class="col-md-3" id="scrollin-spyin">
+        <nav class="hidden-print hidden-sm hidden-xs affix panel" style="z-index: 1000;">
+          <ul class="nav nav-tabs nav-stacked">
+            {% for entry in entries %}
+            <li><a class="font-thick" href="#{{ entry.title | lower | cut:" " }}">{{ entry.title | uppercase }}</a></li>
+            {% endfor %}
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock body %}
+
+{% block jquery %}
+<script type="text/javascript">
+$(document).ready(function() {
+  $("body").scrollspy({
+    target: "#scrollin-spyin",
+    offset: 100
+  })
+});
+window.addEventListener("hashchange", function() {
+  scrollBy(0, -80)
+})
+</script>
+{% endblock jquery %}
