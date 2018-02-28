@@ -10,14 +10,16 @@
     <div class="row">
       <div class="col-12">
         <h5 class="font-thick">
-          <a{% if person.email %}
+          <a {% if person.email or person.phone %}
             role="button"
             tabindex="0"
             data-toggle="popover"
             data-trigger="focus"
             data-placement="bottom"
             data-html="true"
-            data-content="<i class='fa fa-fw fa-envelope' aria-hidden='true'></i> {{ person.email }}">{% endif %}
+            data-content="
+            {% if person.email %}<i class='fa fa-fw fa-envelope' aria-hidden='true'></i> {{ person.email }}<br>{% endif %}
+            {% if person.phone %}<i class='fa fa-fw fa-phone' aria-hidden='true'></i> {{ person.phone }}{% endif %}">{% endif %}
             <p>{{ person.get_full_name | uppercase }}</p>
           </a>
         </h5>
