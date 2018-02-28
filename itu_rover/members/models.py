@@ -1,7 +1,7 @@
 from django.db import models
 
 from core.models import TimeStampedModel
-from .utils import validate_team_leader, get_upload_path
+from .utils import validate_one_object, get_upload_path
 
 
 class Person(models.Model):
@@ -114,7 +114,7 @@ class TeamLeader(models.Model):
         verbose_name_plural = verbose_name
 
     def clean(self):
-        validate_team_leader(self)
+        validate_one_object(self)
 
     def __str__(self):
         return str(self.leader)
