@@ -1,7 +1,5 @@
 from django.db import models
 
-from .utils import slider_image_upload_to
-
 
 class TimeStampedModel(models.Model):
     """
@@ -18,19 +16,6 @@ class TimeStampedModel(models.Model):
 
     class Meta:
         abstract = True
-
-
-class SliderImage(models.Model):
-    title = models.CharField(max_length=20)
-    image = models.ImageField(upload_to=slider_image_upload_to)
-    show_title = models.BooleanField(default=False)
-    priority = models.PositiveSmallIntegerField(default=10)
-
-    class Meta:
-        ordering = ('priority', 'title', )
-
-    def __str__(self):
-        return self.title
 
 
 class Document(models.Model):

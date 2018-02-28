@@ -10,9 +10,3 @@ def leader_phone_and_email(request):
         }
     except AttributeError:
         return {'phone': '', 'email': 'ituroverteam@gmail.com'}
-
-
-def slider_image_upload_to(instance, filename):
-    name, extension = filename.split('.')
-    new_name = instance.title.replace(' ', '_').lower()
-    return 'images/slider/%s' % (new_name + extension)
