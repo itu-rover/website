@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load itu_rover %}
 
 {% block body %}
 <div class="container">
@@ -15,41 +16,47 @@
           <h4 class="font-thick text-center">TAKIM DANIŞMANLARI</h4>
           <hr>
 
-          {% for advisor in advisors %}
-          <div class="col-md-6">
-            {% include 'pieces/person.html' with person=advisor %}
+          <div class="row justify-content-center">
+            {% for advisor in advisors %}
+            <div class="col-md-5">
+              {% include 'pieces/person.html' with person=advisor %}
+            </div>
+            {% empty %}
+            Burası boş! Ah, artık değil.
+            {% endfor %}
           </div>
-          {% empty %}
-          Burası boş! Ah, artık değil.
-          {% endfor %}
         </div>
 
         <div class="col-md-3 col-md-offset-1">
           <h4 class="font-thick text-center">TAKIM KAPTANI</h4>
           <hr>
-          <div class="col-md-12">
-            {% if leader %}
-            {% include 'pieces/person.html' with person=leader %}
-            {% else %}
-            Takımın kaptanı henüz belli değil!
-            {% endif %}
+          <div class="row justify-content-center">
+            <div class="col-12">
+              {% if leader %}
+              {% include 'pieces/person.html' with person=leader %}
+              {% else %}
+              <p>Takımın kaptanı henüz belli değil!</p>
+              {% endif %}
+            </div>
           </div>
         </div>
 
       </div>
 
       {% for subteam in subteams %}
-      <h4 class="font-thick text-center">{{ subteam.name }}</h4>
+      <h4 class="font-thick text-center">{{ subteam.name | uppercase }}</h4>
       <hr>
       <div class="row">
         <div class="col-md-12">
-          {% for member in subteam.members.all %}
-          <div class="col-md-3">
-            {% include 'pieces/person.html' with person=member %}
+          <div class="row justify-content-center">
+            {% for member in subteam.members.all %}
+            <div class="col-md-3">
+              {% include 'pieces/person.html' with person=member %}
+            </div>
+            {% empty %}
+            Burası boş! Ah, artık değil.
+            {% endfor %}
           </div>
-          {% empty %}
-          Burası boş! Ah, artık değil.
-          {% endfor %}
         </div>
       </div>
       {% empty %}
