@@ -1,8 +1,6 @@
 from django.contrib import admin
 
-from adminsortable2.admin import SortableAdminMixin
-
-from core.admin import PagedownedModelAdmin
+from core.admin import PagedownedModelAdmin, OrderableModelAdmin
 from .models import Sponsor, SponsorshipType
 
 
@@ -10,5 +8,5 @@ admin.site.register(Sponsor)
 
 
 @admin.register(SponsorshipType)
-class SponsorshipTypeModelAdmin(SortableAdminMixin, PagedownedModelAdmin):
+class SponsorshipTypeModelAdmin(OrderableModelAdmin, PagedownedModelAdmin):
     pass

@@ -1,7 +1,9 @@
 from django.db import models
 
+from core.mixins import OrderableMixin
 
-class AboutEntry(models.Model):
+
+class AboutEntry(OrderableMixin):
     """ Entries on the about page """
     title = models.CharField(
         max_length=50,
@@ -10,10 +12,6 @@ class AboutEntry(models.Model):
     detail = models.TextField(
         verbose_name='detail',
     )
-    order = models.PositiveSmallIntegerField(default=0)
-
-    class Meta:
-        ordering = ('order', )
 
     def __str__(self):
         return self.title

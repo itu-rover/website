@@ -1,5 +1,7 @@
 from django.db import models
 
+from core.mixins import OrderableMixin
+
 
 class Sponsor(models.Model):
     """ Represents organizations supporting the project """
@@ -30,17 +32,13 @@ class Sponsor(models.Model):
         return self.name
 
 
-class SponsorshipType(models.Model):
+class SponsorshipType(OrderableMixin):
     """ Represents kinds of sponsorships """
     name = models.CharField(
         max_length=30,
         verbose_name='type name',
     )
-    priority = models.PositiveSmallIntegerField(default=0)
     description = models.TextField()
-
-    class Meta:
-        ordering = ('priority', )
 
     def __str__(self):
         return self.name
