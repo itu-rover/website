@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load markdown_deux_tags %}
 
 {% block css %}
 {{ block.super }}
@@ -22,6 +23,20 @@
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-12">
+      <hr>
+      {% for entry in entries %}
+      <div class="row justify-content-start">
+        <div class="col-md-4">
+          <h3 class="font-thick text-right">{{ entry.title | upper }}</h3>
+        </div>
+        <div class="col-md-8">
+          <blockquote class="text-big">
+            {{ entry.content | markdown }}
+          </blockquote>
+        </div>
+        <hr>
+      </div>
+      {% endfor %}
       <hr>
     </div>
     <div class="col-md-10">
