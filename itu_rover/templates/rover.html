@@ -12,7 +12,7 @@
         <div id="{{ entry.title | lower | cut:" " }}">
           <h5 class="font-thick">{{ entry.title | upper }}</h5>
           {{ entry.detail | markdown }}
-          {% if entry.image %}<img class="img-responsive" src="{{ entry.image.url }}">{% endif %}
+          {% if entry.image %}<div class="row justify-content-center"><div class="col-12"><img class="img-responsive" src="{{ entry.image.url }}"></div></div>{% endif %}
           <hr>
         </div>
         {% empty %}

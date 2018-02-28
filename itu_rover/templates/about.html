@@ -1,19 +1,20 @@
 {% extends 'base.html' %}
+{% load markdown_deux_tags %}
 
 {% block body %}
 <div class="container">
   <div class="row">
-    <div class="col-md-12">
+    <div class="col-12">
       <h4 class="font-thick text-center">İTÜ ROVER TAKIMI HAKKINDA</h4>
       <hr>
       {% for entry in entries %}
-      <div class="row">
+      <div class="row justify-content-start">
         <div class="col-md-4">
-          <h3 class="font-thick text-right">{{ entry.title }}</h3>
+          <h3 class="font-thick text-right">{{ entry.title | upper }}</h3>
         </div>
         <div class="col-md-8 text-big">
           <blockquote>
-            <p class="text-big">{{ entry.detail }}</p>
+            <p class="text-big">{{ entry.detail | markdown }}</p>
           </blockquote>
         </div>
         <hr>
@@ -24,7 +25,7 @@
 
       <div class="row">
         <div class="col-md-12 text-big text-center">
-          <p class="well well-sm">Takım yapısı hakkında daha detaylı bilgiye ulaşmak için <a class="font-primary-color" href="/static/docs/ituroverteam-teamproposal.pdf" target="_blank"><u>Team Proposal</u></a> dosyasını inceleyebilirsiniz.</p>
+          <p class="well well-sm">Takım yapısı hakkında daha detaylı bilgiye ulaşmak için <a class="font-primary-color" href="" target="_blank"><u>Team Proposal</u></a> dosyasını inceleyebilirsiniz.</p>
         </div>
       </div>
     </div>
