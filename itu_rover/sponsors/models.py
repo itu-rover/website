@@ -1,9 +1,10 @@
 from django.db import models
 
 from core.mixins import OrderableMixin
+from core.models import TimeStampedModel
 
 
-class Sponsor(models.Model):
+class Sponsor(TimeStampedModel):
     """ Represents organizations supporting the project """
     image = models.ImageField(upload_to='images/sponsors')
     display_width = models.PositiveSmallIntegerField(
@@ -34,7 +35,7 @@ class Sponsor(models.Model):
         return self.name
 
 
-class SponsorshipType(OrderableMixin):
+class SponsorshipType(OrderableMixin, TimeStampedModel):
     """ Represents kinds of sponsorships """
     name = models.CharField(
         max_length=30,

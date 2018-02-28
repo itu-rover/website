@@ -1,5 +1,6 @@
 from django.db import models
 
+from core.models import TimeStampedModel
 from .utils import validate_team_leader, get_upload_path
 
 
@@ -48,7 +49,7 @@ class Person(models.Model):
         return self.get_full_name()
 
 
-class Member(Person):
+class Member(Person, TimeStampedModel):
     """ Team member model, a member is a person. """
     subteam = models.ForeignKey(
         "SubTeam",
@@ -122,7 +123,7 @@ class TeamLeader(models.Model):
         return "Takım Lideri"
 
 
-class TeamAdvisor(Person):
+class TeamAdvisor(Person, TimeStampedModel):
     description = models.CharField(
         max_length=75,
         verbose_name='description (e.g. department)',
