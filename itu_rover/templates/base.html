@@ -17,7 +17,9 @@
 
   <body>
     {% include 'pieces/navbar.html' %}
-    {% block body %}{% endblock body %}
+    <div id="content">
+      {% block body %}{% endblock body %}
+    </div>
     {% include 'pieces/footer.html' %}
     {% include 'pieces/egg.html' %}
 

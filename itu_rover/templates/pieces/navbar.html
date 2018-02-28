@@ -31,18 +31,11 @@
         <li><a href="{% url 'media' %}" class="font-thick"><img class="navbar-icon" width="24px" src="{% static 'img/navbar/news.svg' %}"> MEDYA</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li class="visible-xs visible-sm"><a class="font-thick" role="button" data-toggle="popover" title="" data-placement="bottom" data-content="
-            <i class='fa fa-fw fa-envelope' aria-hidden='true'></i> <a href='mailto:ituroverteam@gmail.com' target='_blank' class='font-default-color'><b>ituroverteam@gmail.com</b></a>
+        <li><a class="font-thick contact-popover" role="button" data-toggle="popover" title="" data-placement="bottom" data-content="
+            <i class='fa fa-fw fa-envelope' aria-hidden='true'></i> <a href='mailto:{{ main_email }}' target='_blank' class='font-default-color'><b>{{ main_email }}</b></a>
             <br>
-            <i class='fa fa-fw fa-phone' aria-hidden='true'></i> <b>{{ phone }}</b>
-            <br>
-            Bize sosyal medya hesaplarımızdan da ulaşabilirsiniz.
-            "><i class="fa fa-fw fa-lg fa-fire" aria-hidden="true"></i> İletişim</a></li>
-        <li class="hidden-xs hidden-sm"><a tabindex="0" class="font-thick" role="button" data-toggle="popover" data-trigger="focus" title="" data-placement="bottom" data-content="
-            <i class='fa fa-fw fa-envelope' aria-hidden='true'></i> <b>ituroverteam@gmail.com</b>
-            <br>
-            <i class='fa fa-fw fa-phone' aria-hidden='true'></i> <b>{{ phone }}</b>
-            <br>
+            {% if main_phone %}<i class='fa fa-fw fa-phone' aria-hidden='true'></i> <b>{{ main_phone }}</b>
+            <br>{% endif %}
             Bize sosyal medya hesaplarımızdan da ulaşabilirsiniz.
             "><i class="fa fa-fw fa-lg fa-fire" aria-hidden="true"></i> İletişim</a></li>
         <li><a target="_blank" href="https://www.facebook.com/ituroverteam/" class="font-thick"><i class="fa fa-fw fa-lg fa-facebook-official" style="" aria-hidden="true"></i></a></li>

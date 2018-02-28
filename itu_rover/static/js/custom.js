@@ -3,9 +3,8 @@ $("#egg-toggle").click(function() {
 });
 
 $("[data-toggle=popover]").popover({html:true});
-$(function () {
-  $('[data-toggle="popover"]').popover()
-})
+$('[data-toggle="popover"]').popover()
+
 jQuery('row').bind('click', function(e) {
   if(jQuery(e.target).closest('.navbar').length == 0) {
     // click happened outside of .navbar, so hide
@@ -14,4 +13,8 @@ jQuery('row').bind('click', function(e) {
       jQuery('.navbar-collapse').collapse('hide');
     }
   }
+});
+
+$('body').on('click', '#content', function(e) {
+    $('.contact-popover').popover('hide')
 });

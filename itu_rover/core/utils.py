@@ -1,12 +1,18 @@
+from django.core.exceptions import ObjectDoesNotExist
+
 from members.models import TeamLeader
 
 
 def leader_phone_and_email(request):
+    rover_mail = 'ituroverteam@gmail.com'
     try:
         leader_obj = TeamLeader.objects.select_related('leader').get()
-        return {
-            'phone': leader_obj.leader.phone,
-            'email': leader_obj.leader.email,
-        }
+        phone = leader_obj.leader.phone
     except AttributeError:
-        return {'phone': '', 'email': 'ituroverteam@gmail.com'}
+        phone = ''
+    except ObjectDoesNotExist:
+        phone = ''
+    return {
+        'main_phone': phone,
+        'main_email': rover_mail,
+    }
