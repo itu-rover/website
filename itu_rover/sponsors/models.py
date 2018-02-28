@@ -5,8 +5,10 @@ from core.mixins import OrderableMixin
 
 class Sponsor(models.Model):
     """ Represents organizations supporting the project """
-    image = models.ImageField()
-    display_width = models.PositiveSmallIntegerField()
+    image = models.ImageField(upload_to='images/sponsors')
+    display_width = models.PositiveSmallIntegerField(
+        help_text="in pixels"
+    )
     name = models.CharField(
         max_length=50,
         verbose_name='name',

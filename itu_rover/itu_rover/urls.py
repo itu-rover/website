@@ -23,13 +23,14 @@ from about.views import AboutPage
 from members.views import MembersPage
 from main.views import MainPage
 from rover.views import RoverPage
+from sponsors.views import SponsorsPage
 
 urlpatterns = [
     path('manage/', admin.site.urls),
     path('', MainPage.as_view(), name='main'),
     path('hakkında/', AboutPage.as_view(), name='about'),
     path('takım-üyeleri/', MembersPage.as_view(), name='members'),
-    path('sponsorlar/', MembersPage.as_view(), name='sponsors'),
+    path('sponsorlar/', SponsorsPage.as_view(), name='sponsors'),
     path('rover/', RoverPage.as_view(), name='rover'),
     path('destek-ol/', MembersPage.as_view(), name='support'),
     path('medya/', MembersPage.as_view(), name='media'),
