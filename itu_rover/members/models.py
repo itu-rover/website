@@ -20,8 +20,6 @@ class Person(models.Model):
     )
     photo = models.ImageField(
         upload_to=get_upload_path,
-        blank=True,
-        null=True,
         verbose_name='photo'
     )
     phone = models.CharField(

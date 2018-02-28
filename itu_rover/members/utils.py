@@ -10,7 +10,7 @@ def validate_team_leader(obj):
 
 
 def get_upload_path(instance, filename):
-    directory = 'members'
+    directory = 'images/members'
     name, extension = filename.split('.')
     format_name = lambda s: s.replace(' ', '_').lower()
     new_name = (format_name(instance.first_name) + "-" +
