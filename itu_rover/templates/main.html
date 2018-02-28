@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 {% load markdown_deux_tags %}
+{% load itu_rover %}
 
 {% block css %}
 {{ block.super }}
@@ -27,7 +28,7 @@
       {% for entry in entries %}
       <div class="row justify-content-start">
         <div class="col-md-4">
-          <h3 class="font-thick text-right">{{ entry.title | upper }}</h3>
+          <h3 class="font-thick text-right">{{ entry.title | uppercase }}</h3>
         </div>
         <div class="col-md-8">
           <blockquote class="text-big">

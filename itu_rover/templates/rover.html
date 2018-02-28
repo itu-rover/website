@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load markdown_deux_tags %}
+{% load itu_rover %}
 
 {% block body %}
 <div class="container">
@@ -10,7 +11,7 @@
       <div class="col-md-9 text-big">
         {% for entry in entries %}
         <div id="{{ entry.title | lower | cut:" " }}">
-          <h5 class="font-thick">{{ entry.title | upper }}</h5>
+          <h5 class="font-thick">{{ entry.title | uppercase }}</h5>
           {{ entry.detail | markdown }}
           {% if entry.image %}<div class="row justify-content-center"><div class="col-12"><img class="img-responsive" src="{{ entry.image.url }}"></div></div>{% endif %}
           <hr>
@@ -24,7 +25,7 @@
         <nav class="hidden-print hidden-sm hidden-xs affix panel" style="z-index: 1000;">
           <ul class="nav nav-tabs nav-stacked">
             {% for entry in entries %}
-            <li><a class="font-thick" href="#{{ entry.title | lower | cut:" " }}">{{ entry.title | upper }}</a></li>
+            <li><a class="font-thick" href="#{{ entry.title | lower | cut:" " }}">{{ entry.title | uppercase }}</a></li>
             {% endfor %}
           </ul>
         </nav>
