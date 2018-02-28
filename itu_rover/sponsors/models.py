@@ -2,6 +2,7 @@ from django.db import models
 
 from core.mixins import OrderableMixin
 from core.models import TimeStampedModel
+from members.utils import validate_one_object
 
 
 class Sponsor(TimeStampedModel):
@@ -45,3 +46,13 @@ class SponsorshipType(OrderableMixin, TimeStampedModel):
 
     def __str__(self):
         return self.name
+
+
+class SupportPage(models.Model):
+    content = models.TextField()
+
+    def clean(self):
+        validate_one_object(self)
+
+    def __str__(self):
+        return "Support page"

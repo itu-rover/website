@@ -1,12 +1,13 @@
 {% extends 'base.html' %}
 {% load markdown_deux_tags %}
+{% load itu_rover %}
 
 {% block body %}
 <div class="container">
   {% for type in types %}
   <div class="row">
     <div class="col-12">
-      <h4 class="font-thick text-center">{{ type.name }}</h4>
+      <h4 class="font-thick text-center">{{ type.name | uppercase }}</h4>
       <hr>
     </div>
   </div>
@@ -16,7 +17,7 @@
       <div class="row justify-content-center align-items-center">
         {% for sponsor in type.sponsors.all %}
         <div class="col-lg-4 col-md-6 col-12 text-center">
-          <a class="font-default-color font-thick text-big" href="{{ sponsor.website }}" target="_blank"><img width="{{ sponsor.display_width }}px" src="{{ sponsor.image.url }}">{% if sponsor.is_name_on_display %}<p>{{ sponsor.name }}</p>{% endif %}</a>
+          <a class="font-default-color font-thick text-big" href="{{ sponsor.website }}" target="_blank"><img width="{{ sponsor.display_width }}px" src="{{ sponsor.image.url }}">{% if sponsor.is_name_on_display %}<p style="margin-bottom: 0px;">{{ sponsor.name }}</p>{% endif %}</a>
         </div>
         {% empty %}
         <p class="text-center">Bu sponsorluk türünde henüz bir sponsor yok.</p>
