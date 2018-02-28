@@ -28,7 +28,11 @@
           <h4 class="font-thick text-center">TAKIM KAPTANI</h4>
           <hr>
           <div class="col-md-12">
-            {% include 'pieces/person.html' with person=leader.leader %}
+            {% if leader %}
+            {% include 'pieces/person.html' with person=leader %}
+            {% else %}
+            Takımın kaptanı henüz belli değil!
+            {% endif %}
           </div>
         </div>
 
