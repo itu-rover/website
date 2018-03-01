@@ -2,7 +2,7 @@
 
 NAME="itu-rover"  # Name of the application
 DJANGODIR=/web/apps/itu-rover  # Django project directory
-ENVDIR=/web/envs/itu-rover  # Django project directory
+ENVDIR=/web/envs/itu-rover  # Python virtual environment directory
 SOCKFILE=/web/apps/itu-rover/run/gunicorn.sock  # we will communicte using this unix socket
 USER=itu-rover  # the user to run as
 GROUP=web  # the group to run as
