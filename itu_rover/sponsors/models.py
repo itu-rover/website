@@ -51,6 +51,10 @@ class SponsorshipType(OrderableMixin, TimeStampedModel):
 class SupportPage(models.Model):
     content = models.TextField()
 
+    class Meta:
+        verbose_name = "support page"
+        verbose_name_plural = verbose_name
+
     def clean(self):
         validate_one_object(self)
 
