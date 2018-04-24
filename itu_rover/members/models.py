@@ -131,3 +131,17 @@ class TeamAdvisor(Person, TimeStampedModel):
 
     def role(self):
         return "Takım Danışmanı"
+
+
+class MembersPage(models.Model):
+    proposal = models.FileField(upload_to='documents/team')
+
+    def clean(self):
+        validate_one_object(self)
+
+    def __str__(self):
+        return "members page"
+
+    class Meta:
+        verbose_name = "members page"
+        verbose_name_plural = verbose_name
