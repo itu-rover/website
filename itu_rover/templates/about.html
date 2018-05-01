@@ -3,6 +3,14 @@
 {% load itu_rover %}
 
 {% block body %}
+
+<style>
+ blockquote p {
+     font-size: 18px;
+ }
+</style>
+
+
 <div class="container">
   <div class="row">
     <div class="col-12">
@@ -15,7 +23,7 @@
         </div>
         <div class="col-md-8 text-big">
           <blockquote>
-            <p class="text-big">{{ entry.detail | markdown }}</p>
+            {{ entry.detail | markdown }}
           </blockquote>
         </div>
         <hr>
