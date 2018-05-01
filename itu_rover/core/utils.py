@@ -6,7 +6,7 @@ from members.models import TeamLeader
 def leader_phone_and_email(request):
     rover_mail = 'ituroverteam@gmail.com'
     try:
-        leader_obj = TeamLeader.objects.select_related('leader').get()
+        leader_obj = TeamLeader.objects.select_related('member').get()
         phone = leader_obj.leader.phone
     except AttributeError:
         phone = ''

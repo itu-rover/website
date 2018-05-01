@@ -68,8 +68,12 @@ class Member(Person, TimeStampedModel):
     def role(self):
         subteam_str = str(self.subteam)
         is_old = " Eski" if self.is_retired else ""
-        if self.subteam.leader == self:
+        if self.subteam and self.subteam.leader == self:
             return subteam_str + " Lideri"
+        elif self.leader and type(self.leader) == TeamLeader:
+            return "Takım Lideri"
+        elif not self.subteam:
+            return "Ekip Üyesi"
         return subteam_str + is_old + " Üyesi"
 
 
@@ -101,11 +105,11 @@ class SubTeam(models.Model):
 
 class TeamLeader(models.Model):
     """ Leader of the whole team """
-    leader = models.OneToOneField(
+    member = models.OneToOneField(
         'Member',
         on_delete=models.SET_NULL,
         null=True,
-        related_name='member',
+        related_name='leader',
         verbose_name='team leader',
     )
 
@@ -117,10 +121,7 @@ class TeamLeader(models.Model):
         validate_one_object(self)
 
     def __str__(self):
-        return str(self.leader)
-
-    def role(self):
-        return "Takım Lideri"
+        return str(self.member)
 
 
 class TeamAdvisor(Person, TimeStampedModel):
@@ -134,7 +135,15 @@ class TeamAdvisor(Person, TimeStampedModel):
 
 
 class MembersPage(models.Model):
-    proposal = models.FileField(upload_to='documents/team')
+    proposal = models.FileField(
+        upload_to='documents/team',
+        blank=True,
+    )
+    team_photo = models.ImageField(
+        upload_to='images/members',
+        blank=True,
+        null=True,
+    )
 
     def clean(self):
         validate_one_object(self)

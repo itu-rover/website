@@ -10,7 +10,7 @@ class MembersPage(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         try:
-            leader = TeamLeader.objects.get().leader
+            leader = TeamLeader.objects.get().member
         except ObjectDoesNotExist:
             leader = None
         extra_context = {
