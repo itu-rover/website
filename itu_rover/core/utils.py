@@ -7,7 +7,7 @@ def leader_phone_and_email(request):
     rover_mail = 'ituroverteam@gmail.com'
     try:
         leader_obj = TeamLeader.objects.select_related('member').get()
-        phone = leader_obj.leader.phone
+        phone = leader_obj.member.phone
     except AttributeError:
         phone = ''
     except ObjectDoesNotExist:
