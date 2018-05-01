@@ -1,4 +1,5 @@
 from django.db import models
+from django.db.models import ObjectDoesNotExist
 
 from core.models import TimeStampedModel
 from .utils import validate_one_object, get_upload_path
@@ -68,9 +69,15 @@ class Member(Person, TimeStampedModel):
     def role(self):
         subteam_str = str(self.subteam)
         is_old = " Eski" if self.is_retired else ""
+
+        try:
+            is_team_leader = bool(self.leader)
+        except ObjectDoesNotExist:
+            is_team_leader = False
+
         if self.subteam and self.subteam.leader == self:
             return subteam_str + " Lideri"
-        elif self.leader and type(self.leader) == TeamLeader:
+        elif is_team_leader:
             return "Takım Lideri"
         elif not self.subteam:
             return "Ekip Üyesi"
