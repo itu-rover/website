@@ -50,7 +50,7 @@
         <div class="col-md-12">
           <div class="row justify-content-center">
             {% for member in subteam.members.all %}
-            <div class="col-md-3">
+            <div class="col-md-3 {% if 'Lider' in member.role %}order-0{% else %}order-1{% endif %}">
               {% include 'pieces/person.html' with person=member %}
             </div>
             {% empty %}
