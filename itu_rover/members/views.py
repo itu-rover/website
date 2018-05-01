@@ -1,7 +1,7 @@
 from django.views.generic import TemplateView
 from django.core.exceptions import ObjectDoesNotExist
 
-from .models import SubTeam, TeamAdvisor, Member, TeamLeader
+from .models import SubTeam, TeamAdvisor, Member, TeamLeader, MembersPage as MP
 
 
 class MembersPage(TemplateView):
@@ -18,6 +18,7 @@ class MembersPage(TemplateView):
             'advisors': TeamAdvisor.objects.all(),
             'leader': leader,
             'subteamless': Member.objects.filter(subteam=None),
+            'page': MP.objects.get(),
         }
         context.update(extra_context)
         return context

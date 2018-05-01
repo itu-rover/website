@@ -142,7 +142,6 @@ class MembersPage(models.Model):
     team_photo = models.ImageField(
         upload_to='images/members',
         blank=True,
-        null=True,
     )
 
     def clean(self):
@@ -152,5 +151,5 @@ class MembersPage(models.Model):
         return "members page"
 
     class Meta:
-        verbose_name = "members page"
+        verbose_name = "Members Page"
         verbose_name_plural = verbose_name

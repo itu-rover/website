@@ -6,10 +6,12 @@
 <div class="container">
   <div class="row">
     <div class="col-md-12 text-center">
+      {% if page.team_photo %}
       <div class="d-none d-md-block">
-        <img style="margin-top: -16px;" class="img-responsive" src="{% static 'img/team.jpg' %}">
+        <img style="margin-top: -16px; max-height: 100%;" class="img-responsive" src="{{ page.team_photo.url }}">
         <p style="margin-top: 8px;"><i>İTÜ Rover Takımı</i></p>
       </div>
+      {% endif %}
       <div class="row">
 
         <div class="col-md-7">
@@ -63,12 +65,14 @@
       Burası boş! Ah, artık değil.
       {% endfor %}
 
+      {% if page.proposal %}
       <hr>
       <div class="row text-big">
         <div class="col-md-12">
-          <p class="well well-sm">Takım yapısı hakkında daha detaylı bilgiye ulaşmak için <a class="font-primary-color" href="source" target="_blank"><u>Team Proposal</u></a> dosyasını inceleyebilirsiniz.</p>
+          <p class="well well-sm">Takım yapısı hakkında daha detaylı bilgiye ulaşmak için <a class="font-primary-color" href="{{ page.proposal.url }}" target="_blank"><u>Team Proposal</u></a> dosyasını inceleyebilirsiniz.</p>
         </div>
       </div>
+      {% endif %}
 
 
     </div>
