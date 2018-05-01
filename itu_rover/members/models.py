@@ -148,7 +148,7 @@ class MembersPage(models.Model):
         validate_one_object(self)
 
     def __str__(self):
-        return "members page"
+        return "Members Page"
 
     class Meta:
         verbose_name = "Members Page"

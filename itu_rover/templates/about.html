@@ -24,11 +24,13 @@
       <div class="row"><div class="col-12"><p class="text-big text-center">Buraya İTÜ Rover Takımı hakkında henüz bir şey yazılmadı.</p></div></div>
       {% endfor %}
 
+      {% if proposal %}
       <div class="row">
         <div class="col-md-12 text-big text-center">
-          <p class="well well-sm">Takım yapısı hakkında daha detaylı bilgiye ulaşmak için <a class="font-primary-color" href="" target="_blank"><u>Team Proposal</u></a> dosyasını inceleyebilirsiniz.</p>
+          <p class="well well-sm">Takım yapısı hakkında daha detaylı bilgiye ulaşmak için <a class="font-primary-color" href="{{ proposal.url }}" target="_blank"><u>Team Proposal</u></a> dosyasını inceleyebilirsiniz.</p>
         </div>
       </div>
+      {% endif %}
     </div>
   </div>
 </div>
