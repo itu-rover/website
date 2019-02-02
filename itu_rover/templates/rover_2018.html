@@ -1,0 +1,146 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load itu_rover %}
+
+{% block body %}
+
+<!-- Üyeler -->
+
+
+<h3 class="well well-sm">VAKIF EMEKLİLİK ROVER</h3>
+<div class="resp-container">
+<iframe class="resp-iframe" src="https://www.youtube.com/embed/rEn0aH8DRcM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+<div class="container">
+  <h5 class="font-primary-color well well-sm">TAKIM ÜYELERİ</h5>
+  <div class="row">
+    <div class="col-md-12 text-center">
+      {% if page.team_photo %}
+      <div class="d-none d-md-block">
+        <img style="margin-top: -16px; max-height: 100%;" class="img-responsive" src="{{ page.team_photo.url }}">
+        <p style="margin-top: 8px;"><i>İTÜ Rover Takımı</i></p>
+      </div>
+      {% endif %}
+      <div class="row">
+
+        <div class="col-md-7">
+          <h4 class="font-thick text-center">TAKIM DANIŞMANLARI</h4>
+          <hr>
+
+          <div class="row justify-content-center">
+            {% for advisor in advisors %}
+            <div class="col-md-5">
+              {% include 'pieces/person.html' with person=advisor %}
+            </div>
+            {% empty %}
+            Burası boş! Ah, artık değil.
+            {% endfor %}
+          </div>
+        </div>
+
+        <div class="col-md-3 col-md-offset-1">
+          <h4 class="font-thick text-center">TAKIM LİDERİ</h4>
+          <hr>
+          <div class="row justify-content-center">
+            <div class="col-12">
+              {% if leader %}
+              {% include 'pieces/person.html' with person=leader %}
+              {% else %}
+              <p>Takımın lideri henüz belli değil!</p>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      {% for subteam in subteams %}
+      <h4 class="font-thick text-center">{{ subteam.name | uppercase }}</h4>
+      <hr>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="row justify-content-center">
+            {% for member in subteam.members.all %}
+            <div class="col-md-3 {% if 'Lider' in member.role %}order-0{% else %}order-1{% endif %}">
+              {% include 'pieces/person.html' with person=member %}
+            </div>
+            {% empty %}
+            Burası boş! Ah, artık değil.
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+      {% empty %}
+      Burası boş! Ah, artık değil.
+      {% endfor %}
+
+      {% if page.proposal %}
+      <hr>
+      <div class="row text-big">
+        <div class="col-md-12">
+          <p class="well well-sm">Takım yapısı hakkında daha detaylı bilgiye ulaşmak için <a class="font-primary-color" href="{{ page.proposal.url }}" target="_blank"><u>Team Proposal</u></a> dosyasını inceleyebilirsiniz.</p>
+        </div>
+      </div>
+      {% endif %}
+
+<!-- sponsorlar -->
+
+      <h5  class="font-primary-color well well-sm">SPONSORLAR</h5>
+      <h3>EVREN SPONSOR</h3>
+      <a href="https://www.vakifemeklilik.com.tr/index.aspx" target="_blank"><img class="bigger-width" src="../static/img/VAKIF_EMEKLİLİK.png" alt=""></a>
+
+      <h3>GALAKSİ SPONSOR</h3>
+      <img href="http://www.altinay.com/tr/" target="_blank" class="bigger-width" src="../static/img/ALTINAY_1.png" alt="">
+
+      <h3>YILDIZ SPONSORLAR</h3>
+      <div class="picture-grid star">
+        <a href="https://www.avl.com/" target="_blank"><div class="grid-box"><img src="../static/img/AVL.png" alt=""></div></a>
+        <a href="https://www.boyner.com.tr/" target="_blank"><div class="grid-box"><img class="boyner" src="../static/img/BOYNER.png" alt=""></div></a>
+        <a href="http://www.crssoft.com/" target="_blank"><div class="grid-box"><img src="../static/img/CRS_SOFT.png" alt=""></div></a>
+        <a href="http://www.ekom-ltd.com/" target="_blank"><div class="grid-box"><img src="../static/img/ekom.png" alt=""></div></a>
+        <a href="http://www.federalmogul.com.tr/index.html" target="_blank" class="federalmogul" ><div class="grid-box"><img src="../static/img/federalmogul.png" alt=""></div></a>
+        <a href="http://www.iib.org.tr/" target="_blank"><div class="grid-box"><img src="../static/img/iibb.png" alt=""></div></a>
+        <a href="https://www.sick.com/tr/" target="_blank"><div class="grid-box"><img src="../static/img/SICK.png" alt=""></div></a>
+        <a href="http://www.tekfen.com.tr/" target=_blank"><div class="grid-box"><img src="../static/img/tekfen.png" alt=""></div></a>
+        <a href="http://www.makinetanitimgrubu.com.tr/Tr" target="_blank"><div class="grid-box"><img src="../static/img/trmak.png" alt=""></div></a>
+      </div>
+
+      <h3>GEZEGEN SPONSORLAR</h3>
+      <div class="picture-grid star">
+        <a href="https://www.autodesk.com.tr/" class="kırkpx" target="_blank"><div class="grid-box"><img src="../static/img/AUTODESK.png" alt=""></div></a>
+        <a href="https://www.benmaker.com/" target="_blank"><div class="grid-box"><img src="../static/img/benmaker.png" alt=""></div></a>
+        <a href="https://www.boxx.com/" class="boxx" target="_blank"><div class="grid-box"><img src="../static/img/BOXX.png" alt=""></div></a>
+        <a href="http://www.hidromode.com.tr/" class="kırkpx" target="_blank"><div class="grid-box"><img src="../static/img/HİDROMODE.png" alt=""></div></a>
+        <a href="https://useinsider.com/" target="_blank"><div class="grid-box"><img src="../static/img/INSIDER.png" alt=""></div></a>
+        <a href="http://www.isov.org.tr/" target="_blank"><div class="grid-box"><img src="../static/img/isov.png" alt=""></div></a>
+        <a href="https://www.kocel.com.tr/" class="kırkpx" target="_blank"><div class="grid-box"><img src="../static/img/KOÇEL.png" alt=""></div></a>
+        <a href="http://www.yildizcnctorna.com/" class="kırkpx" target="_blank"><div class="grid-box"><img src="../static/img/YILDIZ_CNC.png" alt=""></div></a>
+        <a href="http://zaxe.com/tr/" target="_blank"><div class="grid-box"><img src="../static/img/ZAXE.png" alt=""></div></a>
+        <a href="" target="_blank"><div class="grid-box"><img src="" alt=""></div></a>
+        <a href="https://www.zingat.com/" class="zingat" target="_blank"><div class="grid-box"><img src="../static/img/ZİNGAT_YATAY.png" alt=""></div></a>
+      </div>
+
+      <h3>UYDU SPONSORLAR</h3>
+      <div class="picture-grid star">
+        <a href="http://www.aktasdis.com/" target="_blank"><div class="grid-box"><img src="../static/img/aktas.png" alt=""></div></a>
+        <a href="https://www.eae.com.tr/TR/" target="_blank"><div class="grid-box"><img src="../static/img/eae.png" alt=""></div></a>
+        <a href="http://www.habasit.com/en/index.htm" target="_blank"><div class="grid-box"><img src="../static/img/HABASİT.png" alt=""></div></a>
+        <a href="http://www.ikont.com/" class="kırkpx" target="_blank"><div class="grid-box"><img src="../static/img/IKO.png" alt=""></div></a>
+        <a href="http://www.kozikoglu.com/index.html" target="_blank"><div class="grid-box"><img src="../static/img/KOZİKOĞLU.png" alt=""></div></a>
+        <a href="http://www.nilson.com.tr/" class="kırkpx" target="_blank"><div class="grid-box"><img src="../static/img/NILSON.png" alt=""></div></a>
+        <a href="" target="_blank"><div class="grid-box"><img src="" alt=""></div></a>
+        <a href="http://www.orucoglusistem.com.tr" target="_blank"><div class="grid-box"><img src="../static/img/orucoglu.png" alt=""></div></a>
+      </div>
+
+      <h3>METEOR SPONSORLAR</h3>
+      <div class="picture-grid star">
+        <a href="https://www.rover.itu.edu.tr/" target="_blank"><div class="grid-box"><img src="../static/img/ali_ozkara.jpeg" alt=""></div></a>
+        <a href="http://www.ma-kon.com/" target="_blank"><div class="grid-box"><img src="../static/img/makon.png" alt=""></div></a>
+        <a href="http://www.odakpcb.com/" target="_blank"><div class="grid-box"><img src="../static/img/odak.png" alt=""></div></a>
+        <a href="https://radore.com/" target="_blank"><div class="grid-box"><img src="../static/img/radore.png" alt=""></div></a>
+        <a href="https://www.rover.itu.edu.tr/" target="_blank"><div class="grid-box"><img src="../static/img/mt.png" alt=""></div></a>
+      </div>
+
+    </div>
+  </div>
+</div>
+{% endblock body %}

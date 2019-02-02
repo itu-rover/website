@@ -1,4 +1,6 @@
 {% load static %}
+
+
 <nav class="navbar navbar-default navbar-fixed-top" id="navbar-index">
   <div class="container">
     <div class="navbar-header">
@@ -14,13 +16,28 @@
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle font-thick" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img width="24px" class="navbar-icon" src="{% static 'img/navbar/team.svg' %}"> TAKIM<i class="fa fa-fw fa-lg fa-angle-down" aria-hidden="true"></i></a>
+          <a class="dropdown-toggle font-thick" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img width="24px" class="navbar-icon" src="{% static 'img/navbar/team.svg' %}">TAKIM<i class="fa fa-fw fa-lg fa-angle-down" aria-hidden="true"></i></a>
           <ul class="dropdown-menu">
             <li><a href="{% url 'about' %}"><b>HAKKINDA</b></a></li>
             <li><a href="{% url 'members' %}"><b>TAKIM ÜYELERİ</b></a></li>
-          </ul>
-        </li>
-        <li><a href="{% url 'rover' %}" class="font-thick"><img class="navbar-icon" width="24px" src="{% static 'img/navbar/rover.svg' %}"> ROVER</a></li>
+            <!-- Sub-dropdown -->
+
+           </ul>
+         </li>
+        <li class="dropdown">
+          <a href="{% url 'rover' %}" class="dropdown-toggle font-thick" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img class="navbar-icon" width="24px" src="{% static 'img/navbar/rover.svg' %}"> ROVER<i class="fa fa-fw fa-lg fa-angle-down" aria-hidden="true"></i></a>
+          <ul class="dropdown-menu">
+            <li><a href="{% url 'rover' %}"><b>ROVER</b></a></li>
+            <!-- Sub-dropdown -->
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle font-thick eski-roverlar">ESKİ ROVERLAR<i class="fa fa-fw fa-lg fa-angle-down" aria-hidden="true"></i></a>
+              <ul class="dropdown-menu roverlar-hover" style="left: 100%; top: 0;">
+                <li><a class="font-thick" tabindex="-1" href="{% url 'rover17' %}">ROVER 2017</a></li>
+                <li><a class="font-thick" tabindex="-1" href="{% url 'rover18' %}">ROVER 2018</a></li>
+              </ul>
+            </li>
+           </ul>
+         </li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle font-thick" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img class="navbar-icon" width="24px" src="{% static 'img/navbar/sponsorship.svg' %}">SPONSORLUK <i class="fa fa-fw fa-lg fa-angle-down" aria-hidden="true"></i></a>
           <ul class="dropdown-menu">
@@ -28,7 +45,6 @@
             <li><a href="{% url 'support' %}"><b>DESTEK OLUN!</b></a></li>
           </ul>
         </li>
-        <li><a href="{% url 'media' %}" class="font-thick"><img class="navbar-icon" width="24px" src="{% static 'img/navbar/news.svg' %}"> MEDYA</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li><a class="font-thick contact-popover" role="button" data-toggle="popover" title="" data-placement="bottom" data-content="
@@ -38,10 +54,13 @@
             <br>{% endif %}
             Bize sosyal medya hesaplarımızdan da ulaşabilirsiniz.
             "><i class="fa fa-fw fa-lg fa-fire" aria-hidden="true"></i> İletişim</a></li>
+        <li><a target="_blank" href="https://www.instagram.com/ituroverteam" class="font-thick"><i class="fa fa-fw fa-lg fa-instagram" style="" aria-hidden="true"></i></a></li>
         <li><a target="_blank" href="https://www.facebook.com/ituroverteam/" class="font-thick"><i class="fa fa-fw fa-lg fa-facebook-official" style="" aria-hidden="true"></i></a></li>
         <li><a target="_blank" href="https://www.twitter.com/ituroverteam" class="font-thick"><i class="fa fa-fw fa-lg fa-twitter" style="" aria-hidden="true"></i></a></li>
         <li><a target="_blank" href="https://www.youtube.com/channel/UCaCr4pjgkdktAdAC4suykKA" class="font-thick"><i class="fa fa-fw fa-lg fa-youtube" aria-hidden="true"></i></a></li>
         <li><a target="_blank" href="https://github.com/itu-rover" class="font-thick"><i class="fa fa-fw fa-lg fa-github" aria-hidden="true"></i></a></li>
+        <li><a target="_blank" href="https://tr.linkedin.com/company/itu-rover-team" class="font-thick"><i class="fa fa-fw fa-lg fa-linkedin" aria-hidden="true"></i></a></li>
+
       </ul>
     </div>
   </div>

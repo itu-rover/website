@@ -16,9 +16,25 @@
           {% if entry.image %}<div class="row justify-content-center"><div class="col-12"><img class="img-responsive" src="{{ entry.image.url }}"></div></div>{% endif %}
           <hr>
         </div>
+        {% for subentry in entry.subentries.all %}
+        <div id="{{ subentry.title | lower | cut:" " }}">
+          <h5 class="font-thick">{{ subentry.title | title }}</h5>
+          {{ subentry.detail | markdown }}
+          {% if subentry.image %}<div class="row justify-content-center"><div class="col-12"><img class="img-responsive" src="{{ subentry.image.url }}"></div></div>{% endif %}
+          <hr>
+        </div>
+        {% endfor %}
         {% empty %}
         Buraya henüz bir şey yazılmadı.
         {% endfor %}
+
+        {% if page.design_review %}
+        <div class="row">
+          <div class="col-md-12">
+          <p class="well well-sm">Tasarımımız hakkında yukarıda bulduklarınızdan daha detaylı bilgiye ulaşmak isterseniz <a class="font-primary-color" href="{{ page.design_review.url }}" target="_blank"><u>Critical Design Review</u></a> dosyamızı inceleyebilirsiniz.</p>
+          </div>
+        </div>
+        {% endif %}
       </div>
 
       <div class="col-md-3" id="scrollin-spyin">
@@ -26,6 +42,17 @@
           <ul class="nav nav-tabs nav-stacked">
             {% for entry in entries %}
             <li><a class="font-thick" href="#{{ entry.title | lower | cut:" " }}">{{ entry.title | uppercase }}</a></li>
+              {% if entry.subentries.all %}
+              <div class="row">
+                  <div class="col-md-11 col-md-offset-1">
+                      <ul class="nav nav-tabs nav-stacked">
+                      {% for subentry in entry.subentries.all %}
+                          <li><a href="#{{ subentry.title | lower | cut:" " }}">{{ subentry.title | title }}</a></li>
+                      {% endfor %}
+                      </ul>
+                  </div>
+              </div>
+              {% endif %}
             {% endfor %}
           </ul>
         </nav>

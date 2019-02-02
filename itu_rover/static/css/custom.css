@@ -9,7 +9,7 @@ body {
 }
 
 .font-thick {
-    font-weight: 600;
+    font-weight: 600 !important;
 }
 
 .footer {
@@ -154,4 +154,95 @@ body {
 
 .popover{
   width:300px;
+}
+
+img {
+  max-width: 100%;
+  max-height: 500px;
+}
+
+
+.eski-roverlar:hover ~ .roverlar-hover {
+  display: block;
+}
+
+.roverlar-hover:hover {
+  display: block;
+}
+
+/* gövde render */
+
+.hundredpx {
+  margin-left: 250px !important;
+}
+
+
+/*sponsors */
+h3 {
+  margin: 70px;
+  font-size: 35px;
+}
+
+.bigger-width {
+  width: 500px;
+}
+
+.picture-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  justify-content: center;
+  grid-gap: 2em;
+}
+
+
+.grid-box {
+  width: 100%;
+  margin:2em;
+}
+
+/* pictures */
+
+.boyner {
+  margin-top: 50px;
+}
+
+.federalmogul {
+  margin-top: 20px;
+}
+
+.boxx {
+  padding: 0 50px;
+  padding-top: 40px;
+}
+
+.kırkpx {
+  margin-top:40px;
+}
+
+/* rover18 */
+
+.container {
+  justify-content: center !important;
+}
+
+.container p {
+  font-size: 18px;
+}
+
+h3, h5 {
+  text-align: center;
+}
+.resp-container {
+    position: relative;
+    overflow: hidden;
+    padding-top: 56.25%;
+}
+.resp-iframe {
+    position: absolute;
+    padding:40px;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
 }
