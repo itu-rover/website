@@ -17,12 +17,13 @@
       <div class="row justify-content-center align-items-center">
         {% for sponsor in type.sponsors.all %}
         <div class="col-lg-4 col-md-6 col-12 text-center">
-          <a class="font-default-color font-thick text-big" href="{{ sponsor.website }}" target="_blank"><img width="{{ sponsor.display_width }}px" src="{{ sponsor.image.url }}">{% if sponsor.is_name_on_display %}<p style="margin-bottom: 0px;">{{ sponsor.name }}</p>{% endif %}</a>
+            <a class="font-default-color font-thick text-big" href="{{ sponsor.website }}" target="_blank"><img style="margin-bottom: 16px; margin-top: 16px;" width="{{ sponsor.display_width }}px" src="{{ sponsor.image.url }}">{% if sponsor.is_name_on_display %}<p style="margin-bottom: 0px;">{{ sponsor.name }}</p>{% endif %}</a>
         </div>
         {% empty %}
         <p class="text-center">Bu sponsorluk türünde henüz bir sponsor yok.</p>
         {% endfor %}
       </div>
+      <br>
     </div>
   </div>
   {% empty %}
