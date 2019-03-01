@@ -3,5 +3,4 @@
 *.log
 static_root
 media_root
-**/.ropeproject
 *.swp
