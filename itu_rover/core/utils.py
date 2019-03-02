@@ -1,4 +1,5 @@
 from django.core.exceptions import ObjectDoesNotExist
+from django.utils import timezone
 
 from members.models import TeamLeader
 
@@ -16,3 +17,7 @@ def leader_phone_and_email(request):
         'main_phone': phone,
         'main_email': rover_mail,
     }
+
+
+def current_year():
+    return timezone.now().year

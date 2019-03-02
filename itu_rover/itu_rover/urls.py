@@ -31,6 +31,8 @@ urlpatterns = [
     path('hakkında/', AboutPage.as_view(), name='about'),
     path('takım-üyeleri/', MembersPage.as_view(), name='members'),
     path('sponsorlar/', SponsorsPage.as_view(), name='sponsors'),
+    path('sponsorlar/<int:year>/', SponsorsPage.as_view(),
+         name='sponsors-with-year'),
     path('rover/', RoverPage.as_view(), name='rover'),
 ]
 

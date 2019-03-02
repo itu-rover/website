@@ -2,6 +2,7 @@ from django.db import models
 
 from core.mixins import OrderableMixin
 from core.models import TimeStampedModel
+from core.utils import current_year
 from members.utils import validate_one_object
 
 
@@ -16,6 +17,7 @@ class Sponsor(TimeStampedModel):
         verbose_name='name',
     )
     website = models.URLField(verbose_name='website')
+    sponsorship_year = models.PositiveSmallIntegerField(default=current_year)
     sponsorship_type = models.ForeignKey(
         "SponsorshipType",
         on_delete=models.SET_NULL,
