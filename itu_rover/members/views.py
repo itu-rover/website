@@ -15,10 +15,9 @@ class MembersPage(TemplateView):
 
     def get_members_context(self, year):
         try:
-            leader = TeamLeader.objects.filter(member__year=year).get()
-            leader_member = leader.member
+            leader = TeamLeader.objects.filter(member__year=year).get().member
         except ObjectDoesNotExist:
-            leader_member = None
+            leader = None
         result_subteams = OrderedDict()
         subteams = SubTeam.objects.all()
         for subteam in subteams:
@@ -28,9 +27,9 @@ class MembersPage(TemplateView):
         return {
             'subteams': result_subteams,
             'advisors': TeamAdvisor.objects.filter(year=year),
-            'leader': leader_member,
+            'leader': leader,
             'subteamless': Member.objects.filter(subteam=None, year=year),
-            'page': MP.objects.get(),
+            'page': MP.objects.filter(year=year).get(),
         }
 
     def get_context_data(self, **kwargs):

@@ -3,7 +3,7 @@ from django.db.models import ObjectDoesNotExist
 
 from core.models import TimeStampedModel
 from core.utils import current_year
-from .utils import validate_one_object, get_upload_path
+from .utils import get_upload_path
 
 
 class Person(models.Model):
@@ -152,12 +152,14 @@ class MembersPage(models.Model):
         upload_to='images/members',
         blank=True,
     )
-
-    def clean(self):
-        validate_one_object(self)
+    year = models.PositiveSmallIntegerField(
+        verbose_name='team year',
+        default=current_year,
+        unique=True,
+    )
 
     def __str__(self):
-        return "Members Page"
+        return "Members Page " + str(self.year)
 
     class Meta:
         verbose_name = "Members Page"
