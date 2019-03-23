@@ -10,10 +10,9 @@ from .models import SponsorshipType
 
 class SponsorsPage(TemplateView):
     template_name = 'sponsors.html'
+    not_found_message = 'Year not found for sponsors page.'
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        year = self.kwargs.get('year', current_year())
+    def get_sponsor_context(self, year):
         result_sponsor_types = OrderedDict()
         sponsor_types = (SponsorshipType.objects
                          .prefetch_related('sponsors').all())
@@ -22,12 +21,17 @@ class SponsorsPage(TemplateView):
                               .filter(sponsorship_year=year))
             if years_sponsors:
                 result_sponsor_types[sponsor_type] = years_sponsors
-        if not result_sponsor_types:
-            raise Http404("Year not found.")
-        extra_context = {
+        return {
             'sponsor_types': result_sponsor_types,
         }
-        context.update(extra_context)
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        year = self.kwargs.get('year', current_year())
+        sponsor_context = self.get_sponsor_context(year)
+        if not sponsor_context:
+            raise Http404(self.not_found_message)
+        context.update(sponsor_context)
         return context
 
 

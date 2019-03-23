@@ -2,6 +2,7 @@ from django.db import models
 from django.db.models import ObjectDoesNotExist
 
 from core.models import TimeStampedModel
+from core.utils import current_year
 from .utils import validate_one_object, get_upload_path
 
 
@@ -28,6 +29,10 @@ class Person(models.Model):
         max_length=13,
         blank=True,
         verbose_name='phone number',
+    )
+    year = models.PositiveSmallIntegerField(
+        verbose_name='active year',
+        default=current_year,
     )
     is_retired = models.BooleanField(
         default=False,
@@ -123,9 +128,6 @@ class TeamLeader(models.Model):
     class Meta:
         verbose_name = "team leader"
         verbose_name_plural = verbose_name
-
-    def clean(self):
-        validate_one_object(self)
 
     def __str__(self):
         return str(self.member)
