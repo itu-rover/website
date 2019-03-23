@@ -1,6 +1,7 @@
 from collections import OrderedDict
 
 from django.views.generic import TemplateView
+from django.http import Http404
 
 from core.utils import current_year
 
@@ -21,6 +22,8 @@ class SponsorsPage(TemplateView):
                               .filter(sponsorship_year=year))
             if years_sponsors:
                 result_sponsor_types[sponsor_type] = years_sponsors
+        if not result_sponsor_types:
+            raise Http404("Year not found.")
         extra_context = {
             'sponsor_types': result_sponsor_types,
         }
