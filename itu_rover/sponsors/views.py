@@ -17,7 +17,7 @@ class SponsorsPage(TemplateView):
                          .filter(sponsors__sponsorship_year=year)
                          .prefetch_related(
                              Prefetch('sponsors', queryset=years_sponsors)
-                         ))
+                         )).distinct()
         if not sponsor_types:
             raise Http404(self.not_found_message)
         return {

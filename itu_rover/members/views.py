@@ -26,7 +26,7 @@ class MembersPage(TemplateView):
                     .filter(members__year=year)
                     .prefetch_related(
                         Prefetch('members', queryset=years_members)
-                    ))
+                    )).distinct()
         if not subteams:
             raise Http404(self.not_found_message)
         return {
