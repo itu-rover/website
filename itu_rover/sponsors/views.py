@@ -13,14 +13,16 @@ class SponsorsPage(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         year = self.kwargs.get('year', current_year())
-        result_types = OrderedDict()
-        types = SponsorshipType.objects.prefetch_related('sponsors').all()
-        for type in types:
-            years_sponsors = type.sponsors.filter(sponsorship_year=year)
+        result_sponsor_types = OrderedDict()
+        sponsor_types = (SponsorshipType.objects
+                         .prefetch_related('sponsors').all())
+        for sponsor_type in sponsor_types:
+            years_sponsors = (sponsor_type.sponsors
+                              .filter(sponsorship_year=year))
             if years_sponsors:
-                result_types[type] = years_sponsors
+                result_sponsor_types[sponsor_type] = years_sponsors
         extra_context = {
-            'types': result_types,
+            'sponsor_types': result_sponsor_types,
         }
         context.update(extra_context)
         return context
