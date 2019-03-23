@@ -2,7 +2,7 @@ from django.views.generic import TemplateView
 from django.http import Http404
 from django.db.models import Prefetch
 
-from core.utils import current_year
+from core.defaults import current_year
 
 from .models import SponsorshipType, Sponsor
 

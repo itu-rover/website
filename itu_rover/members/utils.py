@@ -1,23 +1,4 @@
 from django.core.exceptions import ValidationError
-from django.core.exceptions import ObjectDoesNotExist
-
-import members.models
-
-
-def leader_phone_and_email(request):
-    rover_mail = 'ituroverteam@gmail.com'
-    try:
-        leader_obj = (members.models.TeamLeader.objects
-                      .select_related('member').get())
-        phone = leader_obj.member.phone
-    except AttributeError:
-        phone = ''
-    except ObjectDoesNotExist:
-        phone = ''
-    return {
-        'main_phone': phone,
-        'main_email': rover_mail,
-    }
 
 
 def validate_one_object(obj):

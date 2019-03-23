@@ -3,7 +3,7 @@ from django.core.exceptions import ObjectDoesNotExist
 from django.http import Http404
 from django.db.models import Prefetch
 
-from core.utils import current_year
+from core.defaults import current_year
 
 from .models import SubTeam, TeamAdvisor, Member, TeamLeader, MembersPage as MP
 

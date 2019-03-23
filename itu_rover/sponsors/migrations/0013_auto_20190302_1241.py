@@ -14,6 +14,6 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='sponsor',
             name='sponsorship_year',
-            field=models.PositiveSmallIntegerField(default=core.utils.current_year),
+            field=models.PositiveSmallIntegerField(default=core.defaults.current_year),
         ),
     ]

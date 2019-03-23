@@ -14,6 +14,6 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='memberspage',
             name='year',
-            field=models.PositiveSmallIntegerField(default=core.utils.current_year, verbose_name='team year'),
+            field=models.PositiveSmallIntegerField(default=core.defaults.current_year, verbose_name='team year'),
         ),
     ]

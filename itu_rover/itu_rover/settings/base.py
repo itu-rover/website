@@ -67,6 +67,7 @@ INSTALLED_APPS = [
     'core',
     'main',
     'rover',
+    'oldyears',
 ]
 
 MIDDLEWARE = [
@@ -95,7 +96,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'members.utils.leader_phone_and_email',
+                'core.utils.attach_for_navbar',
             ],
         },
     },

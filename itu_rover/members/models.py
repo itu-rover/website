@@ -2,7 +2,7 @@ from django.db import models
 from django.db.models import ObjectDoesNotExist
 
 from core.models import TimeStampedModel
-from core.utils import current_year
+from core.defaults import current_year
 from .utils import get_upload_path
 
 

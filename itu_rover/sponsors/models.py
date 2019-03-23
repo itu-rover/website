@@ -2,7 +2,7 @@ from django.db import models
 
 from core.mixins import OrderableMixin
 from core.models import TimeStampedModel
-from core.utils import current_year
+from core.defaults import current_year
 from members.utils import validate_one_object
 
 

@@ -14,11 +14,11 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='member',
             name='year',
-            field=models.PositiveSmallIntegerField(default=core.utils.current_year, verbose_name=''),
+            field=models.PositiveSmallIntegerField(default=core.defaults.current_year, verbose_name=''),
         ),
         migrations.AddField(
             model_name='teamadvisor',
             name='year',
-            field=models.PositiveSmallIntegerField(default=core.utils.current_year, verbose_name=''),
+            field=models.PositiveSmallIntegerField(default=core.defaults.current_year, verbose_name=''),
         ),
     ]
