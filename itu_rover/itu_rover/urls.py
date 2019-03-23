@@ -24,19 +24,20 @@ from members.views import MembersPage
 from main.views import MainPage
 from rover.views import RoverPage
 from sponsors.views import SponsorsPage
-from core.views import OldYearPage
+from oldyears.views import OldYearPage
 
 urlpatterns = [
     path('manage/', admin.site.urls),
     path('', MainPage.as_view(), name='main'),
     path('hakkında/', AboutPage.as_view(), name='about'),
     path('takım-üyeleri/', MembersPage.as_view(), name='members'),
-    path('takım-üyeleri/<int:year>/', MembersPage.as_view(), name='members'),
+    path('takım-üyeleri/<int:year>/', MembersPage.as_view(),
+         name='members-with-year'),
     path('sponsorlar/', SponsorsPage.as_view(), name='sponsors'),
     path('sponsorlar/<int:year>/', SponsorsPage.as_view(),
          name='sponsors-with-year'),
     path('rover/', RoverPage.as_view(), name='rover'),
-    path('geçmiş/<int:year>/', OldYearPage.as_view(), name='old-year'),
+    path('geçmiş/<int:year>/', OldYearPage.as_view(), name='oldyear'),
 ]
 
 if settings.DEBUG:
