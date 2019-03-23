@@ -95,7 +95,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'core.utils.leader_phone_and_email',
+                'members.utils.leader_phone_and_email',
             ],
         },
     },
