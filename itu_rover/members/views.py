@@ -1,8 +1,7 @@
-from collections import OrderedDict
-
 from django.views.generic import TemplateView
 from django.core.exceptions import ObjectDoesNotExist
 from django.http import Http404
+from django.db.models import Prefetch
 
 from core.utils import current_year
 
@@ -18,25 +17,29 @@ class MembersPage(TemplateView):
             leader = TeamLeader.objects.filter(member__year=year).get().member
         except ObjectDoesNotExist:
             leader = None
-        result_subteams = OrderedDict()
-        subteams = SubTeam.objects.all()
-        for subteam in subteams:
-            members = subteam.members.filter(year=year)
-            if members:
-                result_subteams[subteam] = members
+        try:
+            members_page = MP.objects.filter(year=year).get()
+        except ObjectDoesNotExist:
+            members_page = None
+        years_members = Member.objects.filter(year=year)
+        subteams = (SubTeam.objects
+                    .filter(members__year=year)
+                    .prefetch_related(
+                        Prefetch('members', queryset=years_members)
+                    ))
+        if not subteams:
+            raise Http404(self.not_found_message)
         return {
-            'subteams': result_subteams,
+            'subteams': subteams,
             'advisors': TeamAdvisor.objects.filter(year=year),
             'leader': leader,
             'subteamless': Member.objects.filter(subteam=None, year=year),
-            'page': MP.objects.filter(year=year).get(),
+            'page': members_page,
         }
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         year = self.kwargs.get('year', current_year())
         members_context = self.get_members_context(year)
-        if not members_context:
-            raise Http404(self.not_found_message)
         context.update(members_context)
         return context

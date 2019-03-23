@@ -1,11 +1,10 @@
-from collections import OrderedDict
-
 from django.views.generic import TemplateView
 from django.http import Http404
+from django.db.models import Prefetch
 
 from core.utils import current_year
 
-from .models import SponsorshipType
+from .models import SponsorshipType, Sponsor
 
 
 class SponsorsPage(TemplateView):
@@ -13,24 +12,22 @@ class SponsorsPage(TemplateView):
     not_found_message = 'Year not found for sponsors page.'
 
     def get_sponsor_context(self, year):
-        result_sponsor_types = OrderedDict()
+        years_sponsors = Sponsor.objects.filter(sponsorship_year=year)
         sponsor_types = (SponsorshipType.objects
-                         .prefetch_related('sponsors').all())
-        for sponsor_type in sponsor_types:
-            years_sponsors = (sponsor_type.sponsors
-                              .filter(sponsorship_year=year))
-            if years_sponsors:
-                result_sponsor_types[sponsor_type] = years_sponsors
+                         .filter(sponsors__sponsorship_year=year)
+                         .prefetch_related(
+                             Prefetch('sponsors', queryset=years_sponsors)
+                         ))
+        if not sponsor_types:
+            raise Http404(self.not_found_message)
         return {
-            'sponsor_types': result_sponsor_types,
+            'sponsor_types': sponsor_types,
         }
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         year = self.kwargs.get('year', current_year())
         sponsor_context = self.get_sponsor_context(year)
-        if not sponsor_context:
-            raise Http404(self.not_found_message)
         context.update(sponsor_context)
         return context
 
