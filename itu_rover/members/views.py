@@ -12,7 +12,7 @@ class MembersPage(TemplateView):
     template_name = 'members.html'
     not_found_message = 'Year not found for members page.'
 
-    def get_members_context(self, year):
+    def get_member_context(self, year):
         try:
             leader = TeamLeader.objects.filter(member__year=year).get().member
         except ObjectDoesNotExist:
@@ -40,6 +40,6 @@ class MembersPage(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         year = self.kwargs.get('year', current_year())
-        members_context = self.get_members_context(year)
-        context.update(members_context)
+        member_context = self.get_member_context(year)
+        context.update(member_context)
         return context
