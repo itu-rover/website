@@ -75,8 +75,8 @@ class Member(Person, TimeStampedModel):
         def get_queryset(self):
             return (super().get_queryset()
                     .select_related('leader',
-                                    'subteam',
-                                    'subteam__leader'))
+                                    'subteam')
+                    .prefetch_related('subteam__leaders'))
     objects = MemberManager()
 
     def role(self):
@@ -88,7 +88,7 @@ class Member(Person, TimeStampedModel):
         except ObjectDoesNotExist:
             is_team_leader = False
 
-        if self.subteam and self.subteam.leader == self:
+        if self.subteam and self in self.subteam.leaders.all():
             return subteam_str + " Lideri"
         elif is_team_leader:
             return "Takım Lideri"
@@ -107,13 +107,11 @@ class SubTeam(models.Model):
         db_index=True,
         verbose_name='subteam name',
     )
-    leader = models.OneToOneField(
+    leaders = models.ManyToManyField(
         'Member',
         blank=True,
-        null=True,
-        on_delete=models.SET_NULL,
         related_name='leader_of',
-        verbose_name='subteam leader',
+        verbose_name='subteam leaders',
     )
 
     class Meta:
