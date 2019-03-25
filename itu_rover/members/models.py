@@ -71,6 +71,14 @@ class Member(Person, TimeStampedModel):
         verbose_name='description (e.g. department)',
     )
 
+    class MemberManager(models.Manager):
+        def get_queryset(self):
+            return (super().get_queryset()
+                    .select_related('leader',
+                                    'subteam',
+                                    'subteam__leader'))
+    objects = MemberManager()
+
     def role(self):
         subteam_str = str(self.subteam)
         is_old = " Eski" if self.is_retired else ""
