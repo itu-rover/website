@@ -4,7 +4,12 @@ from core.admin import PagedownedModelAdmin, OrderableModelAdmin
 from .models import Sponsor, SponsorshipType, SupportPage
 
 
-admin.site.register(Sponsor)
+@admin.register(Sponsor)
+class SponsorAdmin(admin.ModelAdmin):
+    list_filter = [
+        'sponsorship_year',
+        'sponsorship_type',
+    ]
 
 
 @admin.register(SponsorshipType)
