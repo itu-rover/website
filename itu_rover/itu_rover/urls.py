@@ -21,7 +21,8 @@ from django.conf import settings
 
 from about.views import AboutPage
 from members.views import MembersPage
-from main.views import MainPage
+from faq.views import FaqPage
+from main.views import MainPage, GraduatedPage
 from rover.views import RoverPage
 from sponsors.views import SponsorsPage
 from oldyears.views import OldYearPage
@@ -29,15 +30,11 @@ from oldyears.views import OldYearPage
 urlpatterns = [
     path('manage/', admin.site.urls),
     path('', MainPage.as_view(), name='main'),
-    path('hakkında/', AboutPage.as_view(), name='about'),
-    path('takım-üyeleri/', MembersPage.as_view(), name='members'),
-    path('takım-üyeleri/<int:year>/', MembersPage.as_view(),
-         name='members-with-year'),
-    path('sponsorlar/', SponsorsPage.as_view(), name='sponsors'),
-    path('sponsorlar/<int:year>/', SponsorsPage.as_view(),
-         name='sponsors-with-year'),
-    path('rover/', RoverPage.as_view(), name='rover'),
-    path('geçmiş/<int:year>/', OldYearPage.as_view(), name='oldyear'),
+    path('eng/', MainPage.as_view(), name='main'),
+    path('gecmis/<int:year>/', OldYearPage.as_view(), name='gecmis'),
+    path('eng/past/<int:year>/', OldYearPage.as_view(), name='oldyear'),
+    path('mezunlar/', GraduatedPage.as_view(), name='mezunlar'),
+    path('eng/graduated/', GraduatedPage.as_view(), name='graduated'),
 ]
 
 if settings.DEBUG:

@@ -22,6 +22,7 @@ class MembersPage(TemplateView):
         except ObjectDoesNotExist:
             members_page = None
         years_members = Member.objects.filter(year=year)
+        #subteams = SubTeam.objects.all()
         subteams = (SubTeam.objects
                     .filter(members__year=year)
                     .prefetch_related(

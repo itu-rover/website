@@ -1,0 +1,16 @@
+{% load itu_rover %}
+
+{% if "/eng/" in request.path %}
+    <div class="group">
+        <img style="width: 200px; height: 250px" src="{{ person.get_photo_url }}" alt="">
+        <p><b>{{ person.get_full_name }}</b></p>
+        <p>{{ person.eng_description }}</p>
+    </div>
+{% else %}
+    <div class="group">
+        <img style="width: 200px; height: 250px" src="{{ person.get_photo_url }}" alt="">
+        <p><b>{{ person.get_full_name }}</b></p>
+        <p>{{ person.description }}</p>
+    </div>
+{% endif %}
+

@@ -1,0 +1,84 @@
+{% load static %}<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta content="{% block description %}İTÜ Rover Takımı, İstanbul Teknik Üniversitesi bünyesindeki çeşitli fakültelerden bir araya gelmiş, farklı disiplinlerden öğretilere sahip, daha önceden birçok başarılı projelere imza atmış tecrübeli, meraklı ve çalışkan öğrencilerden oluşmaktadır.{% endblock description %}" name="description" />
+    <meta content="#d7d8d9" name="theme-color" />
+    <link href="{% static 'img/favicon.ico' %}" rel="shortcut icon" />
+      <link rel="stylesheet" href="{% static 'css/new/graduated.css' %}">
+    <link href="https://fonts.googleapis.com/css?family=Ropa+Sans&display=swap" rel="stylesheet">
+    <script src="{% static 'js/new/jquery-3.4.1.min.js' %}"></script>
+    <title>{% block title %}İTÜ Rover Takımı{% endblock title %}</title>
+
+
+    {% block css %}    {% endblock css %}
+  </head>
+
+  <body>
+
+  <img src="{% static 'img/bg3.png' %}" id="bg">
+  <div class="front-bg"></div>
+
+  <!----------------NAVBAR PART------------------------->
+
+  {% include "navbar_new.html" %}
+
+{% if "/eng/" in request.path %}
+    <div class="graduated-container">
+      <p class="header">WHAT OUR FRIENDS DOING?</p>
+      <br>
+      <hr style="border: 1px solid white">
+      <br>
+      {% for member in graduated_members %}
+        <div class="graduated">
+            <a target="_blank" href="{{ member.linkedin_link }}"><img src="{{ member.get_photo_url }}" alt=""></a>
+            <br><br>
+            <p>{{ member.get_full_name }}</p>
+            <br>
+            <p><b>{{ member.eng_team_role }}</b></p>
+            <br>
+            <hr style="border: 1px solid white">
+            <br>
+            <p><b>{{ member.eng_working }}</b></p>
+        </div>
+      {% endfor %}
+  </div>
+{% else %}
+    <div class="graduated-container">
+      <p class="header">MEZUN OLAN TAKIM ARKADAŞLARIMIZ ŞUANDA NEREDELER?</p>
+      <br>
+      <hr style="border: 1px solid white">
+      <br>
+      {% for member in graduated_members %}
+        <div class="graduated">
+            <a target="_blank" href="{{ member.linkedin_link }}"><img src="{{ member.get_photo_url }}" alt=""></a>
+            <br><br>
+            <p>{{ member.get_full_name }}</p>
+            <br>
+            <p><b>{{ member.team_role }}</b></p>
+            <br>
+            <hr>
+            <br>
+            <p><b>{{ member.working }}</b></p>
+            <br><br>
+            <hr style="border: 1px solid white;">
+        </div>
+      {% endfor %}
+  </div>
+{% endif %}
+
+
+
+
+    {% block javascript %}
+        <script src="{% static 'js/new/graduated.js' %}"></script>
+        <script src="{% static 'js/new/jquery-3.4.1.min.js' %}"></script>
+        <script src="https://use.fontawesome.com/a92223afb3.js"></script>
+    {% endblock javascript %}
+
+    {% block jquery %}
+    {% endblock jquery %}
+  </body>
+</html>

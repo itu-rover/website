@@ -38,6 +38,11 @@ class Person(models.Model):
         default=False,
         verbose_name='is member retired?',
     )
+    did_work = models.BooleanField(
+        default=False,
+        verbose_name="if True: This person will be shown on 'graduated' page"
+                     "with the infos of 'working' and 'eng_working'"
+    )
 
     class Meta:
         abstract = True
@@ -70,6 +75,39 @@ class Member(Person, TimeStampedModel):
         blank=True,
         verbose_name='description (e.g. department)',
     )
+    eng_description = models.CharField(
+        max_length=75,
+        blank=True,
+        verbose_name='english description (e.g. department)',
+    )
+    linkedin_link = models.TextField(
+        blank=True,
+        null=True,
+        verbose_name="Linkedin profile link of this person"
+    )
+    working = models.TextField(
+        blank=True,
+        null=True,
+        verbose_name='working experiences'
+    )
+    eng_working = models.TextField(
+        blank=True,
+        null=True,
+        verbose_name='english working experiences'
+    )
+    team_role = models.TextField(
+        blank=True,
+        null=True,
+        verbose_name="what was the roles of this person in team?"
+                     "this is for graduated page"
+    )
+    eng_team_role = models.TextField(
+        blank=True,
+        null=True,
+        verbose_name="eng - what was the roles of this person in team?"
+                     "this is for graduated page"
+    )
+
 
     class MemberManager(models.Manager):
         def get_queryset(self):
@@ -104,7 +142,14 @@ class SubTeam(models.Model):
     """
     name = models.CharField(
         max_length=50,
+        default="name",
         db_index=True,
+        verbose_name='subteam name',
+    )
+    eng_name = models.CharField(
+        max_length=50,
+        db_index=True,
+        default="eng_name",
         verbose_name='subteam name',
     )
     leaders = models.ManyToManyField(

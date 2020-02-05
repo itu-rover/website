@@ -1,0 +1,79 @@
+*{
+	margin: 0;
+	padding:0;
+	box-sizing:border-box;
+	font-family: 'Ropa Sans', sans-serif;
+}
+html{
+	height:100%;
+}
+body{
+	height:100%;
+	overflow: hidden;
+}
+
+.content{
+	position: absolute;
+	top:0;
+	left:0;
+	width: 100%;
+	height: 100%;
+}
+
+.section{
+	display: block;
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
+
+
+
+.up-down-z{
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 98;
+	width: 5%;
+	height: 100%;
+}
+.up-down-container{
+	width: 100%;
+	height: 100%;
+	position: relative;
+	vertical-align: central;
+	padding-left: 10px;
+}
+.up-down-container .up-down-btn{
+	position: absolute;
+	left: 25%;
+	top: 35%;
+}
+.up-down-btn div{
+	height: 35px;
+	width: 250%;
+	margin-bottom: 10px;
+	color: white;
+	padding: 6px 19px;
+	border-left: 3px solid white;
+	font-size: 16pt;
+	transition: 0.2s;
+	transition-timing-function: ease-in-out;
+}
+.up-down-btn div:hover{
+	background-image: linear-gradient(to right, rgba(255,255,255,1) 50%, rgba(255,0,0,0));
+	color: darkred;
+	border-left: 3px solid darkred;
+}
+
+@media screen and (max-width: 968px) {
+	.up-down-container .up-down-btn{
+		top: 28%;
+	}
+	.up-down-btn div{
+		width: 150%;
+		height: 45px;
+		font-size: 12pt;
+		text-align: center;
+	}
+}

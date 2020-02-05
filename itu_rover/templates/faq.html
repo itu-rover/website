@@ -1,0 +1,60 @@
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/faq.css' %}">
+{% endblock %}
+
+<img src="{% static 'img/bg4.png' %}" id="bg3">
+
+{% if "/eng/" in request.path %}
+    <div class="faq-container">
+    <h1 style="color: white">FREQUENTLY ASKING QUESTIONS</h1>
+    <br>
+    <hr>
+    <br>
+    {% for faq in faqs %}
+        <div class="question">
+            <br>
+            <h2>{{ faq.eng_question }}</h2>
+            <br>
+        </div>
+        <div class="answer">
+            <br>
+            <h3>{{ faq.eng_answer }}</h3>
+            <br>
+        </div>
+        <br><br>
+    {% empty %}
+    Buraya İTÜ Rover Takımı hakkında henüz bir şey yazılmadı.
+    {% endfor %}
+</div>
+{% else %}
+    <div class="faq-container">
+    <h1 style="color: white">SIKÇA SORULAN SORULAR</h1>
+    <br>
+    <hr>
+    <br>
+    {% for faq in faqs %}
+        <div class="question">
+            <br>
+            <h2>{{ faq.question }}</h2>
+            <br>
+        </div>
+        <div class="answer">
+            <br>
+            <h3>{{ faq.answer }}</h3>
+            <br>
+        </div>
+        <br><br>
+    {% empty %}
+    Buraya İTÜ Rover Takımı hakkında henüz bir şey yazılmadı.
+    {% endfor %}
+</div>
+{% endif %}
+
+
+
+{% block body %}
+
+
+{% endblock %}

@@ -7,28 +7,27 @@
     <meta content="{% block description %}İTÜ Rover Takımı, İstanbul Teknik Üniversitesi bünyesindeki çeşitli fakültelerden bir araya gelmiş, farklı disiplinlerden öğretilere sahip, daha önceden birçok başarılı projelere imza atmış tecrübeli, meraklı ve çalışkan öğrencilerden oluşmaktadır.{% endblock description %}" name="description" />
     <meta content="#d7d8d9" name="theme-color" />
     <link href="{% static 'img/favicon.ico' %}" rel="shortcut icon" />
+     <link href="https://fonts.googleapis.com/css?family=Ropa+Sans&display=swap" rel="stylesheet">
+      <link rel="stylesheet" href="{% static 'css/base.css' %}">
     <title>{% block title %}İTÜ Rover Takımı{% endblock title %}</title>
-    {% block css %}
-    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" />
-    <link href="{% static 'css/bootstrap-grid.min.css' %}" rel="stylesheet" />
-    <link href="{% static 'css/custom.css' %}" rel="stylesheet" />
-    {% endblock css %}
+
+
+    {% block css %}    {% endblock css %}
   </head>
 
   <body>
-    {% include 'pieces/navbar.html' %}
-    <div id="content">
-      {% block body %}{% endblock body %}
-    </div>
-    {% include 'pieces/footer.html' %}
-    {% include 'pieces/egg.html' %}
+
+    <!--<div id="content">-->
+      {% block body %}
+
+      {% endblock body %}
+    <!--</div>-->
+
 
     {% block javascript %}
-    <script src="{% static 'js/jquery-1.10.2.min.js' %}"></script>
-    <script src="https://use.fontawesome.com/a92223afb3.js"></script>
-    <script src="{% static 'js/bootstrap.min.js' %}"></script>
-    <script src="{% static 'js/jquery.bcswipe.min.js' %}"></script>
-    <script src="{% static 'js/custom.js' %}"></script>
+        <script src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
+        <script src="{% static 'js/base.js' %}"></script>
+        <script src="https://use.fontawesome.com/a92223afb3.js"></script>
     {% endblock javascript %}
 
     {% block jquery %}

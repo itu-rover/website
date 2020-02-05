@@ -1,17 +1,185 @@
-{% extends 'base.html' %}
+{% load static %}<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta content="{% block description %}İTÜ Rover Takımı, İstanbul Teknik Üniversitesi bünyesindeki çeşitli fakültelerden bir araya gelmiş, farklı disiplinlerden öğretilere sahip, daha önceden birçok başarılı projelere imza atmış tecrübeli, meraklı ve çalışkan öğrencilerden oluşmaktadır.{% endblock description %}" name="description" />
+    <meta content="#d7d8d9" name="theme-color" />
+    <link href="{% static 'img/favicon.ico' %}" rel="shortcut icon" />
+      <link rel="stylesheet" href="{% static 'css/new/oldyears.css' %}">
+      <link rel="stylesheet" href="{% static 'css/new/sponsors.css' %}">
+      <link rel="stylesheet" href="{% static 'css/new/members.css' %}">
+    <link href="https://fonts.googleapis.com/css?family=Ropa+Sans&display=swap" rel="stylesheet">
+    <script src="{% static 'js/new/jquery-3.4.1.min.js' %}"></script>
+    <title>{% block title %}İTÜ Rover Takımı{% endblock title %}</title>
 
-{% block body %}
-<div class="container">
-    <div class="row">
-        <div class="col-md-12">
-            <h4 class="font-thick text-center">{{ oldyear.year }} YILI EKİBİ VE SPONSORLARI</h4>
-            <hr>
-        </div>
+
+    {% block css %}    {% endblock css %}
+  </head>
+
+  <body>
+
+  <!----------------NAVBAR PART------------------------->
+
+  {% include "navbar_new.html" %}
+
+
+  <!------------------1st PAGE--------------------->
+  <div id="_1" style="position: relative; top: 0; left:0; width: 100%; height: 100%;">
+
+<img src="{% static 'img/bg3.png' %}" id="bg3">
+{% if "/eng/" in request.path %}
+    <div class="members-container">
+<div class="adv-lead-container">
+    <div class="adv-lead">
+        <h1>Team Advisor</h1>
+        <hr style="border: 1px solid white; margin-bottom: 10px;">
+        {% for advisor in advisors %}
+            {% include 'pieces/person.html' with person=advisor %}
+        {% endfor %}
+    </div>
+
+    <div class="adv-lead">
+        <h1>Team Leader</h1>
+        <hr style="border: 1px solid white; margin-bottom: 10px;">
+        {% if leader %}
+            {% include 'pieces/person.html' with person=leader %}
+        {% endif %}
     </div>
 </div>
-{% include 'pieces/members.html' %}
-<br>
-<hr>
-<br>
-{% include 'pieces/sponsors.html' %}
-{% endblock body %}
+
+    {% for subteam in subteams %}
+        <div class="members-inner">
+            <h1>{{ subteam.eng_name }}</h1>
+            <hr style="border: 1px solid white; margin-bottom: 10px;">
+            {% for member in subteam.members.all %}
+                {% include 'pieces/person.html' with person=member %}
+            {% endfor %}
+
+        </div>
+    {% endfor %}
+</div>
+  </div>
+{% else %}
+    <div class="members-container">
+<div class="adv-lead-container">
+    <div class="adv-lead">
+        <h1>Takım Danışmanı</h1>
+        <hr style="border: 1px solid white; margin-bottom: 10px;">
+        {% for advisor in advisors %}
+            {% include 'pieces/person.html' with person=advisor %}
+        {% endfor %}
+    </div>
+
+    <div class="adv-lead">
+        <h1>Takım Lideri</h1>
+        <hr style="border: 1px solid white; margin-bottom: 10px;">
+        {% if leader %}
+            {% include 'pieces/person.html' with person=leader %}
+        {% endif %}
+    </div>
+</div>
+
+    {% for subteam in subteams %}
+        <div class="members-inner">
+            <h1>{{ subteam.name }}</h1>
+            <hr style="border: 1px solid white; margin-bottom: 10px;">
+            {% for member in subteam.members.all %}
+                {% include 'pieces/person.html' with person=member %}
+            {% endfor %}
+
+        </div>
+    {% endfor %}
+</div>
+  </div>
+{% endif %}
+
+<!--------------------2nd PAGE------------------------->
+
+<div id="_2" style="position: relative; top: 0; left:0; width: 100%; height: 100%;">
+
+{% if "/eng/" in request.path %}
+    <img src="{% static 'img/bg2.png' %}" id="bg2">
+
+        <div class="sponsorship-container">
+        <div class="id-container" id="container">
+        {% for sponsor_type in sponsor_types %}
+            <div class="types-container">
+                <h1 class="ship-name">{{ sponsor_type.eng_name }} Sponsors</h1>
+                <div class="sponsors-container">
+                    {% for sponsor in sponsor_type.sponsors.all %}
+                        <div class="sponsor">
+                            <img src="{{ sponsor.image.url }}" width="{{ sponsor.display_width }}px" alt="">
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        {% empty %}
+            <p>Sponsorluk türü yok.</p>
+        {% endfor %}
+        </div>
+        </div>
+    </div>
+{% else %}
+    <img src="{% static 'img/bg3.png' %}" id="bg2">
+
+        <div class="sponsorship-container">
+        <div class="id-container" id="container">
+        {% for sponsor_type in sponsor_types %}
+            <div class="types-container">
+                <h1 class="ship-name">{{ sponsor_type.name }} Sponsorlar</h1>
+                <div class="sponsors-container">
+                    {% for sponsor in sponsor_type.sponsors.all %}
+                        <div class="sponsor">
+                            <img src="{{ sponsor.image.url }}" width="{{ sponsor.display_width }}px" alt="">
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        {% empty %}
+            <p>Sponsorluk türü yok.</p>
+        {% endfor %}
+        </div>
+        </div>
+    </div>
+{% endif %}
+
+  <!--------------UP DOWN BUTTON CONTAINER-------------->
+  {% if "/eng/" in request.path %}
+    <div class="up-down-z">
+        <div class="up-down-container">
+            <div class="up-down-btn">
+                <div id="first-btn"><p>Team Members</p></div>
+                <div id="second-btn"><p>Our Sponsors</p></div>
+            </div>
+        </div>
+    </div>
+  {% else %}
+    <div class="up-down-z">
+        <div class="up-down-container">
+            <div class="up-down-btn">
+                <div id="first-btn"><p>Takım Üyeleri</p></div>
+                <div id="second-btn"><p>Sponsorlarımız</p></div>
+            </div>
+        </div>
+    </div>
+  {% endif %}
+
+
+
+      {% block body %}{% endblock body %}
+
+
+
+
+    {% block javascript %}
+        <script src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
+        <script src="{% static 'js/base.js' %}"></script>
+        <script src="https://use.fontawesome.com/a92223afb3.js"></script>
+    {% endblock javascript %}
+
+    {% block jquery %}
+    {% endblock jquery %}
+  </body>
+</html>

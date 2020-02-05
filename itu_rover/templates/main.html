@@ -1,124 +1,69 @@
-{% extends 'base.html' %}
+{% extends 'old/../base.html' %}
 {% load static %}
 {% load markdown_deux_tags %}
 {% load itu_rover %}
 
 {% block css %}
 {{ block.super }}
-<style>
-    .full-screen {
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-    }
+<!--
+        <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" />
+    <link href="{% static 'css/bootstrap-grid.min.css' %}" rel="stylesheet" />
+    <link href="{% static 'css/custom.css' %}" rel="stylesheet" />
 
-   body {
-     padding-top: 0; !important
-   }
-</style>
+    -->
 {% endblock css %}
 
+
+
 {% block body %}
-{% include 'pieces/slider.html' with slides=slide_images %}
 
-<div class="container">
-  <div class="row justify-content-center">
-    <div class="col-12">
-      <hr>
-      {% for entry in entries %}
-      <div class="row justify-content-start">
-        <div class="col-md-4">
-          <h3 class="font-thick text-right">{{ entry.title | uppercase }}</h3>
-        </div>
-        <div class="col-md-8">
-          <blockquote class="text-big">
-            {{ entry.content | markdown }}
-          </blockquote>
-        </div>
-        <hr>
-      </div>
-      {% endfor %}
-    </div>
-    <div class="col-md-10">
-      <div class="row justify-content-center">
-        <div class="col-lg-4 col-sm-12">
-          <div class="text-center">
-            <img height="96px" class="" src="{% static 'img/navbar/team_black.svg' %}"></img>
-          </div>
-          <div>
-            <h4 class="font-thick text-center">Takımı Tanı</h4>
-            <ul class="text-big" type="circle">
-              <li><a class="font-default-color" href="{% url 'about' %}">Takım Hakkında<i style="margin-left: 5px;" class="fa fa-angle-double-right" aria-hidden="true"></i></a></li>
-              <li><a class="font-default-color" href="{% url 'members' %}">Takım Üyeleri<i style="margin-left: 5px;" class="fa fa-angle-double-right" aria-hidden="true"></i></a></li>
-            </ul>
-          </div>
-          <hr class="visible-xs">
-        </div>
+     <!----------------NAVBAR PART------------------------->
 
-        <div class="col-lg-4 col-sm-12">
-          <div class="text-center">
-            <img height="96px" class="" src="{% static 'img/navbar/rover_black.svg' %}"></img>
-          </div>
-          <div>
-            <h4 class="font-thick text-center">Rover</h4>
-            <ul class="text-big" type="circle">
-              <li><a class="font-default-color" href="{% url 'rover' %}">Rover Nedir?<i style="margin-left: 5px;" class="fa fa-angle-double-right" aria-hidden="true"></i></a></li>
-              <li><a class="text-big font-default-color" href="{% url 'rover' %}">Tasarımımız Hakkında<i style="margin-left: 5px;" class="fa fa-angle-double-right" aria-hidden="true"></i></a></li>
-            </ul>
-          </div>
-          <hr class="visible-xs">
-        </div>
+  {% include "navbar_new.html" %}
 
-        <div class="col-lg-4 col-sm-12">
-          <div class="text-center">
-            <img height="96px" class="" src="{% static 'img/navbar/sponsorship_black.svg' %}"></img>
-          </div>
-          <div class="">
-            <h4 class="font-thick text-center">Sponsorluk</h4>
-            <ul class="text-big" type="circle">
-              <li><a class="font-default-color" href="{% url 'sponsors' %}">Sponsorlar<i style="margin-left: 5px;" class="fa fa-angle-double-right" aria-hidden="true"></i></a></li>
-              <li><a class="font-default-color" href="{% url 'sponsors' %}">Destek Olun<i style="margin-left: 5px;" class="fa fa-angle-double-right" aria-hidden="true"></i></a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
+
+  <!------------------CONTENT--------------------->
+  <div class="content">
+      <div class="section" id="_1">{% include "rover.html" %}</div>
+
+      <div class="section" id="_2">{% include "sponsors.html" %}</div>
+
+      <div class="section" id="_3">{% include "members.html" %}</div>
+
+      <div class="section" id="_4">{% include "faq.html" %}</div>
+
+      <div class="section" id="_5">{% include "what_rover.html" %}</div>
+
+      <div class="section" id="_6">{% include "about.html" %}</div>
   </div>
-</div>
-{% endblock body %}
+{% if "/eng/" in request.path %}
+    <div class="up-down-z">
+        <div class="up-down-container">
+            <div class="up-down-btn">
+                <div id="first-btn"><p><b>Our Rovers</b></p></div>
+                <div id="second-btn"><p><b>Our Sponsors</b></p></div>
+                <div id="third-btn"><p><b>Team Members</b></p></div>
+                <div id="fourth-btn"><p><b>Frequently Asking Questions</b></p></div>
+                <div id="fifth-btn"><p><b>What is Rover?</b></p></div>
+                <div id="sixth-btn"><p><b>About Us</b></p></div>
+            </div>
+        </div>
+    </div>
+{% else %}
+    <div class="up-down-z">
+        <div class="up-down-container">
+            <div class="up-down-btn">
+                <div id="first-btn"><p><b>Roverlarımız</b></p></div>
+                <div id="second-btn"><p><b>Sponsorlarımız</b></p></div>
+                <div id="third-btn"><p><b>Takım Üyeleri</b></p></div>
+                <div id="fourth-btn"><p><b>Sıkça Sorulan Sorular</b></p></div>
+                <div id="fifth-btn"><p><b>Rover Nedir?</b></p></div>
+                <div id="sixth-btn"><p><b>Hakkımızda</b></p></div>
+            </div>
+        </div>
+    </div>
+{% endif %}
+  <!--------------UP DOWN BUTTON CONTAINER-------------->
 
-{% block javascript %}
-{{ block.super }}
-<script src="{% static 'js/jquery.bcswipe.min.js' %}"></script>
-{% endblock javascript %}
 
-{% block jquery %}
-<script>
-$(function () {
-  $('[data-toggle="tooltip"]').tooltip()
-})
-$('.carousel').bcSwipe({ threshold: 50 });
-var $item = $('.carousel .item');
-var $wHeight = $(window).height();
-$item.eq(0).addClass('active');
-$item.height($wHeight);
-$item.addClass('full-screen');
-$('.carousel .img-background').each(function() {
-  var $src = $(this).attr('src');
-  var $color = $(this).attr('data-color');
-  $(this).parent().css({
-    'background-image' : 'url(' + $src + ')',
-    'background-color' : $color
-  });
-  $(this).remove();
-});
-$(window).on('resize', function (){
-  $wHeight = $(window).height();
-  $item.height($wHeight);
-});
-$('.carousel').carousel({
-  interval: 6000,
-  pause: "false"
-});
-</script>
-{% endblock jquery %}
+{% endblock %}

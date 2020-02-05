@@ -1,5 +1,64 @@
-{% extends 'base.html' %}
+{% load static %}
+
+{% block css %}
+      <link rel="stylesheet" href="{% static 'css/sponsors.css' %}">
+ <!-- <style>
+    @media screen and (max-width: 968px) {
+        {% for sponsor_type in sponsor_types %}
+
+            .sponsorship-container{
+	            width: calc(({{ sponsor_type.id }} * 100%));
+            }
+        {% endfor %}
+    }
+    </style>  -->
+{% endblock %}
+
+
+<img src="{% static 'img/bg2.png' %}" id="bg2">
+
+{% if "/eng/" in request.path %}
+    <div class="sponsorship-container">
+        <div class="id-container" id="container">
+        {% for sponsor_type in sponsor_types %}
+            <div class="types-container">
+                <h1 class="ship-name">{{ sponsor_type.name }} Sponsors</h1>
+                <div class="sponsors-container">
+                    {% for sponsor in sponsor_type.sponsors.all %}
+                        <div class="sponsor">
+                            <img src="{{ sponsor.image.url }}" width="{{ sponsor.display_width }}px" alt="">
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        {% empty %}
+            <p>Sponsorluk türü yok.</p>
+        {% endfor %}
+        </div>
+        </div>
+{% else %}
+    <div class="sponsorship-container">
+        <div class="id-container" id="container">
+        {% for sponsor_type in sponsor_types %}
+            <div class="types-container">
+                <h1 class="ship-name">{{ sponsor_type.name }} Sponsorlar</h1>
+                <div class="sponsors-container">
+                    {% for sponsor in sponsor_type.sponsors.all %}
+                        <div class="sponsor">
+                            <img src="{{ sponsor.image.url }}" width="{{ sponsor.display_width }}px" alt="">
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        {% empty %}
+            <p>Sponsorluk türü yok.</p>
+        {% endfor %}
+        </div>
+        </div>
+{% endif %}
+
+<!--
 
 {% block body %}
-{% include 'pieces/sponsors.html' %}
-{% endblock body %}
+
+{% endblock %}

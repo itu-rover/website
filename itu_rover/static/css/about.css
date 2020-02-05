@@ -1,0 +1,42 @@
+.about-container{
+    position: absolute;
+    top: 10%;
+    width: 100%;
+    height: 65%;
+    background-color: rgba(0,0,0,0.5);
+    text-align: center;
+    border-bottom: 5px solid black;
+    border-top: 5px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: scroll;
+    overflow-x: hidden;
+}
+
+.entry-territory{
+    width: 55%;
+    height: 100%;
+    color: white;
+}
+.entry-territory img{
+    width: 80%;
+}
+.entries{
+    font-size: 16pt;
+}
+.entries h1{
+    font-size: 22pt;
+}
+.subentries{
+    font-size: 15pt;
+}
+.subentries h1{
+    font-size: 20pt;
+}
+
+@media screen and (max-width: 968px) {
+    .entry-territory{
+        width: 95%;
+    }
+}

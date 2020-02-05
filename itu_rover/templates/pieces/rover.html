@@ -1,0 +1,53 @@
+% load static %}
+
+{% block css %}
+      <link rel="stylesheet" href="{% static 'css/new/rover.css' %}">
+{% endblock %}
+
+<img src="{% static 'img/arkaplan.png' %}" id="bg">
+    <!---------CONTENT----------->
+
+	<div class="rover-prop">
+		<div id="rover17-prop">
+			<h1>'17</h1>
+			<h3><p>aaaaaaaaaaaaaaaaaaaa  aaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaa  aaaaaaaaaaaaaaa    aaaaaaaaaaaaaa aa aa aaaaaaaaaaaaa aaaaaaaaaa aaaaaaaaaaaaaaaaaaa  aaaaaaaaaaaaaa aaaaaa aaaaa aaaaaaaaaaaa    aaaaaaaaaaa aaaaaaaaaa aaaaa aaaaaaaaaaaaa aaaaaaaaaaaaaaa  aaaaaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaa</p></h3>
+		</div>
+		<div id="rover18-prop">
+			<h1>'18</h1>
+			<h3><p>BBBBBBBBBBB bbbbbbbbbbbbbbbb bbbbbbbbbbbbbbbbbbbbbbb bbbbbbbbbbbbbbbbbbb bbbbbbbbbbbbbbbbbbb bbbbbbbbbbbbb bbbbbbbbbbbbb bbbbbbbbbbbbbb bbbbbbbbbbbbb bbbbbbbbbbbbbbb bbbbbbbb bbbbbb</p></h3>
+		</div>
+		<div id="rover19-prop">
+			<h1>'19</h1>
+			<h3><p>ccccccccccccccccccc ccccccccccccccccccccc ccccccccccccccccccccccc cccccccccccccccccccccccc ccccccccccccccccc ccccccccccccc cccccccccccccc ccccccccccccccc cccccccccccccccc cccccccccccccccc </p></h3>
+		</div>
+	</div>
+
+    <div class="images">
+        <img src="{% static 'img/18_2.png' %}" class="rover" id="rover17">
+        <img src="{% static 'img/18_2.png' %}" class="rover" id="rover18">
+        <img src="{% static 'img/18_2.png' %}" class="rover" id="rover19">
+    </div>
+
+	<!----------LEFT-RIGHT ANIMATE BUTTONS---------->
+	<div class="btn-container">
+		<div id="left-btn" class="btn-lr">
+            <img src="{% static "img/18_2.png" %}" alt="">
+            <div><b>'17</b></div>
+        </div>
+		<div id="middle-btn" class="btn-lr">
+            <img src="{% static "img/18_2.png" %}" alt="">
+            <div><b>'18</b></div>
+        </div>
+		<div id="right-btn" class="btn-lr">
+            <img src="{% static "img/18_2.png" %}" alt="">
+            <div><b>'19</b></div>
+        </div>
+	</div>
+
+
+{% block body %}
+{% block javascript %}
+    <script src="{% static "js/new/rover.js" %}"></script>
+{% endblock %}
+
+{% endblock %}

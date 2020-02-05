@@ -1,0 +1,92 @@
+#bg2{
+	width: 100%;
+	z-index:-1;
+	position: absolute;
+	left: 0;
+	top: 0;
+	height: 100%;
+}
+
+.sponsorship-container{
+    position: absolute;
+    top: 10%;
+    left: 0;
+    z-index: +1;
+	width: 100%;
+	height: 88%;
+	background-color: rgba(0,0,0,0.1);
+	border-bottom: 4px solid black;
+	border-top: 4px solid black;
+	overflow-x: hidden;
+}
+.id-container{
+	position: absolute;
+	top: 0;
+	left:0;
+	width: 90%;
+	display: inline-block;
+}
+.types-container{
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	border-bottom: 4px solid white;
+	margin: 5%;
+}
+.ship-name {
+	font-size: 48pt;
+	color: white;
+	text-align: left;
+	padding-left: 20px;
+}
+.sponsors-container{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.sponsor{
+	margin: 25px;
+}
+.btn-container2{
+	text-align: center;
+	width: 100%;
+	margin: auto;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: absolute;
+	top: 90%;
+	z-index: +888;
+}
+.btn-container2 h3{
+	margin: auto;
+	width: 80%;
+	font-size: 16pt;
+	color: white;
+	border-top: 3px solid white;
+	background-color: rgba(0,0,0,0.3);
+	padding: 8px 0;
+	transition: 0.3s
+}
+.btn-container2 h3:hover{
+	background-color: rgba(0,0,0,0.7);
+}
+
+
+@media screen and (max-width: 968px) {
+	.sponsors-container{
+		display: block;
+	}
+	.types-container{
+		display: block;
+	}
+	.ship-name{
+		font-size: 25pt;
+	}
+	.sponsor img{
+		width: 100%;
+	}
+	.btn-container2 button{
+		width: 25%;
+	}
+}

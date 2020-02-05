@@ -1,0 +1,165 @@
+html{
+	height: 100%;
+}
+body{
+	height: 100%;
+}
+#bg{
+	width: 100%;
+	z-index:-1;
+	position: absolute;
+	left: 0;
+	top: 0;
+	height: 120%;
+}
+.rover-prop-container{
+	position: absolute;
+	left: 22%;
+	top: 10%;
+	height: 60%;
+	width: 20%;
+	overflow: hidden;
+	box-shadow: 0 0 35px black;
+	background-color: rgba(0,0,0,0.4);
+}
+.rover-prop{
+	text-align: center;
+	height: 100%;
+	color: white;
+	width: 100%;
+	position: absolute;
+	top:15%;
+}
+.rover-prop div h1{
+	font-size: 144pt;
+	text-shadow: 2px 2px 15px black;
+}
+
+.rover{
+	transition-timing-function: ease-in;
+	position: absolute;
+	width: 550px;
+	top: 30%;
+}
+#rover17{
+	left: -50%;
+}
+#rover18{
+	left: 55%;
+}
+#rover19{
+	left: 150%;
+}
+.rover-prop div{ /*------ #rover17-prop, #rover18-prop, #rover19-prop -------*/
+	width: 100%;
+	height: inherit;
+	padding: 15% 10%;
+}
+#rover17-prop, #rover19-prop{
+	display: none;
+}
+
+.btn-container{
+	width: 33%;
+	margin: auto;
+	display: flex;
+	justify-content: space-around;
+	position: absolute;
+	left: 33%;
+	top: 84%;
+}
+.btn-container img{
+	width: 120px;
+	height: 100px;
+	margin-bottom: 10px;
+	opacity: 0.5;
+}
+.btn-container img:hover{
+	opacity: 1.0;
+	transition: 0.5s;
+}
+.btn-container div div{
+	text-align: center;
+	margin: auto;
+	width: 50px;
+	border-top: 5px solid white;
+	font-size: 16pt;
+	color: white;
+}
+
+
+@media screen and (max-width: 1628px) {
+	.btn-container {
+		width: 50%;
+		left: 25%;
+	}
+	.rover{
+		width: 40%;
+		top: 27%;
+	}
+}
+
+
+@media screen and (max-width: 968px) {
+	.rover-prop-container{
+		left: 0;
+		top: 15%;
+		height: 71%;
+		width: 100%;
+		overflow: hidden;
+		border-top: 2px solid black;
+		border-bottom: 2px solid black;
+	}
+	.rover-prop{
+		width: 100%;
+		height: 100%;
+		top: 0;
+	}
+	.rover-prop div h1{
+		margin: 0;
+	}
+	.rover{
+		float: right;
+		width: 350px;
+		top: 45%;
+	}
+	.rover-prop div{ /*------ #rover17-prop, #rover18-prop, #rover19-prop -------*/
+		width: 100%;
+		height: 100%;
+		padding: 5%;
+	}
+	.rover-prop div p{
+		font-size: 14pt;
+	}
+	#rover17{
+		left: -100%;
+	}
+	#rover18{
+		left: 25%;
+	}
+	#rover19{
+		left: 200%;
+	}
+
+	.btn-container{
+		width: 100%;
+		left: 0;
+		top: 88%;
+	}
+	.btn-container div{
+		display: flex;
+	}
+	.btn-container img{
+		width: 85px;
+		opacity: 1;
+	}
+	.btn-container div div{
+		font-size: 16pt;
+		border-top: none;
+		height: 100%;
+		margin-left: 9px;
+		padding-left: 9px;
+		border-left :2px solid white;
+	}
+
+}
