@@ -50,6 +50,7 @@ class SponsorshipType(OrderableMixin, TimeStampedModel):
     eng_name = models.CharField(
         max_length=30,
         verbose_name='eng type name',
+        default="eng_name",
     )
     description = models.TextField()
 
