@@ -1,7 +1,6 @@
-# Create your models here.
 from django.db import models
-
 from core.mixins import OrderableMixin
+# Create your models here.
 
 
 class FaqEntry(OrderableMixin):

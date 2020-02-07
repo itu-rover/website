@@ -19,9 +19,11 @@ class AboutEntry(OrderableMixin):
     eng_title = models.CharField(
         max_length=50,
         verbose_name='eng_title',
+        default="eng",
     )
     eng_detail = models.TextField(
         verbose_name='eng_detail',
+        default="eng",
     )
 
     def __str__(self):

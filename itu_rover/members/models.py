@@ -95,19 +95,6 @@ class Member(Person, TimeStampedModel):
         null=True,
         verbose_name='english working experiences'
     )
-    team_role = models.TextField(
-        blank=True,
-        null=True,
-        verbose_name="what was the roles of this person in team?"
-                     "this is for graduated page"
-    )
-    eng_team_role = models.TextField(
-        blank=True,
-        null=True,
-        verbose_name="eng - what was the roles of this person in team?"
-                     "this is for graduated page"
-    )
-
 
     class MemberManager(models.Manager):
         def get_queryset(self):
@@ -142,7 +129,6 @@ class SubTeam(models.Model):
     """
     name = models.CharField(
         max_length=50,
-        default="name",
         db_index=True,
         verbose_name='subteam name',
     )

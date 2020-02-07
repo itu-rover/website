@@ -4,7 +4,7 @@ from django.db.models import Prefetch
 
 from core.defaults import current_year
 
-from .models import sponsor_new, sponsor_type
+from .models import SponsorshipType, Sponsor
 
 
 class SponsorsPage(TemplateView):
@@ -12,8 +12,8 @@ class SponsorsPage(TemplateView):
     not_found_message = 'Year not found for sponsors page.'
 
     def get_sponsor_context(self, year):
-        years_sponsors = sponsor_new.objects.filter(sponsorship_year=year)
-        sponsor_types = (sponsor_type.objects
+        years_sponsors = Sponsor.objects.filter(sponsorship_year=year)
+        sponsor_types = (SponsorshipType.objects
                          .filter(sponsors__sponsorship_year=year)
                          .prefetch_related(
                              Prefetch('sponsors', queryset=years_sponsors)
@@ -38,7 +38,7 @@ class SupportPage(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         extra_context = {
-            'sponsorship_types': sponsor_type.objects.all(),
+            'sponsorship_types': SponsorshipType.objects.all(),
         }
         context.update(extra_context)
         return context

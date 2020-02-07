@@ -1,18 +1,18 @@
 from django.contrib import admin
 
 from core.admin import PagedownedModelAdmin, OrderableModelAdmin
-from .models import sponsor_new, sponsor_type, SupportPage
+from .models import Sponsor, SponsorshipType, SupportPage
 
 
-@admin.register(sponsor_new)
+@admin.register(Sponsor)
 class SponsorAdmin(admin.ModelAdmin):
     list_filter = [
         'sponsorship_year',
-        #'sponsorship_type',
+        'sponsorship_type',
     ]
 
 
-@admin.register(sponsor_type)
+@admin.register(SponsorshipType)
 class SponsorshipTypeModelAdmin(OrderableModelAdmin, PagedownedModelAdmin):
     pass
 

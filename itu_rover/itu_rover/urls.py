@@ -21,7 +21,6 @@ from django.conf import settings
 
 from about.views import AboutPage
 from members.views import MembersPage
-from faq.views import FaqPage
 from main.views import MainPage, GraduatedPage
 from rover.views import RoverPage
 from sponsors.views import SponsorsPage
