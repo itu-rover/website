@@ -9,7 +9,7 @@ html{
 }
 body{
 	height:100%;
-	overflow: hidden;
+	overflow-x: hidden;
 }
 
 .content{
@@ -67,6 +67,12 @@ body{
 }
 
 @media screen and (max-width: 968px) {
+	.content{
+		position: static;
+	}
+	.up-down-z{
+		display: none;
+	}
 	.up-down-container .up-down-btn{
 		top: 28%;
 	}

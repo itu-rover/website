@@ -36,7 +36,7 @@
         <h1>Team Advisor</h1>
         <hr style="border: 1px solid white; margin-bottom: 10px;">
         {% for advisor in advisors %}
-            {% include 'pieces/person.html' with person=advisor %}
+            {% include 'person.html' with person=advisor %}
         {% endfor %}
     </div>
 
@@ -44,7 +44,7 @@
         <h1>Team Leader</h1>
         <hr style="border: 1px solid white; margin-bottom: 10px;">
         {% if leader %}
-            {% include 'pieces/person.html' with person=leader %}
+            {% include 'person.html' with person=leader %}
         {% endif %}
     </div>
 </div>
@@ -54,7 +54,7 @@
             <h1>{{ subteam.eng_name }}</h1>
             <hr style="border: 1px solid white; margin-bottom: 10px;">
             {% for member in subteam.members.all %}
-                {% include 'pieces/person.html' with person=member %}
+                {% include 'person.html' with person=member %}
             {% endfor %}
 
         </div>
@@ -76,7 +76,7 @@
         <h1>Takım Lideri</h1>
         <hr style="border: 1px solid white; margin-bottom: 10px;">
         {% if leader %}
-            {% include 'pieces/person.html' with person=leader %}
+            {% include 'person.html' with person=leader %}
         {% endif %}
     </div>
 </div>
@@ -86,7 +86,7 @@
             <h1>{{ subteam.name }}</h1>
             <hr style="border: 1px solid white; margin-bottom: 10px;">
             {% for member in subteam.members.all %}
-                {% include 'pieces/person.html' with person=member %}
+                {% include 'person.html' with person=member %}
             {% endfor %}
 
         </div>
