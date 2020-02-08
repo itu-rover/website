@@ -27,4 +27,5 @@ class SubTeamAdmin(admin.ModelAdmin):
 
 @admin.register(Member)
 class MemberAdmin(admin.ModelAdmin):
+    list_display = ['get_full_name', 'subteam', 'year']
     list_filter = ['year', 'subteam']
