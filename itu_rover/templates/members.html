@@ -5,8 +5,8 @@
 <!--  -->
 <link rel="stylesheet" href="{% static 'css/members.css' %}">
 
-
-<img src="{% static 'img/bg3.png' %}" id="bg3">
+<div style="width: 100%; height: 100%; position: absolute; left: 0; top: 100%;">
+<img src="{% static 'img/bg2.png' %}" id="bg3">
 
 {% if "/eng/" in request.path %}
     <div class="members-container">
@@ -73,7 +73,7 @@
     </div>
 
 {% endif %}
-
+</div>
 
 {% block body %}
 

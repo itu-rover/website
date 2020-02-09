@@ -4,7 +4,7 @@ $(document).ready(function(){
 
     function myFunction(x) {
 
-        // MA-WIDTH: 968px
+        // MAX-WIDTH: 968px
     if (x.matches) { // If media query matches
         $("#left-btn").click(function() {
             $("#bg").animate({
@@ -12,7 +12,7 @@ $(document).ready(function(){
             });
 
             $("#rover17").animate({
-                left: "25%",
+                left: "15%",
             });
             $("#rover18").animate({
                 left: "112%",
@@ -32,7 +32,7 @@ $(document).ready(function(){
                 left: "-100%",
             });
             $("#rover18").animate({
-                left: "25%",
+                left: "15%",
             });
             $("#rover19").animate({
                 left: "112%",
@@ -52,7 +52,7 @@ $(document).ready(function(){
                 left: "-100%",
             });
             $("#rover19").animate({
-                left: "25%",
+                left: "15%",
             });
 
             $("#rover17-prop").fadeOut();

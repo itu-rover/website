@@ -68,7 +68,7 @@ body{
 
 @media screen and (max-width: 968px) {
 	.content{
-		position: static;
+		position: fixed;
 	}
 	.up-down-z{
 		display: none;

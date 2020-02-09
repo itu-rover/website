@@ -10,21 +10,6 @@ $("#menu").click(function () {
     $("nav ul").fadeToggle();
 });
 
-/*
-    // ---------------------------------UP - DOWN--------------------------------
-    $("#first-btn").click(function(){
-        $(".content").animate({top: "0"});
-    });
-    $("#second-btn").click(function(){
-        $(".content").animate({top: "-100%"});
-    });
-    $("#third-btn").click(function(){
-        $(".content").animate({top: "-200%"});
-    });
-    $("#fourth-btn").click(function(){
-        $(".content").animate({top: "-300%"});
-    });
-*/
 if (window.location.href.indexOf("/eng/") > -1) {
     if(window.location.href.indexOf("127.0.0.1:8000/eng/past/20") > -1) {
     $("#first-btn").click(function () {
