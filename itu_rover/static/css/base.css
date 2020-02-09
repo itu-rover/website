@@ -54,7 +54,7 @@ body{
 .up-down-container .up-down-btn{
 	position: absolute;
 	left: 25%;
-	top: 35%;
+	top: 35%; /* a try */
 }
 .up-down-btn div{
 	height: 35px;
