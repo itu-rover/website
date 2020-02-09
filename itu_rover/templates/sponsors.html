@@ -31,7 +31,7 @@
         <div class="id-container" id="container">
         {% for sponsor_type in sponsor_types %}
             <div class="types-container">
-                <h1 class="ship-name">{{ sponsor_type.name }} Sponsorlar</h1>
+                <h1 class="ship-name">{{ sponsor_type.name }}</h1>
                 <div class="sponsors-container">
                     {% for sponsor in sponsor_type.sponsors.all %}
                         <div class="sponsor">
