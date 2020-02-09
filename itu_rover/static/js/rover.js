@@ -9,7 +9,7 @@ $(document).ready(function(){
         $("#left-btn").click(function() {
             $("#bg").animate({
                 left: "0%",
-            });
+            });/*
 
             $("#rover17").animate({
                 left: "15%",
@@ -19,15 +19,15 @@ $(document).ready(function(){
             });
             $("#rover19").animate({
                 left: "162%",
-            });
-            $("#rover17-prop").fadeIn();
-            $("#rover18-prop").fadeOut();
-            $("#rover19-prop").fadeOut();
+            });*/
+            $("#rover17-prop, #rover17").fadeIn();
+            $("#rover18-prop, #rover18").fadeOut();
+            $("#rover19-prop, #rover19").fadeOut();
         });
         $("#middle-btn").click(function(){
             $("#bg").animate({
                 left: "-10%",
-            })
+            })/*
             $("#rover17").animate({
                 left: "-100%",
             });
@@ -36,15 +36,15 @@ $(document).ready(function(){
             });
             $("#rover19").animate({
                 left: "112%",
-            });
-            $("#rover17-prop").fadeOut();
-            $("#rover18-prop").fadeIn();
-            $("#rover19-prop").fadeOut();
+            });*/
+            $("#rover17-prop, #rover17").fadeOut();
+            $("#rover18-prop, #rover18").fadeIn();
+            $("#rover19-prop, #rover19").fadeOut();
           });
         $("#right-btn").click(function(){
             $("#bg").animate({
                 left: "-20%",
-            });
+            });/*
             $("#rover17").animate({
                 left: "-200%",
             });
@@ -53,11 +53,11 @@ $(document).ready(function(){
             });
             $("#rover19").animate({
                 left: "15%",
-            });
+            });*/
 
-            $("#rover17-prop").fadeOut();
-            $("#rover18-prop").fadeOut();
-            $("#rover19-prop").fadeIn();
+            $("#rover17-prop, #rover17").fadeOut();
+            $("#rover18-prop, #rover18").fadeOut();
+            $("#rover19-prop, #rover19").fadeIn();
         });
 
         // PC DISPLAY
@@ -66,7 +66,7 @@ $(document).ready(function(){
             $("#left-btn").click(function(){
         $("#bg").animate({
             left: "0%",
-        });
+        });/*
 
         $("#rover17").animate({
             left: "55%",
@@ -76,18 +76,18 @@ $(document).ready(function(){
         });
         $("#rover19").animate({
             left: "150%",
-        });
+        });*/
 
-        $("#rover17-prop").fadeIn();
-        $("#rover18-prop").fadeOut();
-        $("#rover19-prop").fadeOut();
+        $("#rover17-prop, #rover17").fadeIn();
+        $("#rover18-prop, #rover18").fadeOut();
+        $("#rover19-prop, #rover19").fadeOut();
     });
 
 
       $("#middle-btn").click(function(){
         $("#bg").animate({
             left: "-10%",
-        })
+        })/*
         $("#rover17").animate({
             left: "-50%",
         });
@@ -96,18 +96,18 @@ $(document).ready(function(){
         });
         $("#rover19").animate({
             left: "100%",
-        });
+        });*/
 
-        $("#rover17-prop").fadeOut();
-        $("#rover18-prop").fadeIn();
-        $("#rover19-prop").fadeOut();
+        $("#rover17-prop, #rover17").fadeOut();
+        $("#rover18-prop, #rover18").fadeIn();
+        $("#rover19-prop, #rover19").fadeOut();
       });
 
 
       $("#right-btn").click(function(){
         $("#bg").animate({
             left: "-20%",
-        });
+        });/*
         $("#rover17").animate({
             left: "-100%",
         });
@@ -116,11 +116,11 @@ $(document).ready(function(){
         });
         $("#rover19").animate({
             left: "55%",
-        });
+        });*/
 
-        $("#rover17-prop").fadeOut();
-        $("#rover18-prop").fadeOut();
-        $("#rover19-prop").fadeIn();
+        $("#rover17-prop, #rover17").fadeOut();
+        $("#rover18-prop, #rover18").fadeOut();
+        $("#rover19-prop, #rover19").fadeIn();
       });
 
   }

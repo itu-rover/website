@@ -9,10 +9,16 @@ html{
 }
 body{
 	position: relative;
-	overflow: hidden;
 	height:100%;
 }
-
+.bg_{
+	width: 100%;
+	z-index:-1;
+	position: absolute;
+	left: 0;
+	top: 0;
+	height: 100%;
+}
 .content{
 	position: absolute;
 	top:0;
@@ -68,8 +74,8 @@ body{
 }
 
 @media screen and (max-width: 968px) {
-	.content{
-		position: fixed;
+	body{
+		overflow: hidden;
 	}
 	.up-down-z{
 		display: none;

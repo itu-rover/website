@@ -1,11 +1,4 @@
-#bg3{
-	width: 100%;
-	z-index:-1;
-	position: absolute;
-	left: 0;
-	top: 0;
-	height: 100%;
-}
+
 .adv-lead-container{
     display: flex;
     color: white;

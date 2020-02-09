@@ -42,13 +42,15 @@ body{
 	top: 30%;
 }
 #rover17{
-	left: -50%;
+	left: 55%;
+	display: none;
 }
 #rover18{
 	left: 55%;
 }
 #rover19{
-	left: 150%;
+	left: 55%;
+	display: none;
 }
 .rover-prop div{ /*------ #rover17-prop, #rover18-prop, #rover19-prop -------*/
 	width: 100%;
