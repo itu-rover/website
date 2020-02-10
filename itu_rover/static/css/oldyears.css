@@ -12,6 +12,14 @@ body{
 	overflow-x: hidden;
 }
 
+.bg_{
+	width: 100%;
+	z-index:-1;
+	position: absolute;
+	left: 0;
+	top: 0;
+	height: 100%;
+}
 .up-down-z{
 	position: absolute;
 	top: 0;

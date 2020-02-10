@@ -30,6 +30,9 @@
                 <div class="nav">
                     <a href="/eng" id="sponsors"><b>SPONSORS</b></a>
                     <a href="/eng" id="members"><b>TEAM MEMBERS</b></a>
+                    <a href="/eng" id="faq"><b>FAQ</b></a>
+                    <a href="/eng" id="rover"><b>ROVER</b></a>
+                    <a href="/eng" id="about"><b>ABOUT US</b></a>
                     <a href="/eng/graduated"><b>OUR GRADUATES</b></a>
                     <div class="past">
                         <a href="#"><b>PAST</b></a>
@@ -39,9 +42,6 @@
                             {% endfor %}
                         </div>
                     </div>
-                    <a href="/eng" id="faq"><b>FAQ</b></a>
-                    <a href="/eng" id="rover"><b>ROVER</b></a>
-                    <a href="/eng" id="about"><b>ABOUT US</b></a>
                     <a href="/"><b class="eng">TR</b></a>
                 </div>
 
@@ -49,6 +49,9 @@
                 <div class="nav">
                     <a href="/eng"><b>SPONSORS</b></a>
                     <a href="/eng"><b>TEAM MEMBERS</b></a>
+                    <a href="/eng"><b>FAQ</b></a>
+                    <a href="/eng"><b>ROVER</b></a>
+                    <a href="/eng"><b>ABOUT US</b></a>
                     <a href="/eng/graduated"><b>OUR GRADUATES</b></a>
                     <div class="past">
                         <a href="#"><b>PAST</b></a>
@@ -58,15 +61,15 @@
                             {% endfor %}
                         </div>
                     </div>
-                    <a href="/eng"><b>FAQ</b></a>
-                    <a href="/eng"><b>ROVER</b></a>
-                    <a href="/eng"><b>ABOUT US</b></a>
                     <a href="/"><b class="eng">TR</b></a>
                 </div>
             {% else %}
                 <div class="nav">
                     <a href="#" id="sponsors"><b>SPONSORS</b></a>
                     <a href="#" id="members"><b>TEAM MEMBERS</b></a>
+                    <a href="#" id="faq"><b>FAQ</b></a>
+                    <a href="#" id="rover"><b>ROVER</b></a>
+                    <a href="#" id="about"><b>ABOUT US</b></a>
                     <a href="/eng/graduated"><b>OUR GRADUATES</b></a>
                     <div class="past">
                         <a href="#"><b>PAST</b></a>
@@ -76,9 +79,6 @@
                             {% endfor %}
                         </div>
                     </div>
-                    <a href="#" id="faq"><b>FAQ</b></a>
-                    <a href="#" id="rover"><b>ROVER</b></a>
-                    <a href="#" id="about"><b>ABOUT US</b></a>
                     <a href="/"><b class="eng">TR</b></a>
                 </div>
             {% endif %}
@@ -90,18 +90,18 @@
                 <div class="nav">
                     <a href="/" id="sponsors"><b>SPONSORLAR</b></a>
                     <a href="/" id="members"><b>TAKIM ÜYELERİ</b></a>
+                    <a href="/" id="faq"><b>SSS</b></a>
+                    <a href="/" id="rover"><b>ROVER</b></a>
+                    <a href="/" id="about"><b>HAKKIMIZDA</b></a>
                     <a href="/mezunlar"><b>MEZUNLARIMIZ</b></a>
                     <div class="past">
                         <a href="#"><b>GEÇMİŞ</b></a>
                         <div class="dd-years">
                             {% for old_year in old_years %}
-                                <a href="{% url 'oldyear' year=old_year.year %}"><b>{{ old_year.year }}</b></a>
+                                <a href="{% url 'gecmis' year=old_year.year %}"><b>{{ old_year.year }}</b></a>
                             {% endfor %}
                         </div>
                     </div>
-                    <a href="/" id="faq"><b>SSS</b></a>
-                    <a href="/" id="rover"><b>ROVER</b></a>
-                    <a href="/" id="about"><b>HAKKIMIZDA</b></a>
                     <a href="/eng"><b class="eng">ENG</b></a>
                 </div>
 
@@ -110,18 +110,18 @@
                 <div class="nav">
                     <a href="/" id="sponsors"><b>SPONSORLAR</b></a>
                     <a href="/" id="members"><b>TAKIM ÜYELERİ</b></a>
+                    <a href="/" id="faq"><b>SSS</b></a>
+                    <a href="/" id="rover"><b>ROVER</b></a>
+                    <a href="/" id="about"><b>HAKKIMIZDA</b></a>
                     <a href="/mezunlar"><b>MEZUNLARIMIZ</b></a>
                     <div class="past">
                         <a href="#"><b>GEÇMİŞ</b></a>
                         <div class="dd-years">
                             {% for old_year in old_years %}
-                                <a href="{% url 'oldyear' year=old_year.year %}"><b>{{ old_year.year }}</b></a>
+                                <a href="{% url 'gecmis' year=old_year.year %}"><b>{{ old_year.year }}</b></a>
                             {% endfor %}
                         </div>
                     </div>
-                    <a href="/" id="faq"><b>SSS</b></a>
-                    <a href="/" id="rover"><b>ROVER</b></a>
-                    <a href="/" id="about"><b>HAKKIMIZDA</b></a>
                     <a href="/eng"><b class="eng">ENG</b></a>
                 </div>
 
@@ -130,18 +130,18 @@
                 <div class="nav">
                     <a href="#" id="sponsors"><b>SPONSORLAR</b></a>
                     <a href="#" id="members"><b>TAKIM ÜYELERİ</b></a>
+                    <a href="#" id="faq"><b>SSS</b></a>
+                    <a href="#" id="rover"><b>ROVER</b></a>
+                    <a href="#" id="about"><b>HAKKIMIZDA</b></a>
                     <a href="/mezunlar"><b>MEZUNLARIMIZ</b></a>
                     <div class="past">
                         <a href="#"><b>GEÇMİŞ</b></a>
                         <div class="dd-years">
                             {% for old_year in old_years %}
-                                <a href="{% url 'oldyear' year=old_year.year %}"><b>{{ old_year.year }}</b></a>
+                                <a href="{% url 'gecmis' year=old_year.year %}"><b>{{ old_year.year }}</b></a>
                             {% endfor %}
                         </div>
                     </div>
-                    <a href="#" id="faq"><b>SSS</b></a>
-                    <a href="#" id="rover"><b>ROVER</b></a>
-                    <a href="#" id="about"><b>HAKKIMIZDA</b></a>
                     <a href="/eng"><b class="eng">ENG</b></a>
                 </div>
 

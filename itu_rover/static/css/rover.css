@@ -12,6 +12,16 @@ body{
 	top: 0;
 	height: 120%;
 }
+.team-name{
+    position: absolute;
+    top: 15%;
+    left: 58%;
+    font-size: 38pt;
+    color: white;
+}
+.team-name:hover{
+    text-shadow: 0 0 27px black;
+}
 .rover-prop-container{
 	position: absolute;
 	left: 22%;
@@ -99,14 +109,40 @@ body{
 		width: 40%;
 		top: 27%;
 	}
+    .rover-prop{
+        top:8%;
+    }
+}
+
+@media screen and (max-height: 750px) {
+	.btn-container {
+        top: 75%;
+    }
+    .rover-prop-container{
+		top: 17%;
+		height: 55%;
+	}
+    .rover{
+		width: 30%;
+		top: 25%;
+	}
 }
 
 
 @media screen and (max-width: 968px) {
+    .team-name{
+        text-shadow: 2px 2px 15px black;
+        top: 12%;
+        left: 0%;
+        width: 100%;
+        text-align: center;
+        font-size: 32pt;
+        z-index: +4;
+    }
 	.rover-prop-container{
 		left: 0;
-		top: 15%;
-		height: 65%;
+		top: 20%;
+		height: 62%;
 		width: 100%;
 		overflow: hidden;
 		border-top: 2px solid black;
@@ -122,8 +158,9 @@ body{
 	}
 	.rover{
 		float: right;
-		width: 300px;
+		width: 70%;
 		top: 35%;
+        height: 40%
 	}
 	.rover-prop div{ /*------ #rover17-prop, #rover18-prop, #rover19-prop -------*/
 		width: 100%;

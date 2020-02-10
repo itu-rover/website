@@ -6,6 +6,13 @@
 
 <img src="{% static 'img/arkaplan.png' %}" id="bg">
 
+
+{% if '/eng/' in request.path %}
+    <h1 class="team-name"><b>ITU ROVER TEAM</b></h1>
+{% else %}
+    <h1 class="team-name"><b>İTÜ ROVER TAKIMI</b></h1>
+{% endif %}
+
     <!---------CONTENT----------->
     <div class="rover-prop-container">
         <div class="rover-prop">

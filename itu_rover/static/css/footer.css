@@ -24,6 +24,23 @@
 #itu-logo{
     width: 150px;
 }
+@media screen and (max-height: 750px) {
+    #footer-logo{
+        width: 120px;
+    }
+    #pby-radore{
+        width: 150px;
+    }
+    #itu-logo{
+        width: 70px;;
+    }
+    .footer-container div {
+        width: 30%;
+    }
+    .footer-container div a img{
+        width: 50px;
+    }
+}
 @media screen and (max-width: 968px) {
     #footer-logo{
         width: 150px;
