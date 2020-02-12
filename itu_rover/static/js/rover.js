@@ -9,17 +9,8 @@ $(document).ready(function(){
         $("#left-btn").click(function() {
             $("#bg").animate({
                 left: "0%",
-            });/*
-
-            $("#rover17").animate({
-                left: "15%",
+                width: "100%",
             });
-            $("#rover18").animate({
-                left: "112%",
-            });
-            $("#rover19").animate({
-                left: "162%",
-            });*/
             $("#rover17-prop, #rover17").fadeIn();
             $("#rover18-prop, #rover18").fadeOut();
             $("#rover19-prop, #rover19").fadeOut();
@@ -27,16 +18,8 @@ $(document).ready(function(){
         $("#middle-btn").click(function(){
             $("#bg").animate({
                 left: "-10%",
-            })/*
-            $("#rover17").animate({
-                left: "-100%",
-            });
-            $("#rover18").animate({
-                left: "15%",
-            });
-            $("#rover19").animate({
-                left: "112%",
-            });*/
+                width: "110%"
+            })
             $("#rover17-prop, #rover17").fadeOut();
             $("#rover18-prop, #rover18").fadeIn();
             $("#rover19-prop, #rover19").fadeOut();
@@ -44,17 +27,8 @@ $(document).ready(function(){
         $("#right-btn").click(function(){
             $("#bg").animate({
                 left: "-20%",
-            });/*
-            $("#rover17").animate({
-                left: "-200%",
+                width: "120%",
             });
-            $("#rover18").animate({
-                left: "-100%",
-            });
-            $("#rover19").animate({
-                left: "15%",
-            });*/
-
             $("#rover17-prop, #rover17").fadeOut();
             $("#rover18-prop, #rover18").fadeOut();
             $("#rover19-prop, #rover19").fadeIn();
@@ -66,18 +40,7 @@ $(document).ready(function(){
             $("#left-btn").click(function(){
         $("#bg").animate({
             left: "0%",
-        });/*
-
-        $("#rover17").animate({
-            left: "55%",
         });
-        $("#rover18").animate({
-            left: "100%",
-        });
-        $("#rover19").animate({
-            left: "150%",
-        });*/
-
         $("#rover17-prop, #rover17").fadeIn();
         $("#rover18-prop, #rover18").fadeOut();
         $("#rover19-prop, #rover19").fadeOut();
@@ -87,17 +50,7 @@ $(document).ready(function(){
       $("#middle-btn").click(function(){
         $("#bg").animate({
             left: "-10%",
-        })/*
-        $("#rover17").animate({
-            left: "-50%",
         });
-        $("#rover18").animate({
-            left: "55%",
-        });
-        $("#rover19").animate({
-            left: "100%",
-        });*/
-
         $("#rover17-prop, #rover17").fadeOut();
         $("#rover18-prop, #rover18").fadeIn();
         $("#rover19-prop, #rover19").fadeOut();
@@ -107,17 +60,7 @@ $(document).ready(function(){
       $("#right-btn").click(function(){
         $("#bg").animate({
             left: "-20%",
-        });/*
-        $("#rover17").animate({
-            left: "-100%",
         });
-        $("#rover18").animate({
-            left: "-50%",
-        });
-        $("#rover19").animate({
-            left: "55%",
-        });*/
-
         $("#rover17-prop, #rover17").fadeOut();
         $("#rover18-prop, #rover18").fadeOut();
         $("#rover19-prop, #rover19").fadeIn();

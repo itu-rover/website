@@ -1,7 +1,7 @@
 $(document).ready(function(){
 //$("#bg").css({left: "-30%"});
 
-$("#bg").animate({width: "120%", left: "-10%", top: "-20%"}, 500, function(){});
+$("#bg").animate({width: "120%", left: "-20%", top: "-20%"}, 500, function(){});
 
 // MENU icon for mobile
 
@@ -10,9 +10,7 @@ $("#menu").click(function () {
     $("nav ul").fadeToggle();
 });
 
-if (window.location.href.indexOf("/eng/") > -1) {
-    document.body.addEventListener('touchmove', function(e){ e.preventDefault(); });
-    if(window.location.href.indexOf("127.0.0.1:8000/eng/past/20") > -1) {
+if (window.location.href.indexOf("/eng/") > -1) {    if(window.location.href.indexOf("127.0.0.1:8000/eng/past/20") > -1) {
     $("#first-btn").click(function () {
         $("#_1").animate({top: "0"});
         $("#_2").animate({top: "0"});

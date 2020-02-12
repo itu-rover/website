@@ -102,7 +102,8 @@ nav div a:hover{
     nav{
         background-color: rgba(0,0,0,0.9);
         padding: 0;
-        height: 70px;
+        height: 60px;
+        position: fixed;
     }
     .nav-container{
         width: 100%;
