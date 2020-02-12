@@ -11,6 +11,7 @@ $("#menu").click(function () {
 });
 
 if (window.location.href.indexOf("/eng/") > -1) {
+    document.body.addEventListener('touchmove', function(e){ e.preventDefault(); });
     if(window.location.href.indexOf("127.0.0.1:8000/eng/past/20") > -1) {
     $("#first-btn").click(function () {
         $("#_1").animate({top: "0"});
