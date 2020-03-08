@@ -136,7 +136,7 @@ class SubTeam(models.Model):
         max_length=50,
         db_index=True,
         default="eng_name",
-        verbose_name='subteam name',
+        verbose_name='subteam eng name',
     )
     leaders = models.ManyToManyField(
         'Member',

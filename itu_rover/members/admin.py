@@ -14,9 +14,9 @@ class SubTeamAdminForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        subteam_name = self.initial['name']
-        self.fields['leaders'].queryset = (Member.objects
-                                           .filter(subteam__name=subteam_name))
+        #subteam_name = self.initial['name']
+        #self.fields['leaders'].queryset = (Member.objects
+                                           #.filter(subteam__name=subteam_name))
 
 
 @admin.register(SubTeam)
