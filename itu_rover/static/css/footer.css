@@ -25,6 +25,9 @@
     width: 150px;
 }
 @media screen and (max-height: 750px) {
+    .footer-container div{
+        display: block;
+    }
     #footer-logo{
         width: 120px;
     }
@@ -42,6 +45,9 @@
     }
 }
 @media screen and (max-width: 968px) {
+    .footer-container div{
+        display: block;
+    }
     #footer-logo{
         width: 150px;
     }

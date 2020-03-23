@@ -67,3 +67,9 @@ body{
 
       <div class="section" id="_6">{% include "about.html" %}</div>
  */
+
+@media screen and (max-width: 968px) {
+    .up-down-z{
+        display: none;
+    }
+}
