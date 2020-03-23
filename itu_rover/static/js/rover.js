@@ -8,8 +8,8 @@ $(document).ready(function(){
     if (x.matches) { // If media query matches
         $("#left-btn").click(function() {
             $("#bg").animate({
-                left: "0%",
-                width: "100%",
+                //left: "0%",
+                //width: "100%",
             });
             $("#rover17-prop, #rover17").fadeIn();
             $("#rover18-prop, #rover18").fadeOut();
@@ -17,8 +17,8 @@ $(document).ready(function(){
         });
         $("#middle-btn").click(function(){
             $("#bg").animate({
-                left: "-10%",
-                width: "110%"
+                //left: "-10%",
+                //width: "110%"
             })
             $("#rover17-prop, #rover17").fadeOut();
             $("#rover18-prop, #rover18").fadeIn();
@@ -26,8 +26,8 @@ $(document).ready(function(){
           });
         $("#right-btn").click(function(){
             $("#bg").animate({
-                left: "-20%",
-                width: "120%",
+                //left: "-20%",
+                //width: "120%",
             });
             $("#rover17-prop, #rover17").fadeOut();
             $("#rover18-prop, #rover18").fadeOut();
@@ -39,7 +39,7 @@ $(document).ready(function(){
     } else {
             $("#left-btn").click(function(){
         $("#bg").animate({
-            left: "0%",
+            //left: "0%",
         });
         $("#rover17-prop, #rover17").fadeIn();
         $("#rover18-prop, #rover18").fadeOut();
@@ -49,7 +49,7 @@ $(document).ready(function(){
 
       $("#middle-btn").click(function(){
         $("#bg").animate({
-            left: "-10%",
+            //left: "-10%",
         });
         $("#rover17-prop, #rover17").fadeOut();
         $("#rover18-prop, #rover18").fadeIn();
@@ -59,7 +59,7 @@ $(document).ready(function(){
 
       $("#right-btn").click(function(){
         $("#bg").animate({
-            left: "-20%",
+            //left: "-20%",
         });
         $("#rover17-prop, #rover17").fadeOut();
         $("#rover18-prop, #rover18").fadeOut();

@@ -1,93 +1,69 @@
 *{
-	margin: 0;
-	padding:0;
-	box-sizing:border-box;
-	font-family: 'Ropa Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 html{
-	height:100%;
+    height: 100%;
 }
 body{
-	position: relative;
-	height:100%;
-    overflow: hidden;
+    height: 100%;
+    background-color: gray;
+    font-family: 'Ropa Sans', sans-serif;
 }
 .bg_{
-	width: 100%;
-	z-index:-1;
-	position: absolute;
-	left: 0;
-	top: 0;
-	height: 100%;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
 }
-.content{
-	position: absolute;
-	top:0;
-	left:0;
-	width: 100%;
-	height: 100%;
+
+.up-down-z{
+    position: fixed;
+    z-index: +500;
+    left:2%;
+    top: 35%;
+}
+.up-down-z div{
+    border-left: 3px solid white;
+    font-size: 16pt;
+    color: white;
+    padding: 8px;
+    margin-bottom: 8px;
+}
+.up-down-z div:hover{
+
+}
+.up-down-z div:hover > .up-down-z div a{
+    color: darkred;
+}
+.up-down-z div a{
+    text-decoration: none;
+    color: white;
+}
+.up-down-z div a:hover{
+    color: darkred;
+    background-color: white;
+    transition: 0.2s;
+	transition-timing-function: ease-in-out;
 }
 
 .section{
-	display: block;
-	position: relative;
-	width: 100%;
-	height: 100%;
+    width: 100%;
+    height: 100%;
+    position: relative;
 }
 
+/*
+      <div class="section" id="_1">{% include "rover.html" %}</div>
 
+      <div class="section" id="_2">{% include "sponsors.html" %}</div>
 
-.up-down-z{
-	position: absolute;
-	top: 0;
-	left: 0;
-	z-index: 98;
-	width: 5%;
-	height: 100%;
-}
-.up-down-container{
-	width: 100%;
-	height: 100%;
-	position: relative;
-	vertical-align: central;
-	padding-left: 10px;
-}
-.up-down-container .up-down-btn{
-	position: absolute;
-	left: 25%;
-	top: 35%; /* a try */
-}
-.up-down-btn div{
-	height: 35px;
-	width: 250%;
-	margin-bottom: 10px;
-	color: white;
-	padding: 6px 19px;
-	border-left: 3px solid white;
-	font-size: 16pt;
-	transition: 0.2s;
-	transition-timing-function: ease-in-out;
-}
-.up-down-btn div:hover{
-	background-image: linear-gradient(to right, rgba(255,255,255,1) 50%, rgba(255,0,0,0));
-	color: darkred;
-	border-left: 3px solid darkred;
-}
+      <div class="section" id="_3">{% include "members.html" %}</div>
 
-@media screen and (max-width: 968px) {
-	body{
-		overflow: hidden;
-	}
-	.up-down-z{
-		display: none;
-	}
-	.up-down-container .up-down-btn{
-		top: 28%;
-	}
-	.up-down-btn div{
-		width: 150%;
-		height: 45px;
-		font-size: 12pt;
-		text-align: center;
-	}
-}
+      <div class="section" id="_4">{% include "faq.html" %}</div>
+
+      <div class="section" id="_5">{% include "what_rover.html" %}</div>
+
+      <div class="section" id="_6">{% include "about.html" %}</div>
+ */

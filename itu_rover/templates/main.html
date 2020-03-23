@@ -11,52 +11,43 @@
 
 {% block body %}
 
-     <!----------------NAVBAR PART------------------------->
-
-  {% include "navbar_new.html" %}
-
-
-  <!------------------CONTENT--------------------->
-      <div class="section" id="_1">{% include "rover.html" %}</div>
-
-      <div class="section" id="_2">{% include "sponsors.html" %}</div>
-
-      <div class="section" id="_3">{% include "members.html" %}</div>
-
-      <div class="section" id="_4">{% include "faq.html" %}</div>
-
-      <div class="section" id="_5">{% include "what_rover.html" %}</div>
-
-      <div class="section" id="_6">{% include "about.html" %}</div>
-
 {% if "/eng/" in request.path %}
     <div class="up-down-z">
-        <div class="up-down-container">
-            <div class="up-down-btn">
-                <div id="first-btn"><p><b>Our Rovers</b></p></div>
-                <div id="second-btn"><p><b>Our Sponsors</b></p></div>
-                <div id="third-btn"><p><b>Team Members</b></p></div>
-                <div id="fourth-btn"><p><b>Frequently Asking Questions</b></p></div>
-                <div id="fifth-btn"><p><b>What is Rover?</b></p></div>
-                <div id="sixth-btn"><p><b>About Us</b></p></div>
-            </div>
-        </div>
+        <div id="first-btn"><p><b><a href="#_rover">Our Rovers</a></b></p></div>
+        <div id="second-btn"><p><b><a href="#_sponsors">Our Sponsors</a></b></p></div>
+        <div id="third-btn"><p><b><a href="#_members">Team Members</a></b></p></div>
+        <div id="fourth-btn"><p><b><a href="#_faq">Frequently Asking Questions</a></b></p></div>
+        <div id="fifth-btn"><p><b><a href="#_what_rover">What is Rover?</a></b></p></div>
+        <div id="sixth-btn"><p><b><a href="#_about">About Us</a></b></p></div>
     </div>
 {% else %}
     <div class="up-down-z">
-        <div class="up-down-container">
-            <div class="up-down-btn">
-                <div id="first-btn"><p><b>Roverlarımız</b></p></div>
-                <div id="second-btn"><p><b>Sponsorlarımız</b></p></div>
-                <div id="third-btn"><p><b>Takım Üyeleri</b></p></div>
-                <div id="fourth-btn"><p><b>Sıkça Sorulan Sorular</b></p></div>
-                <div id="fifth-btn"><p><b>Rover Nedir?</b></p></div>
-                <div id="sixth-btn"><p><b>Hakkımızda</b></p></div>
-            </div>
-        </div>
+        <div id="first-btn"><p><b><a href="#_rover">Roverlarımız</a></b></p></div>
+        <div id="second-btn"><p><b><a href="#_sponsors">Sponsorlarımız</a></b></p></div>
+        <div id="third-btn"><p><b><a href="#_members">Takım Üyeleri</a></b></p></div>
+        <div id="fourth-btn"><p><b><a href="#_faq">Sıkça Sorulan Sorular</a></b></p></div>
+        <div id="fifth-btn"><p><b><a href="#_what_rover">Rover Nedir?</a></b></p></div>
+        <div id="sixth-btn"><p><b><a href="#_about">Hakkımızda</a></b></p></div>
     </div>
 {% endif %}
   <!--------------UP DOWN BUTTON CONTAINER-------------->
+
+
+
+
+    <!------------------CONTENT--------------------->
+
+    <div class="section" id="_rover">{% include "rover.html" %}</div>
+
+    <div class="section" id="_sponsors">{% include "sponsors.html" %}</div>
+
+    <div class="section" id="_members">{% include "members.html" %}</div>
+
+    <div class="section" id="_faq">{% include "faq.html" %}</div>
+
+    <div class="section" id="_what_rover">{% include "what_rover.html" %}</div>
+
+    <div class="section" id="_about">{% include "about.html" %}</div>
 
 
 {% endblock %}

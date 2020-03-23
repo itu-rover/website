@@ -78,8 +78,10 @@ class GraduatedPage(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         g_members = Member.objects.filter(did_work=True)
+        years = OldYear.objects.all()
         extra_context = {
-            'graduated_members': g_members
+            'graduated_members': g_members,
+            'years': years,
         }
 
         context.update(extra_context)

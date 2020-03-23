@@ -1,6 +1,6 @@
 nav{
-    position: absolute;
-    z-index: 451;
+    position: fixed;
+    z-index: +500;
     height: 8%;
     width: 100%;
     padding: 5px 20px;

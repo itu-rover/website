@@ -17,6 +17,9 @@
 
   <body>
 
+  {% include "navbar_new.html" %}
+
+
     <!--<div id="content">-->
       {% block body %}
 
@@ -26,7 +29,7 @@
 
     {% block javascript %}
         <script src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
-        <script src="{% static 'js/base.js' %}"></script>
+        <!--<script src="{% static 'js/base.js' %}"></script>-->
         <script src="https://use.fontawesome.com/a92223afb3.js"></script>
     {% endblock javascript %}
 

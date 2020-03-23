@@ -8,8 +8,12 @@
     <div style="text-align: right;"><a target="_blank" href="http://www.itu.edu.tr/"><img id="itu-logo" src="{% static 'img/footer/itu.png' %}" alt=""></a></div>
     <div>
         <img id="footer-logo" src="{% static 'img/itu_rover.png' %}" alt="">
-        <h2>İTÜ Rover Takımı</h2>
-        <h3>2020</h3>
+        {% if "/eng" in request.path %}
+            <h2>ITU Rover Team</h2>
+        {% else %}
+            <h2>İTÜ Rover Takımı</h2>
+        {% endif %}
+        <h4>2020</h4>
     </div>
     <div style="text-align: left;"><a target="_blank" href="https://radore.com/"><img id="pby-radore" src="{% static 'img/footer/powered_by_radore.png' %}" alt=""></a></div>
 </div>
