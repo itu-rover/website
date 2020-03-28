@@ -64,6 +64,10 @@
 
 
 @media screen and (max-width: 968px) {
+	.sponsorship-container{
+		width: 90%;
+		left: 5%;
+	}
 	.sponsors-container{
 		display: block;
 	}
