@@ -7,11 +7,11 @@
 .members-container{
     position: absolute;
     top: 9%;
-    left: 0;
+    left: 3%;
     z-index: +1;
     border-bottom: 4px solid black;
 	border-top: 4px solid black;
-    width: 100%;
+    width: 94%;
     height: 83%;
     background-color: rgba(0,0,0,0.5);
     overflow: scroll;
