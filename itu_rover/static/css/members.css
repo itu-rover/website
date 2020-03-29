@@ -23,6 +23,9 @@
     text-align: center;
     margin-top: 15px;
 }
+.adv-lead h1{
+    height: 80px;
+}
 .members-inner{
     padding: 10px 100px;
     color: white;
