@@ -14,15 +14,17 @@ $(document).ready(function(){
             $("#rover17-prop, #rover17").fadeIn();
             $("#rover18-prop, #rover18").fadeOut();
             $("#rover19-prop, #rover19").fadeOut();
+            $("#rover20-prop, #rover20").fadeOut();
         });
         $("#middle-btn").click(function(){
             $("#bg").animate({
                 //left: "-10%",
                 //width: "110%"
-            })
+            });
             $("#rover17-prop, #rover17").fadeOut();
             $("#rover18-prop, #rover18").fadeIn();
             $("#rover19-prop, #rover19").fadeOut();
+            $("#rover20-prop, #rover20").fadeOut();
           });
         $("#right-btn").click(function(){
             $("#bg").animate({
@@ -32,19 +34,31 @@ $(document).ready(function(){
             $("#rover17-prop, #rover17").fadeOut();
             $("#rover18-prop, #rover18").fadeOut();
             $("#rover19-prop, #rover19").fadeIn();
+            $("#rover20-prop, #rover20").fadeOut();
         });
+
+        $("#righter-btn").click(function(){
+            $("#bg").animate({
+                //left: "-20%",
+            });
+            $("#rover17-prop, #rover17").fadeOut();
+            $("#rover18-prop, #rover18").fadeOut();
+            $("#rover19-prop, #rover19").fadeOut();
+            $("#rover20-prop, #rover20").fadeIn();
+          });
 
         // PC DISPLAY
 
     } else {
-            $("#left-btn").click(function(){
-        $("#bg").animate({
-            //left: "0%",
+        $("#left-btn").click(function(){
+            $("#bg").animate({
+                //left: "0%",
+            });
+            $("#rover17-prop, #rover17").fadeIn();
+            $("#rover18-prop, #rover18").fadeOut();
+            $("#rover19-prop, #rover19").fadeOut();
+            $("#rover20-prop, #rover20").fadeOut();
         });
-        $("#rover17-prop, #rover17").fadeIn();
-        $("#rover18-prop, #rover18").fadeOut();
-        $("#rover19-prop, #rover19").fadeOut();
-    });
 
 
       $("#middle-btn").click(function(){
@@ -54,6 +68,7 @@ $(document).ready(function(){
         $("#rover17-prop, #rover17").fadeOut();
         $("#rover18-prop, #rover18").fadeIn();
         $("#rover19-prop, #rover19").fadeOut();
+        $("#rover20-prop, #rover20").fadeOut();
       });
 
 
@@ -64,6 +79,17 @@ $(document).ready(function(){
         $("#rover17-prop, #rover17").fadeOut();
         $("#rover18-prop, #rover18").fadeOut();
         $("#rover19-prop, #rover19").fadeIn();
+        $("#rover20-prop, #rover20").fadeOut();
+      });
+
+      $("#righter-btn").click(function(){
+        $("#bg").animate({
+            //left: "-20%",
+        });
+        $("#rover17-prop, #rover17").fadeOut();
+        $("#rover18-prop, #rover18").fadeOut();
+        $("#rover19-prop, #rover19").fadeOut();
+        $("#rover20-prop, #rover20").fadeIn();
       });
 
   }

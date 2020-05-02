@@ -3,4 +3,5 @@
 *.log
 static_root
 media_root
+.idea
 *.swp

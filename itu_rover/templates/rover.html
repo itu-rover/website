@@ -2,6 +2,15 @@
 
 {% block css %}
       <link rel="stylesheet" href="{% static 'css/rover.css' %}">
+    <style>
+    #_17, #_18, #_19, #_20{
+        font-size: 144pt;
+        text-shadow: 2px 2px 15px black;
+    }
+    @media screen and (max-width: 968px) {
+
+    }
+    </style>
 {% endblock %}
 
 <img src="{% static 'img/arkaplan.png' %}" id="bg">
@@ -17,15 +26,29 @@
     <div class="rover-prop-container">
         <div class="rover-prop">
             <div id="rover17-prop">
-                <h1 id="_17">'17</h1>
+                <h1 class="prop-header" id="_17">'17</h1>
                 <br>
             </div>
             <div id="rover18-prop">
-                <h1 id="_18">'18</h1>
+                <h1 class="prop-header" id="_18">'18</h1>
                 <br>
             </div>
             <div id="rover19-prop">
-                <h1 id="_19">'19</h1>
+                <h1 class="prop-header" id="_19">'19</h1>
+                <br>
+            </div>
+            <div id="rover20-prop">
+                <h1 class="prop-header" id="_20">'20</h1>
+                <br>
+                {% if '/eng/' in request.path %}
+                    <h1>AXA ITU ROVER</h1>
+                    <br>
+                    <h1 id="prop_eng">3<sup>rd</sup> PLACE IN URC'2020</h1>
+                {% else %}
+                    <h1>AXA İTÜ ROVER</h1>
+                    <br>
+                    <h1>URC'2020'de 3.'lük</h1>
+                {% endif %}
                 <br>
             </div>
         </div>
@@ -34,6 +57,7 @@
             <img src="{% static 'img/17_2.png' %}" class="rover" id="rover17">
             <img src="{% static 'img/18_2.png' %}" class="rover" id="rover18">
             <img src="{% static 'img/19_4.png' %}" class="rover" id="rover19">
+            <img src="{% static 'img/rover20.png' %}" class="rover" id="rover20">
     </div>
 
 	<!----------LEFT-RIGHT ANIMATE BUTTONS---------->
@@ -49,6 +73,10 @@
 		<div id="right-btn" class="btn-lr">
             <img src="{% static "img/19_4.png" %}" alt="">
             <div><b>'19</b></div>
+        </div>
+        <div id="righter-btn" class="btn-lr">
+            <img src="{% static "img/rover20.png" %}" alt="">
+            <div><b>'20</b></div>
         </div>
 	</div>
 

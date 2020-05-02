@@ -24,23 +24,26 @@ body{
 }
 .rover-prop-container{
 	position: absolute;
-	left: 22%;
-	top: 10%;
-	height: 60%;
-	width: 20%;
+	left: 18%;
+	top: 15%;
+	height: 55%;
+	width: 30%;
 	overflow: hidden;
 	box-shadow: 0 0 35px black;
-	background-color: rgba(0,0,0,0.4);
+	background-color: rgba(0,0,0,0.6);
 }
 .rover-prop{
 	text-align: center;
 	height: 100%;
 	color: white;
 	width: 100%;
-	position: absolute;
-	top:15%;
+	display: flex;
+	justify-content: center;
 }
 .rover-prop div h1{
+	font-size: 44pt;
+}
+#_17, #18, #_19, #_20{
 	font-size: 144pt;
 	text-shadow: 2px 2px 15px black;
 }
@@ -57,27 +60,31 @@ body{
 }
 #rover18{
 	left: 55%;
+	display: none;
 }
 #rover19{
 	left: 55%;
 	display: none;
+}
+#rover20{
+	left: 55%;
 }
 .rover-prop div{ /*------ #rover17-prop, #rover18-prop, #rover19-prop -------*/
 	width: 100%;
 	height: inherit;
 	padding: 15% 10%;
 }
-#rover17-prop, #rover19-prop{
+#rover17-prop, #rover18-prop, #rover19-prop{
 	display: none;
 }
 
 .btn-container{
-	width: 33%;
+	width: 44%;
 	margin: auto;
 	display: flex;
 	justify-content: space-around;
 	position: absolute;
-	left: 33%;
+	left: 28%;
 	top: 84%;
 }
 .btn-container img{
@@ -168,7 +175,7 @@ body{
 		padding: 5%;
 	}
 	.rover-prop div h1{
-		font-size: 72pt;
+		font-size: 32pt;
 		text-shadow: 2px 2px 15px black;
 	}
 	#rover17{
@@ -180,26 +187,34 @@ body{
 	#rover19{
 		left: 15%;
 	}
+	#rover20{
+		left: 15%;
+		top: 41%;
+	}
+	#_20{
+		display: none;
+	}
+	#prop_eng{
+		font-size: 26pt;
+	}
 
 	.btn-container{
 		width: 100%;
-		left: 0;
-		top: 83%;
+		left: 3%;
+		top: 90%;
 	}
 	.btn-container div{
 		display: flex;
 	}
 	.btn-container img{
-		width: 70px;
-		height: 70px;
+		width: 50px;
+		height: 50px;
 		opacity: 1;
 	}
 	.btn-container div div{
 		font-size: 16pt;
 		border-top: none;
 		height: 100%;
-		margin-left: 9px;
-		padding-left: 9px;
 		border-left :2px solid white;
 	}
 
