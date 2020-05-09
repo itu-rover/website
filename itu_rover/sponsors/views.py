@@ -31,7 +31,7 @@ class SponsorsPage(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        year = self.kwargs.get('year', year)
+        year = self.kwargs.get('year', current_year())
         sponsor_context = self.get_sponsor_context(year)
         context.update(sponsor_context)
         return context

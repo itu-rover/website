@@ -45,7 +45,7 @@ class MembersPage(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        year = self.kwargs.get('year', year)
+        year = self.kwargs.get('year', current_year())
         member_context = self.get_member_context(year)
         context.update(member_context)
         return context
