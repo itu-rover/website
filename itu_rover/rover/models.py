@@ -17,6 +17,15 @@ class Entry(OrderableMixin):
         upload_to='images/rover',
         blank=True,
     )
+    eng_title = models.CharField(
+        max_length=50,
+        verbose_name='eng_title',
+        default="eng",
+    )
+    eng_detail = models.TextField(
+        verbose_name='eng_detail',
+        default="eng",
+    )
 
     class Meta(OrderableMixin.Meta):
         abstract = True
