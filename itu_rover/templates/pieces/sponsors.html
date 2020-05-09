@@ -1,0 +1,29 @@
+{% load itu_rover %}
+
+<div class="container">
+  {% for sponsor_type in sponsor_types %}
+  <div class="row">
+    <div class="col-12">
+      <h4 class="font-thick text-center">{{ sponsor_type.name | uppercase }}</h4>
+      <hr>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12">
+      <div class="row justify-content-center align-items-center">
+        {% for sponsor in sponsor_type.sponsors.all %}
+        <div class="col-lg-4 col-md-6 col-12 text-center">
+            <a class="font-default-color font-thick text-big" href="{{ sponsor.website }}" target="_blank"><img style="margin-bottom: 16px; margin-top: 16px;" width="{{ sponsor.display_width }}px" src="{{ sponsor.image.url }}">{% if sponsor.is_name_on_display %}<p style="margin-bottom: 0px;">{{ sponsor.name }}</p>{% endif %}</a>
+        </div>
+        {% empty %}
+        <p class="text-center">Bu sponsorluk türünde henüz bir sponsor yok.</p>
+        {% endfor %}
+      </div>
+      <br>
+    </div>
+  </div>
+  {% empty %}
+  <p class="text-center">Henüz herhangi bir sponsorluk türü yok.</p>
+  {% endfor %}
+</div>

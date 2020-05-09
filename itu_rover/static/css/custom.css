@@ -1,0 +1,162 @@
+body {
+    padding-top: 80px;
+    padding-bottom: -285px;
+    background-color: #F8F8F8;
+}
+
+.font-thin {
+    font-weight: 300;
+}
+
+.font-thick {
+    font-weight: 600;
+}
+
+.footer {
+    background-color: #DBDBDB;
+    min-height: 275px;
+    margin-top: 10px;
+    border-top-style: inset;
+    border-top-color: #f8f8f8;
+    border-top-width: 2px;
+}
+
+.latte {
+    font-size: 16px;
+    background-color: #FFF8E7;
+    min-height: 100px;
+}
+
+.emptiness {
+    min-height: 300px;
+}
+
+.restaurant {
+    font-size: 16px;
+    background-color: black;
+    min-height: 100px;
+}
+
+.grey-to-latte {
+    font-size: 16px;
+    background: linear-gradient(180deg, #DBDBDB, #FFF8E7);
+}
+
+.latte-to-black {
+    font-size: 16px;
+    background: linear-gradient(0deg, black, black 20%, #FFF8E7);
+}
+
+.egg-toggle {
+    margin-top: 0px;
+}
+
+@media (max-width: 995px) {
+    .navbar-header {
+        float: none;
+    }
+    .navbar-left,.navbar-right {
+        float: none !important;
+    }
+    .navbar-toggle {
+        display: block;
+    }
+    .navbar-collapse {
+        border-top: 1px solid transparent;
+        box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
+    }
+    .navbar-fixed-top {
+        top: 0;
+        border-width: 0 0 1px;
+     }
+    .navbar-collapse.collapse {
+        display: none!important;
+    }
+    .navbar-nav {
+        float: none!important;
+        margin-top: 7.5px;
+     }
+     .navbar-nav>li {
+        float: none;
+    }
+    .navbar-nav>li>a {
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .collapse.in{
+        display:block !important;
+    }
+}
+
+.text-big {
+    font-size: 18px;
+}
+
+.text-medium {
+    font-size: 15px;
+}
+
+.footer-logo {
+    width: 240px;
+    margin-top: 32px;
+}
+
+.role-in-team {
+    margin-top: -15px;
+}
+
+.department {
+    margin-top: -5px;
+}
+
+.font-default-color {
+    color: #666666 !important;
+}
+
+.font-primary-color {
+    color: #444444 !important;
+}
+
+.h4 > a {
+    color: #444444 !important;
+}
+
+.navbar-icon {
+    margin-bottom: 3px;
+}
+
+.vcenter {
+    display: inline-block;
+    vertical-align: middle;
+    float: none;
+}
+
+@media (min-width: 995px) {
+    .navbar-fixed-top {
+        max-height: 65px;
+    }
+}
+
+.tooltip {
+    font-size: 15px;
+}
+
+.deactive {
+    filter: url(filters.svg#grayscale);
+    filter: gray;
+    -webkit-filter: grayscale(1);
+}
+
+.deactive:hover {
+    filter: none;
+    -webkit-filter: none;
+}
+
+.popover{
+  width:300px;
+}
+
+img {
+  max-width: 100%;
+  max-height: 500px;
+}

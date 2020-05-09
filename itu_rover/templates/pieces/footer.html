@@ -1,0 +1,66 @@
+{% load static %}
+<footer class="footer" id="footer-index">
+  <div class="container">
+    <div class="row">
+      <div class="col-xl-4 d-none d-xl-block" style="margin-top: 32px;">
+        <div class="col-md-5">
+          <p>
+          <u class="font-thick">TAKIM</u>
+          <br>
+          <a class="font-default-color" href="{% url 'about' %}">HAKKINDA</a>
+          <br>
+          <a class="font-default-color" href="{% url 'members' %}">ÜYELER</a>
+          </p>
+          <br>
+          <p class="font-thick"><a class="font-default-color" href="{% url 'rover' %}"><u>ROVER</u></a></p>
+          <br>
+        </div>
+        <div class="col-md-7">
+          <p>
+          <u class="font-thick">SPONSORLUK</u>
+          <br>
+          <a class="font-default-color" href="{% url 'sponsors' %}">SPONSORLAR</a>
+          <br>
+          <a class="font-default-color" href="{% url 'sponsors' %}">DESTEK OL</a>
+          </p>
+          <br>
+          <p class="font-thick"><a class="font-default-color" href="{% url 'rover' %}"><u>MEDYA</a></u></p>
+          <br>
+        </div>
+        <div class="col-md-12" style="padding: 0px;">
+          <a href="https://radore.com/" target="_blank">
+            <img style="width: 240px; margin-top: -12px;" src="{% static 'img/footer/powered_by_radore.png' %}">
+          </a>
+        </div>
+      </div>
+      <div class="col-xl-4 col-lg-5 col-sm-12 text-center" style="margin-top: 16px;">
+        <img class="footer-logo" src="{% static 'img/itu_rover.png' %}">
+        <h5 class="font-thick">İTÜ ROVER TAKIMI</h5>
+        <p class="font-thin">2018</p>
+        <a href="https://radore.com/" target="_blank">
+          <img style="width: 200px; margin-left: auto; margin-right: auto;" class="d-sm-block d-lg-none" src="{% static 'img/footer/powered_by_radore.png' %}">
+        </a>
+      </div>
+      <div class="col-xl-4 col-lg-7 col-md-7 d-lg-block d-none text-right">
+        <p class="text-big" style="margin-top: 32px;"><em class="font-thick">“Somewhere, something incredible is waiting to be known.”</em><small style="font-size: 13px;"> - Carl Sagan</small></p>
+        <div class="row" style="margin-top: 84px;">
+          <div class="col-sm-8 text-center">
+            <a href="https://radore.com/" target="_blank">
+              <img style="width: 220px; margin-top: 24px; margin-left: auto;" class="d-none d-lg-block d-xl-none" src="{% static 'img/footer/powered_by_radore.png' %}">
+            </a>
+          </div>
+          <div class="col-sm-4 text-right">
+            <a href="http://www.itu.edu.tr" target="_blank">
+              <img width="100px;" src="{% static 'img/footer/itu.png' %}">
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <p class="text-center egg-toggle" style="font-size: 0.4em; margin-top: 5px;"><i class="fa fa-angle-down" id="egg-toggle" aria-hidden="true"></i></p>
+      </div>
+    </div>
+  </div>
+</footer>

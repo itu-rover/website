@@ -14,9 +14,9 @@ class SubTeamAdminForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        #subteam_name = self.initial['name']
-        #self.fields['leaders'].queryset = (Member.objects
-                                           #.filter(subteam__name=subteam_name))
+        subteam_name = self.initial['name']
+        self.fields['leaders'].queryset = (Member.objects
+                                           .filter(subteam__name=subteam_name))
 
 
 @admin.register(SubTeam)
@@ -27,5 +27,4 @@ class SubTeamAdmin(admin.ModelAdmin):
 
 @admin.register(Member)
 class MemberAdmin(admin.ModelAdmin):
-    list_display = ['get_full_name', 'subteam', 'year']
     list_filter = ['year', 'subteam']

@@ -1,43 +1,17 @@
-{% extends 'old/../base.html' %}
-{% load static %}
-{% load markdown_deux_tags %}
-{% load itu_rover %}
-
-{% block css %}
-{{ block.super }}
-{% endblock css %}
-
-
+{% extends 'base.html' %}
 
 {% block body %}
-
-  <!------------------CONTENT--------------------->
-
-      <div class="section" id="_members">{% include "members.html" %}</div>
-
-      <div class="section" id="_sponsors">{% include "sponsors.html" %}</div>
-
-
-
-    {% if "/eng/" in request.path %}
-        <div class="up-down-z">
-            <div id="first-btn"><p><b><a href="#_members">Team Members</a></b></p></div>
-            <div id="second-btn"><p><b><a href="#_sponsors">Our Sponsors</a></b></p></div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h4 class="font-thick text-center">{{ oldyear.year }} YILI EKİBİ VE SPONSORLARI</h4>
+            <hr>
         </div>
-    {% else %}
-        <div class="up-down-z">
-            <div id="first-btn"><p><b><a href="#_members">Üyelerimiz</a></b></p></div>
-            <div id="second-btn"><p><b><a href="#_sponsors">Sponsorlarımız</a></b></p></div>
-        </div>
-    {% endif %}
-
-
-
-
-  <!--------------UP DOWN BUTTON CONTAINER-------------->
-
-
-    <script>
-    </script>
-
-{% endblock %}
+    </div>
+</div>
+{% include 'pieces/members.html' %}
+<br>
+<hr>
+<br>
+{% include 'pieces/sponsors.html' %}
+{% endblock body %}

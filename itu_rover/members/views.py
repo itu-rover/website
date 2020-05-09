@@ -6,13 +6,19 @@ from django.db.models import Prefetch
 from core.defaults import current_year
 
 from .models import SubTeam, TeamAdvisor, Member, TeamLeader, MembersPage as MP
+from oldyears.models import OldYear
 
 
 class MembersPage(TemplateView):
     template_name = 'members.html'
-    not_found_message = 'Year not found for members page.'
+    #not_found_message = 'Year not found for members page.'
 
     def get_member_context(self, year):
+        # defining year
+        # Member.objects.filter(year=OldYear.objects.all().order_by('-year')[0].year)
+        if not Member.objects.filter(year=year).exists():
+            year = int(year) - 1
+
         try:
             leader = TeamLeader.objects.filter(member__year=year).get().member
         except ObjectDoesNotExist:
@@ -39,7 +45,7 @@ class MembersPage(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        year = self.kwargs.get('year', current_year())
+        year = self.kwargs.get('year', year)
         member_context = self.get_member_context(year)
         context.update(member_context)
         return context
