@@ -1,7 +1,21 @@
 body {
-    padding-top: 80px;
+    font-family: 'Roboto', sans-serif;
     padding-bottom: -285px;
-    background-color: #F8F8F8;
+    background-color: #F0E8E6
+    /*
+    background: rgb(218,218,218);
+    background: linear-gradient(90deg, rgb(203,203,203) 0%, rgba(255,255,255,1) 50%, rgb(203,203,203) 100%);
+     */
+}
+
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
 }
 
 .font-thin {
@@ -9,7 +23,9 @@ body {
 }
 
 .font-thick {
-    font-weight: 600;
+    color: #443331;
+    font-weight: 900;
+    font-size: 152pt;
 }
 
 .footer {
@@ -21,41 +37,279 @@ body {
     border-top-width: 2px;
 }
 
-.latte {
-    font-size: 16px;
-    background-color: #FFF8E7;
-    min-height: 100px;
+.special-background{
+    width: 100%;
+    height: 100vh;
+    position:absolute;
+    top: 0;
+    left: 0;
+    z-index: +4;
+    background-size: cover;
+    background-position: bottom ;
+    background-repeat: no-repeat;
+}
+.carousel-item{
+    background-size: cover;
+    background-position: bottom ;
+}
+.rover-year{
+    font-size: 130pt;
+    color: #443331;
+    font-weight: 900;
 }
 
-.emptiness {
-    min-height: 300px;
+.carousel-indicators{
+    background-color: rgba(250, 208, 156, 0.9);
+    border-radius: 25px;
+    width: 30%;
+    display: flex;
+    justify-content: space-around;
+    margin-left: 7%;
+    bottom: 2%;
+    z-index: +4
+}
+.carousel-indicators div{
+    color: #443331;
+    position: relative;
+    width: 18%;
+}
+.carousel-indicators img{
+    position: absolute;
+    bottom: 110%;
+    background-color: rgba(250, 208, 156, 0.8);
+    border-radius: 40%;
+    display: none;
+
+}
+.carousel-indicators div:hover{
+    color: #926D6A;
+    transition: 0.5s;
+}
+.carousel-indicators div:hover .selector-img{
+    display: block;
+
 }
 
-.restaurant {
-    font-size: 16px;
+.bg-container{
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    width: 100%;
+}
+.black-trans{
     background-color: black;
-    min-height: 100px;
+    display: none;
+    opacity: 0.7;
+    height: 100vh;
+    width: 100%;
+}
+.logo-container{
+    width: 100%;
+    position: fixed;
+    z-index: 1;
+}
+.bg-logo{
+    width: 20%;
 }
 
-.grey-to-latte {
-    font-size: 16px;
-    background: linear-gradient(180deg, #DBDBDB, #FFF8E7);
+.entry-heading{
+    font-size:48pt;
+    color: rgb(66, 66, 66);
+    font-weight:500;
+}
+.entry-text{
+    font-size: 14pt;
+    color: rgb(87, 87, 87);
+    font-weight: 300;
 }
 
-.latte-to-black {
-    font-size: 16px;
-    background: linear-gradient(0deg, black, black 20%, #FFF8E7);
+.form-link{
+    width: 50%;
+    margin: auto;
+    height: 38px;
+    border: 2px solid #FAD09C;
+    font-size: 16pt;
+}
+.form-link a{
+    color: #FAD09C;
+}
+
+.form-link:hover{
+    background-color: #FAD09C;
+    transition: 0.3s;
+}
+
+.form-link > a:hover{
+    transition: 0.3s;
+    color: #343a40;
+    text-decoration: none;
 }
 
 .egg-toggle {
-    margin-top: 0px;
+    margin-top: 0;
 }
+.carousel-inner{
+    height: 100vh;
+    position: relative;
+}
+.bej-cont{
+    background: rgba(250, 208, 156, 0.9);
+    height: 100vh;
+}
+.itu-rover-yazi{
+    width: 60%;
+    margin-left: 30%;
+}
+
+.flo-right-but-mobile-left{
+    float: right;
+}
+.flo-left-but-mobile-right{
+    float: left;
+}
+.info-section{
+    margin-bottom: 16%;
+}
+.flo-left{
+    float: left;
+}
+.flo-right{
+    float: right;
+}
+
+/* ----- Near Pages -------- */
+.bg-container{
+    background-image: url('/itu_rover/static/img/bg_about.jpeg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    width: 100%;
+}
+.black-trans{
+    background-color: black;
+    display: none;
+    opacity: 0.7;
+    height: 100vh;
+    width: 100%;
+}
+.logo-container{
+    width: 100%;
+    position: fixed;
+    z-index: 1;
+}
+.content-container{
+    padding-top: 20px;
+    background-color: #F0E8E6;
+    position: absolute;
+    z-index: +1;
+    width: 100%;
+}
+
+/* ----- Navbar ------- */
+
+.hamburger-container {
+    position: absolute;
+    top: 3%;
+    right: 50px;
+    z-index: +4;
+    display: flex;
+    justify-content: space-around;
+    width: 160px;
+}
+.hamburger-container:hover {
+    box-shadow: 0 0 3px black;
+    transition: 0.2s;
+}
+.hamburger{
+    margin: 0;
+    padding: 0;
+}
+.hamburger-inner{
+    width: 30px;
+    height: 5px;
+    margin-top: 5px;
+    background-color: white;
+    border: 1px solid black;
+}
+.eng{
+    color: darkred;
+}
+.eng:hover{
+    color: red;
+}
+.eng-container{
+    position: absolute;
+    top: 3%;
+    right: 210px;
+    z-index: +4;
+    display: flex;
+    justify-content: space-around;
+    width: 100px;
+}
+
+#navbar-side{
+    transition: 0.3s;
+    position: fixed;
+    z-index: +5;
+    height: 100vh;
+    top:0;
+    right:0;
+    width: 0;
+    background-color: rgba(0,0,0,0.9);
+}
+.logo{
+    margin-bottom: 45px
+}
+.logo img{
+    width: 84%;
+    margin: 0 8%;
+}
+
+#navbar-side li{
+    list-style: none;
+    margin: 20px 35px;
+    border-bottom: 1px solid white
+}
+#navbar-side li a{
+    color: white;
+    text-decoration: none;
+    font-size: 18pt;
+    margin-bottom: 7px;
+}
+.dd{
+    margin-left: 20px;
+}
+.dd a{
+    display: block
+}
+
+
+
+@media (max-width: 1400px) {
+    .font-thick{
+        font-size: 102pt;
+    }
+    #navbar-side li a{
+        font-size: 14pt
+    }
+    .logo{
+    }
+    .logo a{
+        font-size: 14pt;
+    }
+    .logo img{
+        float: right;
+        margin: 5px 25%;
+        width: 50%;
+    }
+}
+
 
 @media (max-width: 995px) {
     .navbar-header {
         float: none;
     }
-    .navbar-left,.navbar-right {
+    .navbar-left,.navbar-rig100ht {
         float: none !important;
     }
     .navbar-toggle {
@@ -83,11 +337,75 @@ body {
         padding-top: 10px;
         padding-bottom: 10px;
     }
+    .bg-container{
+        height: 60vh;
+    }
+    .bg-logo{
+        width: 40%;
+    }
+    .black-trans{
+        height: 60vh;
+    }
+    .logo-container{
+        width: 100%;
+    }
     .collapse.in{
         display:block !important;
     }
-}
 
+    .jumbotron{
+        padding: 45px 0 !important;
+    }
+    .grade{
+        font-size: 14pt;
+    }
+
+    .hamburger-container {
+        right: 25px;
+    }
+
+    .carousel-inner{
+        height: 40vh;
+    }
+    .carousel-indicators{
+        width: 84%;
+        border-radius: 25px;
+        margin-left: 7%;
+        bottom: -80px;
+    }
+    .special-background{
+        height: 40vh;
+    }
+    .bej-cont{
+        height: 40vh;
+    }
+    .font-thick{
+        font-size: 48pt;
+        font-weight: 950;
+    }
+    .info-section{
+        padding-top: 70px
+    }
+    .itu-rover-yazi{
+        margin: 0;
+        padding-top: 20px;
+    }
+    .rover-year{
+        font-size: 70pt;
+    }
+    #navbar-side{
+        width: 0;
+    }
+    .logo{
+        margin-bottom: 15px
+    }
+    .flo-right-but-mobile-left{
+        float: left;
+    }
+    .flo-left-but-mobile-right{
+        float: right;
+    }
+}
 .text-big {
     font-size: 18px;
 }

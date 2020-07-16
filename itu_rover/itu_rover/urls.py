@@ -25,6 +25,7 @@ from main.views import MainPage
 from rover.views import RoverPage
 from sponsors.views import SponsorsPage
 from oldyears.views import OldYearPage
+from contact.views import ContactPage, ContactPage1
 
 urlpatterns = [
     path('manage/', admin.site.urls),
@@ -38,6 +39,22 @@ urlpatterns = [
          name='sponsors-with-year'),
     path('rover/', RoverPage.as_view(), name='rover'),
     path('geçmiş/<int:year>/', OldYearPage.as_view(), name='oldyear'),
+    path('iletişim', ContactPage, name='contact'),
+    path('iletişim', ContactPage1, name='contact1'),
+
+    # English Part -----------------------------------------
+    path('eng/', MainPage.as_view(), name='eng_main'),
+    path('eng/hakkında/', AboutPage.as_view(), name='eng_about'),
+    path('eng/takım-üyeleri/', MembersPage.as_view(), name='eng_members'),
+    path('eng/takım-üyeleri/<int:year>/', MembersPage.as_view(),
+         name='members-with-year'),
+    path('eng/sponsorlar/', SponsorsPage.as_view(), name='eng_sponsors'),
+    path('eng/sponsorlar/<int:year>/', SponsorsPage.as_view(),
+         name='sponsors-with-year'),
+    path('eng/rover/', RoverPage.as_view(), name='eng_rover'),
+    path('eng/geçmiş/<int:year>/', OldYearPage.as_view(), name='eng_oldyear'),
+    path('eng/iletişim', ContactPage, name='eng_contact'),
+    path('eng/iletişim', ContactPage1, name='eng_contact1'),
 ]
 
 if settings.DEBUG:

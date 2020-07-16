@@ -5,120 +5,391 @@
 
 {% block css %}
 {{ block.super }}
-<style>
-    .full-screen {
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-    }
-
-   body {
-     padding-top: 0; !important
-   }
-</style>
 {% endblock css %}
 
 {% block body %}
-{% include 'pieces/slider.html' with slides=slide_images %}
 
-<div class="container">
-  <div class="row justify-content-center">
-    <div class="col-12">
-      <hr>
-      {% for entry in entries %}
-      <div class="row justify-content-start">
-        <div class="col-md-4">
-          <h3 class="font-thick text-right">{{ entry.title | uppercase }}</h3>
+    {% if "/eng" in request.path %}
+        <div class="carousel slide carousel-fade" id="slides" data-ride="carousel" style="box-shadow: 0 0 45px black">
+            <ol class="carousel-indicators">
+                {% for slide in slide_images %}
+                    {% if slide.place == 0 %}
+                        <div data-target="#slides" data-slide-to="{{ slide.place }}" class="active">
+                            <h2 class="text-center my-auto noselect">{{ slide.title }}</h2>
+                            <img src="{{ slide.rover_image.url }}" alt="" class="selector-img">
+                        </div>
+                    {% else %}
+                        <div data-target="#slides" data-slide-to="{{ slide.place }}" class="">
+                            <h2 class="text-center my-auto noselect">{{ slide.title }}</h2>
+                            <img src="{{ slide.rover_image.url }}" alt="" class="selector-img">
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </ol>
+            <div class="carousel-inner">
+                {% for slide in slide_images %}
+
+                    {% if slide.place == 0 %}
+
+                        <div class="carousel-item active h-100" style="background-image: url('{{ slide.bg_image.url }}');">
+                            <div class="row">
+                                <div class="col-7 h-100 my-auto">
+                                    <div class="display-1 ml-xl-5 ml-md-0 pl-4 pt-xl-5 pt-md-0 itu-rover-yazi">
+                                            <p class="font-thick">ITU</p>
+                                            <p class="font-thick">ROVER</p>
+                                            <p class="font-thick">TEAM</p>
+                                        <br>
+                                    </div>
+                                </div>
+                                <div class="col-5 h-100">
+                                    <div class="d-flex justify-content-center bej-cont">
+                                        <div class="text-center mx-auto col-9 mt-5">
+                                                <div class="rover-year text-center">{{ slide.title }}</div>
+                                                {% if slide.eng_grade %}
+                                                    <div class="display-3 grade">{{ slide.eng_grade }}</div>
+                                                {% endif %}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="special-background" style="background-image: url('{{ slide.rover_image.url }}');"></div>
+                        </div>
+
+                    {% else %}
+
+                        <div class="carousel-item h-100" style="background-image: url('{{ slide.bg_image.url }}');">
+                            <div class="row">
+                                <div class="col-7 h-100 my-auto">
+                                    <div class="display-1 ml-xl-5 ml-md-0 pl-4 pt-xl-5 pt-md-0 itu-rover-yazi">
+                                            <p class="font-thick">ITU</p>
+                                            <p class="font-thick">ROVER</p>
+                                            <p class="font-thick">TEAM</p>
+                                        <br>
+                                    </div>
+                                </div>
+                                <div class="col-5 h-100">
+                                    <div class="d-flex justify-content-center bej-cont">
+                                        <div class="my-auto">
+                                                <div class="rover-year text-center">{{ slide.title }}</div>
+                                                {% if slide.eng_grade %}
+                                                    <div class="display-4 grade">{{ slide.eng_grade }}</div>
+                                                {% endif %}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="special-background" style="background-image: url('{{ slide.rover_image.url }}');"></div>
+                        </div>
+
+                    {% endif %}
+
+                {% endfor %}
+            </div>
         </div>
-        <div class="col-md-8">
-          <blockquote class="text-big">
-            {{ entry.content | markdown }}
-          </blockquote>
+
+
+    <!-- WHO WE ARE -->
+
+    <div class="container col-xl-9 col-md-12 info-section" style="margin-top: 7%;">
+        <div class="d-inline-block">
+            <div class="col-xl-7 col-md-12 flo-left pt-2">
+                <img src="{% static 'img/main_entry.png' %}" alt="">
+            </div>
+            <div class="col-xl-5 col-md-12 my-auto flo-right">
+                <div class="col-xl-7 col-md-12">
+                    <h1 class="entry-heading">Who are we?</h1>
+                    <p class="entry-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias architecto at consectetur consequuntur deserunt doloribus eum hic inventore itaque iusto libero neque quasi quis sint unde, veritatis vero vitae! Architecto!</p>
+                    <p class="entry-text"><a href="{% url 'about' %}">Click for more.</a></p>
+                </div>
+            </div>
         </div>
-        <hr>
-      </div>
-      {% endfor %}
     </div>
-    <div class="col-md-10">
-      <div class="row justify-content-center">
-        <div class="col-lg-4 col-sm-12">
-          <div class="text-center">
-            <img height="96px" class="" src="{% static 'img/navbar/team_black.svg' %}"></img>
-          </div>
-          <div>
-            <h4 class="font-thick text-center">Takımı Tanı</h4>
-            <ul class="text-big" type="circle">
-              <li><a class="font-default-color" href="{% url 'about' %}">Takım Hakkında<i style="margin-left: 5px;" class="fa fa-angle-double-right" aria-hidden="true"></i></a></li>
-              <li><a class="font-default-color" href="{% url 'members' %}">Takım Üyeleri<i style="margin-left: 5px;" class="fa fa-angle-double-right" aria-hidden="true"></i></a></li>
-            </ul>
-          </div>
-          <hr class="visible-xs">
-        </div>
 
-        <div class="col-lg-4 col-sm-12">
-          <div class="text-center">
-            <img height="96px" class="" src="{% static 'img/navbar/rover_black.svg' %}"></img>
-          </div>
-          <div>
-            <h4 class="font-thick text-center">Rover</h4>
-            <ul class="text-big" type="circle">
-              <li><a class="font-default-color" href="{% url 'rover' %}">Rover Nedir?<i style="margin-left: 5px;" class="fa fa-angle-double-right" aria-hidden="true"></i></a></li>
-              <li><a class="text-big font-default-color" href="{% url 'rover' %}">Tasarımımız Hakkında<i style="margin-left: 5px;" class="fa fa-angle-double-right" aria-hidden="true"></i></a></li>
-            </ul>
-          </div>
-          <hr class="visible-xs">
-        </div>
 
-        <div class="col-lg-4 col-sm-12">
-          <div class="text-center">
-            <img height="96px" class="" src="{% static 'img/navbar/sponsorship_black.svg' %}"></img>
-          </div>
-          <div class="">
-            <h4 class="font-thick text-center">Sponsorluk</h4>
-            <ul class="text-big" type="circle">
-              <li><a class="font-default-color" href="{% url 'sponsors' %}">Sponsorlar<i style="margin-left: 5px;" class="fa fa-angle-double-right" aria-hidden="true"></i></a></li>
-              <li><a class="font-default-color" href="{% url 'sponsors' %}">Destek Olun<i style="margin-left: 5px;" class="fa fa-angle-double-right" aria-hidden="true"></i></a></li>
-            </ul>
-          </div>
+    <!-- WHAT IS ROVER -->
+
+    <div class="container col-xl-9 col-md-12 info-section">
+        <div class="d-inline-block">
+            <div class="col-xl-7 col-md-12 flo-right pt-2">
+                <img src="{% static 'img/main_entry.png' %}" alt="" style="float: right">
+            </div>
+            <div class="col-xl-5 col-md-12 my-auto flo-left">
+                <div class="col-xl-7 col-md-12 flo-right">
+                    <h1 class="entry-heading">What is Rover?</h1>
+                    <p class="entry-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias architecto at consectetur consequuntur deserunt doloribus eum hic inventore itaque iusto libero neque quasi quis sint unde, veritatis vero vitae! Architecto!</p>
+                    <p class="entry-text"><a href="{% url 'rover' %}">Click for more.</a></p>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
-</div>
+
+
+    <!-- GENEL BAKIŞ -->
+
+    <div class="container col-xl-9 col-md-12 info-section">
+        <div class="d-inline-block">
+            <div class="col-xl-7 col-md-12 flo-left pt-2">
+                <img src="{% static 'img/main_entry.png' %}" alt="">
+            </div>
+            <div class="col-xl-5 col-md-12 my-auto flo-right">
+                <div class="col-xl-7 col-md-12">
+                    <h1 class="entry-heading">Take a Survey</h1>
+                    <p class="entry-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias architecto at consectetur consequuntur deserunt doloribus eum hic inventore itaque iusto libero neque quasi quis sint unde, veritatis vero vitae! Architecto!</p>
+                    <p class="entry-text"><a href="{% url 'about' %}">Click for more.</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- SUCCESSES -->
+
+    <div class="container col-xl-9 col-md-12 info-section">
+        <div class="d-inline-block">
+            <div class="col-xl-7 col-md-12 flo-right pt-2">
+                <img src="{% static 'img/main_entry.png' %}" alt="">
+            </div>
+            <div class="col-xl-5 col-md-12 my-auto flo-left">
+                <div class="col-xl-7 col-md-12 flo-right mr-md-3">
+                    <h1 class="entry-heading">Our Successes</h1>
+                    <p class="entry-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias architecto at consectetur consequuntur deserunt doloribus eum hic inventore itaque iusto libero neque quasi quis sint unde, veritatis vero vitae! Architecto!</p>
+                    <p class="entry-text"><a href="{% url 'about' %}">Click for more.</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- SPONSOR US - JOIN US -->
+
+    <div class="jumbotron bg-dark" style="color: #f0f1f2; box-shadow: 0 0 25px black;">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-6 col-md-12 text-center mb-5">
+                    <img class="mb-4" src="{% static 'img/navbar/sponsorship_bej.svg' %}" alt="" style="width: 200px">
+                    <h1 class="display-4">Support Us</h1>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur dolorem doloribus eligendi fugit illum impedit, labore nobis non numquam porro quibusdam sapiente voluptatem voluptatibus. Exercitationem illo nobis odit praesentium rem!</p>
+                    <div class="form-link mt-4">
+                        <a href="#">
+                            <div>Support Form</div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-xl-6 col-md-12 text-center">
+                    <div class="container">
+                        <img class="mb-4" src="{% static 'img/navbar/team_bej.svg' %}" alt="" style="width: 200px">
+                        <h1 class="display-4">Join Us</h1>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur dolorem doloribus eligendi fugit illum impedit, labore nobis non numquam porro quibusdam sapiente voluptatem voluptatibus. Exercitationem illo nobis odit praesentium rem!</p>
+                        <div class="form-link mt-4">
+                        <a href="#">
+                            <div>Join Form</div>
+                        </a>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <br><br>
+
+    {% include 'pieces/sponsors.html' %}
+
+        <br><br>
+
+    {% else %}
+
+        <div class="carousel slide carousel-fade" id="slides" data-ride="carousel" style="box-shadow: 0 0 45px black">
+            <ol class="carousel-indicators">
+                {% for slide in slide_images %}
+                    {% if slide.place == 0 %}
+                        <div data-target="#slides" data-slide-to="{{ slide.place }}" class="active">
+                            <h2 class="text-center my-auto noselect">{{ slide.title }}</h2>
+                            <img src="{{ slide.rover_image.url }}" alt="" class="selector-img">
+                        </div>
+                    {% else %}
+                        <div data-target="#slides" data-slide-to="{{ slide.place }}" class="">
+                            <h2 class="text-center my-auto noselect">{{ slide.title }}</h2>
+                            <img src="{{ slide.rover_image.url }}" alt="" class="selector-img">
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </ol>
+            <div class="carousel-inner">
+                {% for slide in slide_images %}
+
+                    {% if slide.place == 0 %}
+
+                        <div class="carousel-item active h-100" style="background-image: url('{{ slide.bg_image.url }}');">
+                            <div class="row">
+                                <div class="col-7 h-100 my-auto">
+                                    <div class="display-1 ml-xl-5 ml-md-0 pl-4 pt-xl-5 pt-md-0 itu-rover-yazi">
+                                            <p class="font-thick">İTÜ</p>
+                                            <p class="font-thick">ROVER</p>
+                                            <p class="font-thick">TAKIMI</p>
+                                        <br>
+                                    </div>
+                                </div>
+                                <div class="col-5 h-100">
+                                    <div class="d-flex justify-content-center bej-cont">
+                                        <div class="text-center mx-auto col-9 mt-5">
+                                                <div class="rover-year text-center">{{ slide.title }}</div>
+                                                {% if slide.grade %}
+                                                    <div class="display-3 grade">{{ slide.grade }}</div>
+                                                {% endif %}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="special-background" style="background-image: url('{{ slide.rover_image.url }}');"></div>
+                        </div>
+
+                    {% else %}
+
+                        <div class="carousel-item h-100" style="background-image: url('{{ slide.bg_image.url }}');">
+                            <div class="row">
+                                <div class="col-7 h-100 my-auto">
+                                    <div class="display-1 ml-xl-5 ml-md-0 pl-4 pt-xl-5 pt-md-0 itu-rover-yazi">
+                                            <p class="font-thick">İTÜ</p>
+                                            <p class="font-thick">ROVER</p>
+                                            <p class="font-thick">TAKIMI</p>
+                                        <br>
+                                    </div>
+                                </div>
+                                <div class="col-5 h-100">
+                                    <div class="d-flex justify-content-center bej-cont">
+                                        <div class="my-auto">
+                                                <div class="rover-year text-center">{{ slide.title }}</div>
+                                                {% if slide.grade %}
+                                                    <div class="display-4 grade">{{ slide.grade }}</div>
+                                                {% endif %}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="special-background" style="background-image: url('{{ slide.rover_image.url }}');"></div>
+                        </div>
+
+                    {% endif %}
+
+                {% endfor %}
+            </div>
+        </div>
+
+
+    <!-- BİZ KİMİZ -->
+
+    <div class="container col-xl-9 col-md-12 info-section" style="margin-top: 7%;">
+        <div class="d-inline-block">
+            <div class="col-xl-7 col-md-12 flo-left pt-2">
+                <img src="{% static 'img/main_entry.png' %}" alt="">
+            </div>
+            <div class="col-xl-5 col-md-12 my-auto flo-right">
+                <div class="col-xl-7 col-md-12">
+                    <h1 class="entry-heading">Biz Kimiz?</h1>
+                    <p class="entry-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias architecto at consectetur consequuntur deserunt doloribus eum hic inventore itaque iusto libero neque quasi quis sint unde, veritatis vero vitae! Architecto!</p>
+                    <p class="entry-text"><a href="{% url 'about' %}">Dahası için tıklayınız.</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- ROVER NEDİR -->
+
+    <div class="container col-xl-9 col-md-12 info-section">
+        <div class="d-inline-block">
+            <div class="col-xl-7 col-md-12 flo-right pt-2">
+                <img src="{% static 'img/main_entry.png' %}" alt="" style="float: right">
+            </div>
+            <div class="col-xl-5 col-md-12 my-auto flo-left">
+                <div class="col-xl-7 col-md-12 flo-right">
+                    <h1 class="entry-heading">Rover Nedir?</h1>
+                    <p class="entry-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias architecto at consectetur consequuntur deserunt doloribus eum hic inventore itaque iusto libero neque quasi quis sint unde, veritatis vero vitae! Architecto!</p>
+                    <p class="entry-text"><a href="{% url 'rover' %}">Dahası için tıklayınız.</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- GENEL BAKIŞ -->
+
+    <div class="container col-xl-9 col-md-12 info-section">
+        <div class="d-inline-block">
+            <div class="col-xl-7 col-md-12 flo-left pt-2">
+                <img src="{% static 'img/main_entry.png' %}" alt="">
+            </div>
+            <div class="col-xl-5 col-md-12 my-auto flo-right">
+                <div class="col-xl-7 col-md-12">
+                    <h1 class="entry-heading">Genel Bakış</h1>
+                    <p class="entry-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias architecto at consectetur consequuntur deserunt doloribus eum hic inventore itaque iusto libero neque quasi quis sint unde, veritatis vero vitae! Architecto!</p>
+                    <p class="entry-text"><a href="{% url 'about' %}">Dahası için tıklayınız.</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- BAŞARILARIMIZ -->
+
+    <div class="container col-xl-9 col-md-12 info-section">
+        <div class="d-inline-block">
+            <div class="col-xl-7 col-md-12 flo-right pt-2">
+                <img src="{% static 'img/main_entry.png' %}" alt="">
+            </div>
+            <div class="col-xl-5 col-md-12 my-auto flo-left">
+                <div class="col-xl-7 col-md-12 flo-right mr-md-3">
+                    <h1 class="entry-heading">Başarılarımız</h1>
+                    <p class="entry-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias architecto at consectetur consequuntur deserunt doloribus eum hic inventore itaque iusto libero neque quasi quis sint unde, veritatis vero vitae! Architecto!</p>
+                    <p class="entry-text"><a href="{% url 'about' %}">Dahası için tıklayınız.</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- SPONSOR US - JOIN US -->
+
+    <div class="jumbotron bg-dark" style="color: #f0f1f2; box-shadow: 0 0 25px black;">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-6 col-md-12 text-center mb-5">
+                    <img class="mb-4" src="{% static 'img/navbar/sponsorship_bej.svg' %}" alt="" style="width: 200px">
+                    <h1 class="display-4">Bize Destek Olun</h1>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur dolorem doloribus eligendi fugit illum impedit, labore nobis non numquam porro quibusdam sapiente voluptatem voluptatibus. Exercitationem illo nobis odit praesentium rem!</p>
+                    <div class="form-link mt-4">
+                        <a href="#">
+                            <div>Destek Formu</div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-xl-6 col-md-12 text-center">
+                    <div class="container">
+                        <img class="mb-4" src="{% static 'img/navbar/team_bej.svg' %}" alt="" style="width: 200px">
+                        <h1 class="display-4">Bize Katılın</h1>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur dolorem doloribus eligendi fugit illum impedit, labore nobis non numquam porro quibusdam sapiente voluptatem voluptatibus. Exercitationem illo nobis odit praesentium rem!</p>
+                        <div class="form-link mt-4">
+                        <a href="#">
+                            <div>Katılım Formu</div>
+                        </a>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <br><br>
+
+    {% include 'pieces/sponsors.html' %}
+
+        <br><br>
+
+    {% endif %}
+
 {% endblock body %}
 
-{% block javascript %}
-{{ block.super }}
-<script src="{% static 'js/jquery.bcswipe.min.js' %}"></script>
-{% endblock javascript %}
 
-{% block jquery %}
-<script>
-$(function () {
-  $('[data-toggle="tooltip"]').tooltip()
-})
-$('.carousel').bcSwipe({ threshold: 50 });
-var $item = $('.carousel .item');
-var $wHeight = $(window).height();
-$item.eq(0).addClass('active');
-$item.height($wHeight);
-$item.addClass('full-screen');
-$('.carousel .img-background').each(function() {
-  var $src = $(this).attr('src');
-  var $color = $(this).attr('data-color');
-  $(this).parent().css({
-    'background-image' : 'url(' + $src + ')',
-    'background-color' : $color
-  });
-  $(this).remove();
-});
-$(window).on('resize', function (){
-  $wHeight = $(window).height();
-  $item.height($wHeight);
-});
-$('.carousel').carousel({
-  interval: 6000,
-  pause: "false"
-});
-</script>
-{% endblock jquery %}

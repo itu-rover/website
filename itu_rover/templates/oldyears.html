@@ -1,17 +1,70 @@
 {% extends 'base.html' %}
+{% load static %}
+
+{% block css %}
+    <style>
+.bg-container{
+    background-image: url('{% static 'img/bg_past.jpeg' %}');
+}
+    </style>
+{% endblock %}
+
 
 {% block body %}
-<div class="container">
-    <div class="row">
-        <div class="col-md-12">
-            <h4 class="font-thick text-center">{{ oldyear.year }} YILI EKİBİ VE SPONSORLARI</h4>
-            <hr>
+
+    {% if "/eng" in request.path %}
+        <div class="logo-container">
+        <div class=" text-center">
+           <a href="/"><img class="mt-5 pt-xl-4 pt-md-0 bg-logo noselect" src="{% static 'img/logo_with.png' %}"></a>
+       </div>
+    </div>
+    <div class="bg-container" style="">
+        <div class="black-trans"></div>
+    </div>
+
+<div class="content-container">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h4 class="display-4 text-center">Supporters and Members of the Year {{ oldyear.year }}</h4>
+                <hr>
+            </div>
         </div>
     </div>
-</div>
+
 {% include 'pieces/members.html' %}
 <br>
 <hr>
 <br>
 {% include 'pieces/sponsors.html' %}
+
+    {% else %}
+
+    <div class="logo-container">
+        <div class=" text-center">
+           <a href="/"><img class="mt-5 pt-xl-4 pt-md-0 bg-logo noselect" src="{% static 'img/logo_with.png' %}"></a>
+       </div>
+    </div>
+    <div class="bg-container" style="">
+        <div class="black-trans"></div>
+    </div>
+
+<div class="content-container">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h4 class="display-4 text-center">{{ oldyear.year }} YILI EKİBİ VE SPONSORLARI</h4>
+                <hr>
+            </div>
+        </div>
+    </div>
+
+{% include 'pieces/members.html' %}
+<br>
+<hr>
+<br>
+{% include 'pieces/sponsors.html' %}
+</div>
+
+    {% endif %}
 {% endblock body %}

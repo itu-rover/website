@@ -7,7 +7,10 @@ from .utils import slider_image_upload_to
 
 class SliderImage(OrderableMixin, TimeStampedModel):
     title = models.CharField(max_length=20)
-    image = models.ImageField(upload_to=slider_image_upload_to)
+    place = models.SmallIntegerField(default=0)
+    bg_image = models.ImageField(upload_to=slider_image_upload_to)
+    rover_image = models.ImageField(upload_to=slider_image_upload_to)
+    grade = models.TextField(blank=True, null=True)
     show_title = models.BooleanField(default=False)
 
     def __str__(self):

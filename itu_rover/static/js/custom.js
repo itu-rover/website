@@ -1,20 +1,43 @@
-$("#egg-toggle").click(function() {
-  $("#egg-index").toggleClass("hidden");
-});
 
-$("[data-toggle=popover]").popover({html:true});
-$('[data-toggle="popover"]').popover()
+console.log("1 loggggggggggg")
 
-jQuery('row').bind('click', function(e) {
-  if(jQuery(e.target).closest('.navbar').length == 0) {
-    // click happened outside of .navbar, so hide
-    var opened = jQuery('.navbar-collapse').hasClass('collapse in');
-    if ( opened === true ) {
-      jQuery('.navbar-collapse').collapse('hide');
-    }
+//  MENU SIZING FOR MOBILE
+
+var x = window.matchMedia("(max-width: 968px)")
+
+
+  if (x.matches) { // If media query matches
+
+    // MOBILE
+
+      function openNav() {
+        document.getElementById("navbar-side").style.width = "80%";
+      }
+
+      function closeNav() {
+        document.getElementById("navbar-side").style.width = "0";
+      }
+  } else {
+
+    // PC
+
+      function openNav() {
+        document.getElementById("navbar-side").style.width = "30%";
+      }
+
+      function closeNav() {
+        document.getElementById("navbar-side").style.width = "0";
+      }
   }
-});
 
-$('body').on('click', '#content', function(e) {
-    $('.contact-popover').popover('hide')
-});
+  console.log("2 loggggggggggg")
+
+         $(window).scroll(function () {
+            if ($(window).scrollTop() > 100){
+                $('.black-trans').fadeIn(400);
+            }
+            else {
+                $('.black-trans').fadeOut(400);
+            }
+        })
+console.log("3 loggggggggggg")

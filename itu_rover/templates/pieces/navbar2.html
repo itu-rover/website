@@ -1,0 +1,153 @@
+{% load static %}
+
+
+{% if "/eng" in request.path %}
+
+    <a href="{% url 'main' %}" class="eng">
+        <span class="eng-container noselect py-1">
+            <h2 class="p-0 m-0">TR</h2>
+        </span>
+    </a>
+
+        <span onclick="openNav()" class="hamburger-container noselect py-1">
+            <h2 class="p-0 m-0">MENU</h2>
+            <div class="hamburger">
+                <div class="hamburger-inner"></div>
+                <div class="hamburger-inner"></div>
+                <div class="hamburger-inner"></div>
+            </div>
+        </span>
+
+{% else %}
+
+    <a href="{% url 'eng_main' %}" class="eng">
+        <span class="eng-container noselect py-1">
+            <h2 class="p-0 m-0">ENG</h2>
+        </span>
+    </a>
+
+        <span onclick="openNav()" class="hamburger-container noselect py-1">
+            <h2 class="p-0 m-0">MENU</h2>
+            <div class="hamburger">
+                <div class="hamburger-inner"></div>
+                <div class="hamburger-inner"></div>
+                <div class="hamburger-inner"></div>
+            </div>
+        </span>
+
+{% endif %}
+
+
+{% if "/eng" in request.path %}
+
+    <div id="navbar-side">
+        <a href="javascript:void(0)" onclick="closeNav()" style="font-size: 32pt; margin-left: 25px; color:white">×</a>
+        <a href="/" class="logo" style="text-decoration: none">
+            <img src="{% static 'img/itu_rover.png' %}" alt="" class="">
+            <div style="width: 100%; text-align: center; color: white"><h2>ITU ROVER TEAM</h2></div>
+        </a>
+        <ul>
+            <li class="">
+                <a href="#">
+                    <img width="40px" class="navbar-icon" src="{% static 'img/navbar/team_white.svg' %}">
+                    TEAM
+                    <i class="fa fa-fw fa-lg fa-angle-down" aria-hidden="true"></i>
+                </a>
+                <div class="dd">
+                    <a href="{% url 'eng_about' %}" class="">About Us</a>
+                    <a href="{% url 'eng_members' %}" class="">Team Members</a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a href="{% url 'eng_rover' %}">
+                    <img width="40px" class="navbar-icon" src="{% static 'img/navbar/rover_white.svg' %}">
+                    Rover
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{% url 'eng_sponsors' %}">
+                    <img width="40px" class="navbar-icon" src="{% static 'img/navbar/sponsorship_white.svg' %}">
+                    Our Supporters
+                </a>
+            </li>
+            {% if old_years %}
+                <li class="">
+                    <a class="" href="#">
+                        <img width="40px" class="navbar-icon" src="{% static 'img/navbar/news_white.svg' %}">
+                        Our Past
+                        <i class="fa fa-fw fa-lg fa-angle-down" aria-hidden="true"></i>
+                    </a>
+                    <div class="dd">
+                        {% for old_year in old_years %}
+                            <a href="{% url 'eng_oldyear' year=old_year.year %}" class="">{{ old_year.year }}</a>
+                        {% endfor %}
+                    </div>
+                </li>
+            {% endif %}
+            <li class="nav-item">
+                <a href="{% url 'eng_contact' %}">
+                    <!--<img width="40px" class="navbar-icon" src="{% static 'img/navbar/sponsorship_white.svg' %}"> -->
+                    Contact
+                </a>
+            </li>
+
+        </ul>
+    </div>
+
+{% else %}
+
+    <div id="navbar-side">
+        <a href="javascript:void(0)" onclick="closeNav()" style="font-size: 32pt; margin-left: 25px; color:white">×</a>
+        <a href="/" class="logo" style="text-decoration: none">
+            <img src="{% static 'img/itu_rover.png' %}" alt="" class="">
+            <div style="width: 100%; text-align: center; color: white"><h2>İTÜ ROVER TAKIMI</h2></div>
+        </a>
+        <ul>
+            <li class="">
+                <a href="#">
+                    <img width="40px" class="navbar-icon" src="{% static 'img/navbar/team_white.svg' %}">
+                    TAKIM
+                    <i class="fa fa-fw fa-lg fa-angle-down" aria-hidden="true"></i>
+                </a>
+                <div class="dd">
+                    <a href="{% url 'about' %}" class="">Hakkımızda</a>
+                    <a href="{% url 'members' %}" class="">Takım Üyeleri</a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a href="{% url 'rover' %}">
+                    <img width="40px" class="navbar-icon" src="{% static 'img/navbar/rover_white.svg' %}">
+                    Rover
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{% url 'sponsors' %}">
+                    <img width="40px" class="navbar-icon" src="{% static 'img/navbar/sponsorship_white.svg' %}">
+                    Sponsorlarımız
+                </a>
+            </li>
+            {% if old_years %}
+                <li class="">
+                    <a class="" href="#">
+                        <img width="40px" class="navbar-icon" src="{% static 'img/navbar/news_white.svg' %}">
+                        Geçmiş
+                        <i class="fa fa-fw fa-lg fa-angle-down" aria-hidden="true"></i>
+                    </a>
+                    <div class="dd">
+                        {% for old_year in old_years %}
+                            <a href="{% url 'oldyear' year=old_year.year %}" class="">{{ old_year.year }}</a>
+                        {% endfor %}
+                    </div>
+                </li>
+            {% endif %}
+            <li class="nav-item">
+                <a href="{% url 'contact' %}">
+                    <!--<img width="40px" class="navbar-icon" src="{% static 'img/navbar/sponsorship_white.svg' %}"> -->
+                    İletişim
+                </a>
+            </li>
+
+        </ul>
+    </div>
+
+{% endif %}

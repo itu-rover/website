@@ -1,77 +1,82 @@
 {% load itu_rover %}
 
-<div class="container">
-  <div class="row">
-    <div class="col-md-12 text-center">
-      {% if page.team_photo %}
-      <div class="d-none d-md-block">
-        <img style="margin-top: -16px; max-height: 100%;" class="img-responsive" src="{{ page.team_photo.url }}">
-        <p style="margin-top: 8px;"><i>İTÜ Rover Takımı</i></p>
-      </div>
-      {% endif %}
-      <div class="row">
-
-        <div class="col-md-7">
-          <h4 class="font-thick text-center">TAKIM DANIŞMANLARI</h4>
-          <hr>
-
-          <div class="row justify-content-center">
-            {% for advisor in advisors %}
-            <div class="col-md-5">
-              {% include 'pieces/person.html' with person=advisor %}
+{% if "/eng" in request.path %}
+<div class="container col-xl-8 col-md-12">
+    <div class="row">
+        <div class="col-xl-7 col-md-12">
+            <h1 class="text-center mb-3">Team Advisors</h1>
+            <div class="row">
+                {% for advisor in advisors %}
+                    <div class="col-xl-8 col-md-12 mx-auto">
+                        {% include 'pieces/person.html' with person=advisor %}
+                    </div>
+                {% endfor %}
             </div>
-            {% empty %}
-            Burası boş! Ah, artık değil.
-            {% endfor %}
-          </div>
         </div>
-
-        <div class="col-md-3 col-md-offset-1">
-          <h4 class="font-thick text-center">TAKIM LİDERİ</h4>
-          <hr>
-          <div class="row justify-content-center">
-            <div class="col-12">
-              {% if leader %}
-              {% include 'pieces/person.html' with person=leader %}
-              {% else %}
-              <p>Takımın lideri henüz belli değil!</p>
-              {% endif %}
-            </div>
-          </div>
+        <div class="col-xl-5 col-md-12 my-auto" >
+            {% if leader %}
+                <div class="col-xl-8 col-md-12 mx-auto">
+                    <h1 class="text-center mb-4">Team Leader</h1>
+                    {% include 'pieces/person.html' with person=leader %}
+                </div>
+            {% endif %}
         </div>
-
-      </div>
-
-      {% for subteam in subteams %}
-      <h4 class="font-thick text-center">{{ subteam.name | uppercase }}</h4>
-      <hr>
-      <div class="row">
-        <div class="col-md-12">
-          <div class="row justify-content-center">
-            {% for member in subteam.members.all %}
-            <div class="col-md-3 {% if 'Lider' in member.role %}order-0{% else %}order-1{% endif %}">
-              {% include 'pieces/person.html' with person=member %}
-            </div>
-            {% empty %}
-            Burası boş! Ah, artık değil.
-            {% endfor %}
-          </div>
-        </div>
-      </div>
-      {% empty %}
-      Burası boş! Ah, artık değil.
-      {% endfor %}
-
-      {% if page.proposal %}
-      <hr>
-      <div class="row text-big">
-        <div class="col-md-12">
-          <p class="well well-sm">Takım yapısı hakkında daha detaylı bilgiye ulaşmak için <a class="font-primary-color" href="{{ page.proposal.url }}" target="_blank"><u>Team Proposal</u></a> dosyasını inceleyebilirsiniz.</p>
-        </div>
-      </div>
-      {% endif %}
-
-
     </div>
-  </div>
+    {% for subteam in subteams %}
+        <h1 class="text-center">{{ subteam.eng_name }}</h1>
+        <hr><br>
+        <div class="row justify-content-center">
+            {% for member in subteam.members.all %}
+                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 {% if 'Lider' in member.role %}order-0{% else %}order-1{% endif %}">
+                  {% include 'pieces/person.html' with person=member %}
+                </div>
+            {% empty %}
+            Burası boş! Ah, artık değil.
+            {% endfor %}
+          </div>
+    {% endfor %}
+
 </div>
+
+{% else %}
+
+
+<div class="container col-xl-8 col-md-12">
+    <div class="row">
+        <div class="col-xl-7 col-md-12">
+            <h1 class="text-center mb-3">Takım Danışmanları</h1>
+            <div class="row">
+                {% for advisor in advisors %}
+                    <div class="col-xl-8 col-md-12 mx-auto">
+                        {% include 'pieces/person.html' with person=advisor %}
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="col-xl-5 col-md-12 my-auto" >
+            {% if leader %}
+                <div class="col-xl-8 col-md-12 mx-auto">
+                    <h1 class="text-center mb-4">Takım Lideri</h1>
+                    {% include 'pieces/person.html' with person=leader %}
+                </div>
+            {% endif %}
+        </div>
+    </div>
+    {% for subteam in subteams %}
+        <h1 class="text-center">{{ subteam.name }}</h1>
+        <hr><br>
+        <div class="row justify-content-center">
+            {% for member in subteam.members.all %}
+                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 {% if 'Lider' in member.role %}order-0{% else %}order-1{% endif %}">
+                  {% include 'pieces/person.html' with person=member %}
+                </div>
+            {% empty %}
+            Burası boş! Ah, artık değil.
+            {% endfor %}
+          </div>
+    {% endfor %}
+
+</div>
+
+{% endif %}
+

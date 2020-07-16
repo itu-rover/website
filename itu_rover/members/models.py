@@ -129,6 +129,7 @@ class SubTeam(models.Model):
     """
     name = models.CharField(
         max_length=50,
+        default="name",
         db_index=True,
         verbose_name='subteam name',
     )
@@ -146,7 +147,7 @@ class SubTeam(models.Model):
     )
 
     class Meta:
-        ordering = ('name', )
+        ordering = ['name']
 
     def __str__(self):
         return self.name

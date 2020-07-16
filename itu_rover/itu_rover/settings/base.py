@@ -65,9 +65,11 @@ INSTALLED_APPS = [
     'sponsors',
     'about',
     'core',
+    'faq',
     'main',
     'rover',
     'oldyears',
+    'contact',
 ]
 
 MIDDLEWARE = [

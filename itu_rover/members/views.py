@@ -11,7 +11,7 @@ from oldyears.models import OldYear
 
 class MembersPage(TemplateView):
     template_name = 'members.html'
-    #not_found_message = 'Year not found for members page.'
+    not_found_message = 'Year not found for members page.'
 
     def get_member_context(self, year):
         # defining year
@@ -33,8 +33,6 @@ class MembersPage(TemplateView):
                     .prefetch_related(
                         Prefetch('members', queryset=years_members)
                     )).distinct()
-        if not subteams:
-            raise Http404(self.not_found_message)
         return {
             'subteams': subteams,
             'advisors': TeamAdvisor.objects.filter(year=year),

@@ -21,7 +21,7 @@
           </ul>
         </li>
         <li><a href="{% url 'rover' %}" class="font-thick"><img class="navbar-icon" width="24px" src="{% static 'img/navbar/rover.svg' %}"> ROVER</a></li>
-        <li><a href="{% url 'sponsors' %}" class="font-thick"><img class="navbar-icon" width="24px" src="{% static 'img/navbar/sponsorship.svg' %}"> SPONSORLAR</a></li>
+        <li><a href="{% url 'sponsors' %}" class="font-thick"><img class="navbar-icon" width="24px" src="{% static 'img/navbar/sponsorship.svg' %}"> DESTEKÇİLERİMİZ</a></li>
         {% if old_years %}
         <li class="dropdown">
             <a href="#" class="dropdown-toggle font-thick" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-calendar-o" style="" aria-hidden="true"></i> GEÇMİŞ<i class="fa fa-fw fa-lg fa-angle-down" aria-hidden="true"></i></a>
@@ -33,6 +33,16 @@
         </li>
         {% endif %}
       </ul>
+
+
+
+    <!--
+
+        {% url 'oldyear' year=old_year.year %}
+
+
+        -----Social Media Part-------
+
       <ul class="nav navbar-nav navbar-right">
         <li><a class="font-thick contact-popover" role="button" data-toggle="popover" title="" data-placement="bottom" data-content="
             <i class='fa fa-fw fa-envelope' aria-hidden='true'></i> <a href='mailto:{{ main_email }}' target='_blank' class='font-default-color'><b>{{ main_email }}</b></a>
@@ -48,6 +58,8 @@
         <li><a target="_blank" href="https://github.com/itu-rover" class="font-thick"><i class="fa fa-fw fa-lg fa-github" aria-hidden="true"></i></a></li>
         <li><a target="_blank" href="https://tr.linkedin.com/company/itu-rover-team" class="font-thick"><i class="fa fa-fw fa-lg fa-linkedin" aria-hidden="true"></i></a></li>
       </ul>
+        -->
+
     </div>
   </div>
 </nav>

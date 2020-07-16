@@ -1,29 +1,55 @@
 {% load itu_rover %}
 
-<div class="container">
-  {% for sponsor_type in sponsor_types %}
-  <div class="row">
-    <div class="col-12">
-      <h4 class="font-thick text-center">{{ sponsor_type.name | uppercase }}</h4>
-      <hr>
-    </div>
-  </div>
 
-  <div class="row">
-    <div class="col-12">
-      <div class="row justify-content-center align-items-center">
-        {% for sponsor in sponsor_type.sponsors.all %}
-        <div class="col-lg-4 col-md-6 col-12 text-center">
-            <a class="font-default-color font-thick text-big" href="{{ sponsor.website }}" target="_blank"><img style="margin-bottom: 16px; margin-top: 16px;" width="{{ sponsor.display_width }}px" src="{{ sponsor.image.url }}">{% if sponsor.is_name_on_display %}<p style="margin-bottom: 0px;">{{ sponsor.name }}</p>{% endif %}</a>
+{% if "/eng" in request.path %}
+
+    <div class="container col-xl-6 col-md-12">
+    <h1 class="text-center mb-4 entry-heading">Our Supporters</h1>
+    <hr>
+    <br>
+    {% for sponsor_type in sponsor_types %}
+        <h2 class="text-center mb-3 entry-heading" style="font-size: 40pt">{{ sponsor_type.eng_name }}</h2>
+        <div class="row justify-content-center align-items-center">
+            {% for sponsor in sponsor_type.sponsors.all %}
+                <div class="col-xl-3 col-lg-4 col-md-6 col-xs-12 mb-4 text-center">
+                    <a href="{{ sponsor.website }}" target="_blank">
+                        <img width="{{ sponsor.display_width }}px" src="{{ sponsor.image.url }}">
+                        {% if sponsor.is_name_on_display %}
+                            <p>{{ sponsor.eng_name }}</p>
+                        {% endif %}
+                    </a>
+                </div>
+            {% endfor %}
         </div>
-        {% empty %}
-        <p class="text-center">Bu sponsorluk türünde henüz bir sponsor yok.</p>
-        {% endfor %}
-      </div>
-      <br>
-    </div>
-  </div>
-  {% empty %}
-  <p class="text-center">Henüz herhangi bir sponsorluk türü yok.</p>
-  {% endfor %}
+        <hr>
+        <br>
+    {% endfor %}
 </div>
+
+{% else %}
+
+<div class="container col-xl-6 col-md-12">
+    <h1 class="text-center mb-4 entry-heading">Destekçilerimiz</h1>
+    <hr>
+    <br>
+    {% for sponsor_type in sponsor_types %}
+        <h2 class="text-center mb-3 entry-heading" style="font-size: 40pt">{{ sponsor_type.name }}</h2>
+        <div class="row justify-content-center align-items-center">
+            {% for sponsor in sponsor_type.sponsors.all %}
+                <div class="col-xl-3 col-lg-4 col-md-6 col-xs-12 mb-4 text-center">
+                    <a href="{{ sponsor.website }}" target="_blank">
+                        <img width="{{ sponsor.display_width }}px" src="{{ sponsor.image.url }}">
+                        {% if sponsor.is_name_on_display %}
+                            <p>{{ sponsor.name }}</p>
+                        {% endif %}
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+        <hr>
+        <br>
+    {% endfor %}
+</div>
+
+{% endif %}
+

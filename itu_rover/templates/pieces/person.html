@@ -1,21 +1,48 @@
 {% load itu_rover %}
 
+
+{% if "/eng" in request.path %}
+
 <div class="row">
   <div class="col-12">
     <div class="row justify-content-center {% if person.is_retired %}deactive{% endif %}">
-      <div class="col-8 col-md-10 col-lg-7">
-        <img class="img-circle img-responsive" style="min-height: 100px;" src="{{ person.get_photo_url }}">
+      <div class="col-8 col-md-10 col-lg-7 text-center">
+        <img class="img-responsive" style="" src="{{ person.get_photo_url }}">
       </div>
     </div>
     <div class="row">
-      <div class="col-12">
-        <h5 class="font-thick">
-            <p>{{ person.get_full_name | uppercase }}</p>
-        </h5>
-        <h6 class="font-thick role-in-team">{{ person.role }}</h6>
-        <h6 class="department">{{ person.description }}</h6>
+      <div class="col-12 text-center mt-3">
+        <h3 class="" style="font-size: 20pt">
+            <p style="color: #494949">{{ person.eng_get_full_name | uppercase }}</p>
+        </h3>
+        <h5 class="role-in-team" style="color: #575757">{{ person.eng_role }}</h5>
+        <h5 class="department" style="color: #727272">{{ person.eng_description }}</h5>
       </div>
     </div>
   </div>
 </div>
 <br>
+
+{% else %}
+
+<div class="row">
+  <div class="col-12">
+    <div class="row justify-content-center {% if person.is_retired %}deactive{% endif %}">
+      <div class="col-8 col-md-10 col-lg-7 text-center">
+        <img class="img-responsive" style="" src="{{ person.get_photo_url }}">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 text-center mt-3">
+        <h3 class="" style="font-size: 20pt">
+            <p style="color: #494949">{{ person.get_full_name | uppercase }}</p>
+        </h3>
+        <h5 class="role-in-team" style="color: #575757">{{ person.role }}</h5>
+        <h5 class="department" style="color: #727272">{{ person.description }}</h5>
+      </div>
+    </div>
+  </div>
+</div>
+<br>
+
+{% endif %}

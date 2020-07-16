@@ -1,77 +1,121 @@
 {% extends 'base.html' %}
+{% load static %}
 {% load markdown_deux_tags %}
 {% load itu_rover %}
 
+
+{% block css %}
+    <style>
+.bg-container{
+    background-image: url('{% static 'img/bg_rover.JPG' %}');
+}
+    </style>
+{% endblock %}
+
 {% block body %}
-<div class="container">
-  <div class="row">
-    <div class="col-md-12">
-      <h4 class="font-thick text-center">ROVER</h4>
-      <hr>
-      <div class="col-md-9 text-big">
-        {% for entry in entries %}
-        <div id="{{ entry.title | lower | cut:" " }}">
-          <h5 class="font-thick">{{ entry.title | uppercase }}</h5>
-          {{ entry.detail | markdown }}
-          {% if entry.image %}<div class="row justify-content-center"><div class="col-12"><img class="img-responsive" src="{{ entry.image.url }}"></div></div>{% endif %}
-          <hr>
-        </div>
-        {% for subentry in entry.subentries.all %}
-        <div id="{{ subentry.title | lower | cut:" " }}">
-          <h5 class="font-thick">{{ subentry.title | title }}</h5>
-          {{ subentry.detail | markdown }}
-          {% if subentry.image %}<div class="row justify-content-center"><div class="col-12"><img class="img-responsive" src="{{ subentry.image.url }}"></div></div>{% endif %}
-          <hr>
-        </div>
-        {% endfor %}
-        {% empty %}
-        Buraya henüz bir şey yazılmadı.
-        {% endfor %}
 
-        {% if page.design_review %}
-        <div class="row">
-          <div class="col-md-12">
-          <p class="well well-sm">Tasarımımız hakkında yukarıda bulduklarınızdan daha detaylı bilgiye ulaşmak isterseniz <a class="font-primary-color" href="{{ page.design_review.url }}" target="_blank"><u>Critical Design Review</u></a> dosyamızı inceleyebilirsiniz.</p>
-          </div>
-        </div>
-        {% endif %}
-      </div>
-
-      <div class="col-md-3" id="scrollin-spyin">
-        <nav class="hidden-print hidden-sm hidden-xs affix panel" style="z-index: 1000;">
-          <ul class="nav nav-tabs nav-stacked">
-            {% for entry in entries %}
-            <li><a class="font-thick" href="#{{ entry.title | lower | cut:" " }}">{{ entry.title | uppercase }}</a></li>
-              {% if entry.subentries.all %}
-              <div class="row">
-                  <div class="col-md-11 col-md-offset-1">
-                      <ul class="nav nav-tabs nav-stacked">
-                      {% for subentry in entry.subentries.all %}
-                          <li><a href="#{{ subentry.title | lower | cut:" " }}">{{ subentry.title | title }}</a></li>
-                      {% endfor %}
-                      </ul>
-                  </div>
-              </div>
-              {% endif %}
-            {% endfor %}
-          </ul>
-        </nav>
-      </div>
+    {% if "/eng" in request.path %}
+    <div class="logo-container">
+        <div class=" text-center">
+           <a href="/"><img class="mt-5 pt-xl-4 pt-md-0 bg-logo noselect" src="{% static 'img/logo_with.png' %}"></a>
+       </div>
     </div>
-  </div>
+    <div class="bg-container" style="">
+        <div class="black-trans"></div>
+    </div>
+
+<div class="content-container">
+    <div class="container-fluid">
+    <!-- HEADER DIV -->
+        <div class="container col-xl-6 col-lg-8 col-md-12">
+            <div class="py-4 text-center" style="color: #707070">
+                <h1 class="display-4">WHAT IS ROVER?</h1>
+            </div>
+        </div>
+    <!-- ENTRIES -->
+        {% for entry in entries %}
+    <!-- IMAGE -->
+            {% if entry.image %}
+                <div class="text-center mb-4">
+                    <img src="{{ entry.image.url }}" alt="">
+                </div>
+            {% endif %}
+
+            <div class="container mb-5 col-xl-7 col-lg-8 col-md-12" style="color: #707070">
+                <h1 class="display-3">{{ entry.eng_title }}</h1>
+                <h4 class="">{{ entry.eng_detail | markdown }}</h4>
+                {% for subentry in entry.subentries.all %}
+                    <div class="mx-3">
+                        <h1 class="display-4">{{ subentry.eng_title }}</h1>
+                        <h4 class="">{{ subentry.eng_detail | markdown }}</h4>
+                        {% if entry.image %}
+                            <div class="text-center mb-4">
+                                <img src="{{ subentry.image.url }}" alt="">
+                            </div>
+                        {% endif %}
+                    </div>
+                {% endfor %}
+
+            </div>
+
+        {% endfor %}
+
+    </div>
 </div>
+
+    {% else %}
+
+    <div class="logo-container">
+        <div class=" text-center">
+           <a href="/"><img class="mt-5 pt-xl-4 pt-md-0 bg-logo noselect" src="{% static 'img/logo_with.png' %}"></a>
+       </div>
+    </div>
+    <div class="bg-container" style="">
+        <div class="black-trans"></div>
+    </div>
+
+<div class="content-container">
+    <div class="container-fluid">
+    <!-- HEADER DIV -->
+        <div class="container col-xl-6 col-lg-8 col-md-12">
+            <div class="py-4 text-center" style="color: #707070">
+                <h1 class="display-4">ROVER NEDİR?</h1>
+            </div>
+        </div>
+    <!-- ENTRIES -->
+        {% for entry in entries %}
+    <!-- IMAGE -->
+            {% if entry.image %}
+                <div class="text-center mb-4">
+                    <img src="{{ entry.image.url }}" alt="">
+                </div>
+            {% endif %}
+
+            <div class="container mb-5 col-xl-7 col-lg-8 col-md-12" style="color: #707070">
+                <h1 class="display-3">{{ entry.title }}</h1>
+                <h4 class="">{{ entry.detail | markdown }}</h4>
+                {% for subentry in entry.subentries.all %}
+                    <div class="mx-3">
+                        <h1 class="display-4">{{ subentry.title }}</h1>
+                        <h4 class="">{{ subentry.detail | markdown }}</h4>
+                        {% if entry.image %}
+                            <div class="text-center mb-4">
+                                <img src="{{ subentry.image.url }}" alt="">
+                            </div>
+                        {% endif %}
+                    </div>
+                {% endfor %}
+
+            </div>
+
+        {% endfor %}
+
+    </div>
+</div>
+
+    {% endif %}
+
 {% endblock body %}
 
-{% block jquery %}
-<script type="text/javascript">
-$(document).ready(function() {
-  $("body").scrollspy({
-    target: "#scrollin-spyin",
-    offset: 100
-  })
-});
-window.addEventListener("hashchange", function() {
-  scrollBy(0, -80)
-})
-</script>
-{% endblock jquery %}
+
+
