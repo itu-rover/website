@@ -9,83 +9,11 @@
 
 {% block body %}
 
-    {% if "/eng" in request.path %}
-        <div class="carousel slide carousel-fade" id="slides" data-ride="carousel" style="box-shadow: 0 0 45px black">
-            <ol class="carousel-indicators">
-                {% for slide in slide_images %}
-                    {% if slide.place == 0 %}
-                        <div data-target="#slides" data-slide-to="{{ slide.place }}" class="active">
-                            <h2 class="text-center my-auto noselect">{{ slide.title }}</h2>
-                            <img src="{{ slide.rover_image.url }}" alt="" class="selector-img">
-                        </div>
-                    {% else %}
-                        <div data-target="#slides" data-slide-to="{{ slide.place }}" class="">
-                            <h2 class="text-center my-auto noselect">{{ slide.title }}</h2>
-                            <img src="{{ slide.rover_image.url }}" alt="" class="selector-img">
-                        </div>
-                    {% endif %}
-                {% endfor %}
-            </ol>
-            <div class="carousel-inner">
-                {% for slide in slide_images %}
 
-                    {% if slide.place == 0 %}
+    {% include 'pieces/slider.html' %}
 
-                        <div class="carousel-item active h-100" style="background-image: url('{{ slide.bg_image.url }}');">
-                            <div class="row">
-                                <div class="col-7 h-100 my-auto">
-                                    <div class="display-1 ml-xl-5 ml-md-0 pl-4 pt-xl-5 pt-md-0 itu-rover-yazi">
-                                            <p class="font-thick">ITU</p>
-                                            <p class="font-thick">ROVER</p>
-                                            <p class="font-thick">TEAM</p>
-                                        <br>
-                                    </div>
-                                </div>
-                                <div class="col-5 h-100">
-                                    <div class="d-flex justify-content-center bej-cont">
-                                        <div class="text-center mx-auto col-9 mt-5">
-                                                <div class="rover-year text-center">{{ slide.title }}</div>
-                                                {% if slide.eng_grade %}
-                                                    <div class="display-3 grade">{{ slide.eng_grade }}</div>
-                                                {% endif %}
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="special-background" style="background-image: url('{{ slide.rover_image.url }}');"></div>
-                        </div>
 
-                    {% else %}
-
-                        <div class="carousel-item h-100" style="background-image: url('{{ slide.bg_image.url }}');">
-                            <div class="row">
-                                <div class="col-7 h-100 my-auto">
-                                    <div class="display-1 ml-xl-5 ml-md-0 pl-4 pt-xl-5 pt-md-0 itu-rover-yazi">
-                                            <p class="font-thick">ITU</p>
-                                            <p class="font-thick">ROVER</p>
-                                            <p class="font-thick">TEAM</p>
-                                        <br>
-                                    </div>
-                                </div>
-                                <div class="col-5 h-100">
-                                    <div class="d-flex justify-content-center bej-cont">
-                                        <div class="my-auto">
-                                                <div class="rover-year text-center">{{ slide.title }}</div>
-                                                {% if slide.eng_grade %}
-                                                    <div class="display-4 grade">{{ slide.eng_grade }}</div>
-                                                {% endif %}
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="special-background" style="background-image: url('{{ slide.rover_image.url }}');"></div>
-                        </div>
-
-                    {% endif %}
-
-                {% endfor %}
-            </div>
-        </div>
+    {% if '/eng/' in request.path %}
 
 
     <!-- WHO WE ARE -->
@@ -98,7 +26,7 @@
             <div class="col-xl-5 col-md-12 my-auto flo-right">
                 <div class="col-xl-7 col-md-12">
                     <h1 class="entry-heading">Who are we?</h1>
-                    <p class="entry-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias architecto at consectetur consequuntur deserunt doloribus eum hic inventore itaque iusto libero neque quasi quis sint unde, veritatis vero vitae! Architecto!</p>
+                    <p class="entry-text">ITU Rover Team consists of experienced, curious and hardworking students who have come together from various faculties within Istanbul Technical University, have different disciplines, and have successfully completed many successful projects.</p>
                     <p class="entry-text"><a href="{% url 'about' %}">Click for more.</a></p>
                 </div>
             </div>
@@ -111,12 +39,12 @@
     <div class="container col-xl-9 col-md-12 info-section">
         <div class="d-inline-block">
             <div class="col-xl-7 col-md-12 flo-right pt-2">
-                <img src="{% static 'img/main_entry.png' %}" alt="" style="float: right">
+                <img class="ml-5" src="{% static 'img/main_rovers.png' %}" alt="" style="float: right">
             </div>
             <div class="col-xl-5 col-md-12 my-auto flo-left">
                 <div class="col-xl-7 col-md-12 flo-right">
                     <h1 class="entry-heading">What is Rover?</h1>
-                    <p class="entry-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias architecto at consectetur consequuntur deserunt doloribus eum hic inventore itaque iusto libero neque quasi quis sint unde, veritatis vero vitae! Architecto!</p>
+                    <p class="entry-text">Rovers that help astronaut with the robotic arm, perform well under harsh conditions with the drive system, and can analyze vitality with the science system in space, satellites or planets.</p>
                     <p class="entry-text"><a href="{% url 'rover' %}">Click for more.</a></p>
                 </div>
             </div>
@@ -129,12 +57,12 @@
     <div class="container col-xl-9 col-md-12 info-section">
         <div class="d-inline-block">
             <div class="col-xl-7 col-md-12 flo-left pt-2">
-                <img src="{% static 'img/main_entry.png' %}" alt="">
+                <img src="{% static 'img/main_presentations.png' %}" alt="">
             </div>
             <div class="col-xl-5 col-md-12 my-auto flo-right">
                 <div class="col-xl-7 col-md-12">
                     <h1 class="entry-heading">Take a Survey</h1>
-                    <p class="entry-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias architecto at consectetur consequuntur deserunt doloribus eum hic inventore itaque iusto libero neque quasi quis sint unde, veritatis vero vitae! Architecto!</p>
+                    <p class="entry-text">As ITU Rover Team, we aim to make an unmanned ground vehicle capable of performing various tasks. The most important feature of this unmanned ground vehicle is that it belongs to the space research vehicle class. The duties of our vehicle as a space research vehicle (Rover) are as follows:</p>
                     <p class="entry-text"><a href="{% url 'about' %}">Click for more.</a></p>
                 </div>
             </div>
@@ -147,12 +75,12 @@
     <div class="container col-xl-9 col-md-12 info-section">
         <div class="d-inline-block">
             <div class="col-xl-7 col-md-12 flo-right pt-2">
-                <img src="{% static 'img/main_entry.png' %}" alt="">
+                <img class="ml-5" src="{% static 'img/main_people.png' %}" alt="">
             </div>
             <div class="col-xl-5 col-md-12 my-auto flo-left">
                 <div class="col-xl-7 col-md-12 flo-right mr-md-3">
                     <h1 class="entry-heading">Our Successes</h1>
-                    <p class="entry-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias architecto at consectetur consequuntur deserunt doloribus eum hic inventore itaque iusto libero neque quasi quis sint unde, veritatis vero vitae! Architecto!</p>
+                    <p class="entry-text">In the adventure we started in URC competitions participating as the first team from Turkey in 2017. In 2018, we won the “Science Special Award”, which was given for the first time in the competition history. In 2020, we were the third among 93 teams.</p>
                     <p class="entry-text"><a href="{% url 'about' %}">Click for more.</a></p>
                 </div>
             </div>
@@ -169,10 +97,10 @@
                 <div class="col-xl-6 col-md-12 text-center mb-5">
                     <img class="mb-4" src="{% static 'img/navbar/sponsorship_bej.svg' %}" alt="" style="width: 200px">
                     <h1 class="display-4">Support Us</h1>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur dolorem doloribus eligendi fugit illum impedit, labore nobis non numquam porro quibusdam sapiente voluptatem voluptatibus. Exercitationem illo nobis odit praesentium rem!</p>
+                    <p>Let's walk together on our journey that we started in 2017.</p>
                     <div class="form-link mt-4">
-                        <a href="#">
-                            <div>Support Form</div>
+                        <a href="{% url 'eng_contact' %}">
+                            <div>Contact Us</div>
                         </a>
                     </div>
                 </div>
@@ -180,9 +108,9 @@
                     <div class="container">
                         <img class="mb-4" src="{% static 'img/navbar/team_bej.svg' %}" alt="" style="width: 200px">
                         <h1 class="display-4">Join Us</h1>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur dolorem doloribus eligendi fugit illum impedit, labore nobis non numquam porro quibusdam sapiente voluptatem voluptatibus. Exercitationem illo nobis odit praesentium rem!</p>
+                        <p>Join our team, let's shape the future together.</p>
                         <div class="form-link mt-4">
-                        <a href="#">
+                        <a href="{% url 'eng_contact' %}">
                             <div>Join Form</div>
                         </a>
                     </div>
@@ -200,83 +128,6 @@
 
     {% else %}
 
-        <div class="carousel slide carousel-fade" id="slides" data-ride="carousel" style="box-shadow: 0 0 45px black">
-            <ol class="carousel-indicators">
-                {% for slide in slide_images %}
-                    {% if slide.place == 0 %}
-                        <div data-target="#slides" data-slide-to="{{ slide.place }}" class="active">
-                            <h2 class="text-center my-auto noselect">{{ slide.title }}</h2>
-                            <img src="{{ slide.rover_image.url }}" alt="" class="selector-img">
-                        </div>
-                    {% else %}
-                        <div data-target="#slides" data-slide-to="{{ slide.place }}" class="">
-                            <h2 class="text-center my-auto noselect">{{ slide.title }}</h2>
-                            <img src="{{ slide.rover_image.url }}" alt="" class="selector-img">
-                        </div>
-                    {% endif %}
-                {% endfor %}
-            </ol>
-            <div class="carousel-inner">
-                {% for slide in slide_images %}
-
-                    {% if slide.place == 0 %}
-
-                        <div class="carousel-item active h-100" style="background-image: url('{{ slide.bg_image.url }}');">
-                            <div class="row">
-                                <div class="col-7 h-100 my-auto">
-                                    <div class="display-1 ml-xl-5 ml-md-0 pl-4 pt-xl-5 pt-md-0 itu-rover-yazi">
-                                            <p class="font-thick">İTÜ</p>
-                                            <p class="font-thick">ROVER</p>
-                                            <p class="font-thick">TAKIMI</p>
-                                        <br>
-                                    </div>
-                                </div>
-                                <div class="col-5 h-100">
-                                    <div class="d-flex justify-content-center bej-cont">
-                                        <div class="text-center mx-auto col-9 mt-5">
-                                                <div class="rover-year text-center">{{ slide.title }}</div>
-                                                {% if slide.grade %}
-                                                    <div class="display-3 grade">{{ slide.grade }}</div>
-                                                {% endif %}
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="special-background" style="background-image: url('{{ slide.rover_image.url }}');"></div>
-                        </div>
-
-                    {% else %}
-
-                        <div class="carousel-item h-100" style="background-image: url('{{ slide.bg_image.url }}');">
-                            <div class="row">
-                                <div class="col-7 h-100 my-auto">
-                                    <div class="display-1 ml-xl-5 ml-md-0 pl-4 pt-xl-5 pt-md-0 itu-rover-yazi">
-                                            <p class="font-thick">İTÜ</p>
-                                            <p class="font-thick">ROVER</p>
-                                            <p class="font-thick">TAKIMI</p>
-                                        <br>
-                                    </div>
-                                </div>
-                                <div class="col-5 h-100">
-                                    <div class="d-flex justify-content-center bej-cont">
-                                        <div class="my-auto">
-                                                <div class="rover-year text-center">{{ slide.title }}</div>
-                                                {% if slide.grade %}
-                                                    <div class="display-4 grade">{{ slide.grade }}</div>
-                                                {% endif %}
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="special-background" style="background-image: url('{{ slide.rover_image.url }}');"></div>
-                        </div>
-
-                    {% endif %}
-
-                {% endfor %}
-            </div>
-        </div>
-
 
     <!-- BİZ KİMİZ -->
 
@@ -288,7 +139,7 @@
             <div class="col-xl-5 col-md-12 my-auto flo-right">
                 <div class="col-xl-7 col-md-12">
                     <h1 class="entry-heading">Biz Kimiz?</h1>
-                    <p class="entry-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias architecto at consectetur consequuntur deserunt doloribus eum hic inventore itaque iusto libero neque quasi quis sint unde, veritatis vero vitae! Architecto!</p>
+                    <p class="entry-text">İTÜ Rover Takımı, İstanbul Teknik Üniversitesi bünyesindeki çeşitli fakültelerden bir araya gelmiş, farklı disiplinlerden öğretilere sahip, daha önceden birçok başarılı projelere imza atmış tecrübeli, meraklı ve çalışkan öğrencilerden oluşmaktadır.</p>
                     <p class="entry-text"><a href="{% url 'about' %}">Dahası için tıklayınız.</a></p>
                 </div>
             </div>
@@ -301,12 +152,12 @@
     <div class="container col-xl-9 col-md-12 info-section">
         <div class="d-inline-block">
             <div class="col-xl-7 col-md-12 flo-right pt-2">
-                <img src="{% static 'img/main_entry.png' %}" alt="" style="float: right">
+                <img class="ml-5" src="{% static 'img/main_rovers.png' %}" alt="">
             </div>
             <div class="col-xl-5 col-md-12 my-auto flo-left">
                 <div class="col-xl-7 col-md-12 flo-right">
                     <h1 class="entry-heading">Rover Nedir?</h1>
-                    <p class="entry-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias architecto at consectetur consequuntur deserunt doloribus eum hic inventore itaque iusto libero neque quasi quis sint unde, veritatis vero vitae! Architecto!</p>
+                    <p class="entry-text">Uzayda, uydularda veya gezegenlerde üzerinde bulunan robot kol ile astronota yardımcı olan, alt yürür sistemi ile zorlu koşullarda iyi performans sergileyen ve bilim sistemiyle canlılık analizi yapabilen araçlara Rover denir.</p>
                     <p class="entry-text"><a href="{% url 'rover' %}">Dahası için tıklayınız.</a></p>
                 </div>
             </div>
@@ -319,12 +170,12 @@
     <div class="container col-xl-9 col-md-12 info-section">
         <div class="d-inline-block">
             <div class="col-xl-7 col-md-12 flo-left pt-2">
-                <img src="{% static 'img/main_entry.png' %}" alt="">
+                <img src="{% static 'img/main_presentations.png' %}" alt="">
             </div>
             <div class="col-xl-5 col-md-12 my-auto flo-right">
                 <div class="col-xl-7 col-md-12">
                     <h1 class="entry-heading">Genel Bakış</h1>
-                    <p class="entry-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias architecto at consectetur consequuntur deserunt doloribus eum hic inventore itaque iusto libero neque quasi quis sint unde, veritatis vero vitae! Architecto!</p>
+                    <p class="entry-text">İTÜ Rover Takımı olarak, çeşitli görevleri yapabilme kabiliyetine sahip bir insansız kara aracı yapmayı amaçlamaktayız. Bu insansız kara aracının en önemli özelliği, uzay araştırma aracı sınıfına ait olmasıdır. Uzay araştırma aracı (Rover) olarak aracımızın yapma kapasitesi olan görevleri şu şekildedir:</p>
                     <p class="entry-text"><a href="{% url 'about' %}">Dahası için tıklayınız.</a></p>
                 </div>
             </div>
@@ -337,12 +188,12 @@
     <div class="container col-xl-9 col-md-12 info-section">
         <div class="d-inline-block">
             <div class="col-xl-7 col-md-12 flo-right pt-2">
-                <img src="{% static 'img/main_entry.png' %}" alt="">
+                <img class="ml-5" src="{% static 'img/main_people.png' %}" alt="">
             </div>
             <div class="col-xl-5 col-md-12 my-auto flo-left">
                 <div class="col-xl-7 col-md-12 flo-right mr-md-3">
                     <h1 class="entry-heading">Başarılarımız</h1>
-                    <p class="entry-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias architecto at consectetur consequuntur deserunt doloribus eum hic inventore itaque iusto libero neque quasi quis sint unde, veritatis vero vitae! Architecto!</p>
+                    <p class="entry-text">URC yarışmalarında 2017 yılında Türkiye’den katılan ilk takım olarak başladığımız serüvende 2018 yılında yarışma tarihinde ilk defa verilen “Bilim Özel Ödülü” nü kazandık. 2020 yılında ise 93 takım arasından 3. olduk.</p>
                     <p class="entry-text"><a href="{% url 'about' %}">Dahası için tıklayınız.</a></p>
                 </div>
             </div>
@@ -359,10 +210,10 @@
                 <div class="col-xl-6 col-md-12 text-center mb-5">
                     <img class="mb-4" src="{% static 'img/navbar/sponsorship_bej.svg' %}" alt="" style="width: 200px">
                     <h1 class="display-4">Bize Destek Olun</h1>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur dolorem doloribus eligendi fugit illum impedit, labore nobis non numquam porro quibusdam sapiente voluptatem voluptatibus. Exercitationem illo nobis odit praesentium rem!</p>
+                    <p>2017 yılında başladığımız yolculuğumuzda gelin beraber yürüyelim.</p>
                     <div class="form-link mt-4">
-                        <a href="#">
-                            <div>Destek Formu</div>
+                        <a href="{% url 'contact' %}">
+                            <div>Bize Ulaşın</div>
                         </a>
                     </div>
                 </div>
@@ -370,9 +221,9 @@
                     <div class="container">
                         <img class="mb-4" src="{% static 'img/navbar/team_bej.svg' %}" alt="" style="width: 200px">
                         <h1 class="display-4">Bize Katılın</h1>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur dolorem doloribus eligendi fugit illum impedit, labore nobis non numquam porro quibusdam sapiente voluptatem voluptatibus. Exercitationem illo nobis odit praesentium rem!</p>
+                        <p>Ekibimize katılın, geleceği beraber şekillendirelim.</p>
                         <div class="form-link mt-4">
-                        <a href="#">
+                        <a href="{% url 'contact' %}">
                             <div>Katılım Formu</div>
                         </a>
                     </div>

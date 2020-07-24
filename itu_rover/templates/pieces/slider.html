@@ -1,43 +1,154 @@
-{% load static %}
+{% if "/eng" in request.path %}
+        <div class="carousel slide carousel-fade" id="slides" data-ride="carousel" style="box-shadow: 0 0 45px black">
+            <ol class="carousel-indicators">
+                {% for slide in slide_images %}
+                    {% if slide.place == 0 %}
+                        <div data-target="#slides" data-slide-to="{{ slide.place }}" class="active">
+                            <h2 class="text-center my-auto noselect">{{ slide.title }}</h2>
+                        </div>
+                    {% else %}
+                        <div data-target="#slides" data-slide-to="{{ slide.place }}" class="">
+                            <h2 class="text-center my-auto noselect">{{ slide.title }}</h2>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </ol>
+            <div class="carousel-inner">
+                {% for slide in slide_images %}
 
-<div id="rover-carousel" class="carousel slide" data-ride="carousel">
+                    {% if slide.place == 0 %}
 
-  <!-- Indicators -->
-  <ol class="carousel-indicators">
-    <li data-target="#rover-carousel" data-slide-to="0" class="active"></li>
-    {% for slide in slides %}
-    <li data-target="#rover-carousel" data-slide-to="{{ forloop.counter }}"></li>
-    {% endfor %}
-  </ol>
+                        <div class="carousel-item active h-100" style="background-image: url('{{ slide.bg_image.url }}');">
+                            <div class="row">
+                                <div class="col-7 h-100 my-auto">
+                                    <div class="display-1 ml-xl-5 ml-md-0 pl-4 pt-xl-5 pt-md-0 itu-rover-yazi">
+                                            <p class="font-thick">ITU</p>
+                                            <p class="font-thick">ROVER</p>
+                                            <p class="font-thick">TEAM</p>
+                                        <br>
+                                    </div>
+                                </div>
+                                <div class="col-5 h-100">
+                                    <div class="d-flex justify-content-center bej-cont">
+                                        <div class="text-center mx-auto col-9 mt-5">
+                                                <div class="rover-year text-center">{{ slide.title }}</div>
+                                                {% if slide.eng_grade %}
+                                                    <div class="display-3 grade">{{ slide.eng_grade }}</div>
+                                                {% endif %}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="special-background" style="background-image: url('{{ slide.rover_image.url }}');"></div>
+                        </div>
 
-  <!-- Wrapper for slides -->
-  <div class="carousel-inner" role="listbox" style="text-left">
-    <div class="item">
-      <img class="img-background" src="{% static 'img/rover.jpg' %}" data-color="lightblue" alt="rover">
-      <div class="carousel-caption hidden-xs" style="height: 100%">
-        <h6 class="font-thick" style="position: absolute; top: 64%; left: 56%;"><span style="font-size: 36px;"><img width="120px" src="{% static 'img/itu_rover_white.png' %}"> İTÜ <a style="color: white" type="button" class="" data-toggle="tooltip" data-placement="top" title="Rover'lar, gezegenlerin veya diğer gök cisimlerinin yüzeyinde çeşitli görevleri yerine getirmek üzere tasarlanan uzay araştırma araçlarıdır." data-original-title="Rover'lar, gezegenlerin veya diğer gök cisimlerinin yüzeyinde çeşitli görevleri yerine getirmek üzere tasarlanan uzay araştırma araçlarıdır."><u>Rover</u></a> Takımı</span></h6>
-      </div>
-      <div class="carousel-caption visible-xs" style="height: 100%">
-        <h6 class="font-thick" style="position: absolute; top: 42%; right: 5%;"><span style="font-size: 25px;"><img width="84px" src="{% static 'img/itu_rover_white.png' %}"><br>İTÜ <a style="color: white" type="button" class="" data-toggle="tooltip" data-placement="top" title="Rover'lar, gezegenlerin veya diğer gök cisimlerinin yüzeyinde çeşitli görevleri yerine getirmek üzere tasarlanan uzay araştırma araçlarıdır." data-original-title="Rover'lar, gezegenlerin veya diğer gök cisimlerinin yüzeyinde çeşitli görevleri yerine getirmek üzere tasarlanan uzay araştırma araçlarıdır."><u>Rover</u></a> Takımı</span></h6>
-      </div>
-    </div>
-    {% for slide in slides %}
-    <div class="item">
-      <img class="img-background" src="{{ slide.image.url }}" data-color="lightblue" alt="rover">
-      <div class="carousel-caption">
-        <h3></h3>
-      </div>
-    </div>
-    {% endfor %}
-  </div>
+                    {% else %}
 
-  <!-- Controls -->
-  <a class="left carousel-control" href="#rover-carousel" role="button" data-slide="prev">
-    <i class="fa fa-angle-left icon-prev" aria-hidden="true"></i>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="right carousel-control" href="#rover-carousel" role="button" data-slide="next">
-    <span class="fa fa-angle-right icon-next" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </a>
-</div>
+                        <div class="carousel-item h-100" style="background-image: url('{{ slide.bg_image.url }}');">
+                            <div class="row">
+                                <div class="col-7 h-100 my-auto">
+                                    <div class="display-1 ml-xl-5 ml-md-0 pl-4 pt-xl-5 pt-md-0 itu-rover-yazi">
+                                            <p class="font-thick">ITU</p>
+                                            <p class="font-thick">ROVER</p>
+                                            <p class="font-thick">TEAM</p>
+                                        <br>
+                                    </div>
+                                </div>
+                                <div class="col-5 h-100">
+                                    <div class="d-flex justify-content-center bej-cont">
+                                        <div class="my-auto">
+                                                <div class="rover-year text-center">{{ slide.title }}</div>
+                                                {% if slide.eng_grade %}
+                                                    <div class="display-4 grade">{{ slide.eng_grade }}</div>
+                                                {% endif %}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="special-background" style="background-image: url('{{ slide.rover_image.url }}');"></div>
+                        </div>
+
+                    {% endif %}
+
+                {% endfor %}
+            </div>
+        </div>
+
+{% else %}
+
+    <div class="carousel slide carousel-fade" id="slides" data-ride="carousel" style="box-shadow: 0 0 45px black">
+            <ol class="carousel-indicators">
+                {% for slide in slide_images %}
+                    {% if slide.place == 0 %}
+                        <div data-target="#slides" data-slide-to="{{ slide.place }}" class="active">
+                            <h2 class="text-center my-auto noselect">{{ slide.title }}</h2>
+                        </div>
+                    {% else %}
+                        <div data-target="#slides" data-slide-to="{{ slide.place }}" class="">
+                            <h2 class="text-center my-auto noselect">{{ slide.title }}</h2>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </ol>
+            <div class="carousel-inner">
+                {% for slide in slide_images %}
+
+                    {% if slide.place == 0 %}
+
+                        <div class="carousel-item active h-100" style="background-image: url('{{ slide.bg_image.url }}');">
+                            <div class="row">
+                                <div class="col-7 h-100 my-auto">
+                                    <div class="display-1 ml-xl-5 ml-md-0 pl-4 pt-xl-5 pt-md-0 itu-rover-yazi">
+                                            <p class="font-thick">İTÜ</p>
+                                            <p class="font-thick">ROVER</p>
+                                            <p class="font-thick">TAKIMI</p>
+                                        <br>
+                                    </div>
+                                </div>
+                                <div class="col-5 h-100">
+                                    <div class="d-flex justify-content-center bej-cont">
+                                        <div class="text-center mx-auto col-9 mt-5">
+                                                <div class="rover-year text-center">{{ slide.title }}</div>
+                                                {% if slide.grade %}
+                                                    <div class="display-3 grade">{{ slide.grade }}</div>
+                                                {% endif %}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="special-background" style="background-image: url('{{ slide.rover_image.url }}');"></div>
+                        </div>
+
+                    {% else %}
+
+                        <div class="carousel-item h-100" style="background-image: url('{{ slide.bg_image.url }}');">
+                            <div class="row">
+                                <div class="col-7 h-100 my-auto">
+                                    <div class="display-1 ml-xl-5 ml-md-0 pl-4 pt-xl-5 pt-md-0 itu-rover-yazi">
+                                            <p class="font-thick">İTÜ</p>
+                                            <p class="font-thick">ROVER</p>
+                                            <p class="font-thick">TAKIMI</p>
+                                        <br>
+                                    </div>
+                                </div>
+                                <div class="col-5 h-100">
+                                    <div class="d-flex justify-content-center bej-cont">
+                                        <div class="my-auto">
+                                                <div class="rover-year text-center">{{ slide.title }}</div>
+                                                {% if slide.grade %}
+                                                    <div class="display-4 grade">{{ slide.grade }}</div>
+                                                {% endif %}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="special-background" style="background-image: url('{{ slide.rover_image.url }}');"></div>
+                        </div>
+
+                    {% endif %}
+
+                {% endfor %}
+            </div>
+        </div>
+
+{% endif %}

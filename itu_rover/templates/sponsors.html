@@ -12,14 +12,26 @@
 
 {% block body %}
 
-    <div class="logo-container">
-        <div class=" text-center">
-           <a href="/"><img class="mt-5 pt-xl-4 pt-md-0 bg-logo noselect" src="{% static 'img/logo_with.png' %}"></a>
-       </div>
-    </div>
-    <div class="bg-container" style="">
-        <div class="black-trans"></div>
-    </div>
+    {% if '/eng/' in request.path %}
+        <div class="logo-container">
+            <div class=" text-center">
+               <a href="/"><img class="mt-5 pt-xl-4 pt-md-0 bg-logo noselect" src="{% static 'img/logo_with.png' %}"></a>
+           </div>
+        </div>
+        <div class="bg-container" style="">
+            <div class="black-trans"></div>
+        </div>
+    {% else %}
+        <div class="logo-container">
+            <div class=" text-center">
+               <a href="/"><img class="mt-5 pt-xl-4 pt-md-0 bg-logo noselect" src="{% static 'img/logo_with_tr.png' %}"></a>
+           </div>
+        </div>
+        <div class="bg-container" style="">
+            <div class="black-trans"></div>
+        </div>
+    {% endif %}
+
 <div class="content-container">
     {% include 'pieces/sponsors.html' %}
 </div>

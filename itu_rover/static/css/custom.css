@@ -70,25 +70,16 @@ body {
 }
 .carousel-indicators div{
     color: #443331;
-    position: relative;
     width: 18%;
+    border-radius: 25px;
 }
-.carousel-indicators img{
-    position: absolute;
-    bottom: 110%;
-    background-color: rgba(250, 208, 156, 0.8);
-    border-radius: 40%;
-    display: none;
 
-}
 .carousel-indicators div:hover{
-    color: #926D6A;
+    color: rgba(250, 208, 156, 0.8);
     transition: 0.5s;
+    background-color: #443331;
 }
-.carousel-indicators div:hover .selector-img{
-    display: block;
 
-}
 
 .bg-container{
     background-size: cover;
@@ -336,6 +327,16 @@ body {
     .navbar-nav>li>a {
         padding-top: 10px;
         padding-bottom: 10px;
+    }
+    .hamburger-container {
+        width: 60px;
+    }
+    .eng-container{
+        top: 9%;
+        right: 5px;
+    }
+    .m-none{
+        display: none;
     }
     .bg-container{
         height: 60vh;
