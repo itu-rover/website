@@ -80,7 +80,6 @@ body {
     background-color: #443331;
 }
 
-
 .bg-container{
     background-size: cover;
     background-position: center;
@@ -350,6 +349,7 @@ body {
     .logo-container{
         width: 100%;
     }
+
     .collapse.in{
         display:block !important;
     }

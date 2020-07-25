@@ -36,6 +36,10 @@
         <br><br><br>
 
             {% if join_form%}
+
+                <div class="display-4 text-center">Join Us</div>
+                <br><br>
+
                 <div class="col-xl-12 col-md-12">
                     {% autoescape off %}
                         <div class="align-self-center">{{ join_form.form_link }}</div>
@@ -67,12 +71,15 @@
         <h2 class="text-center">ituroverteam@gmail.com</h2>
 
         <br><br><br>
+
             {% if join_form %}
-                <div class="col-xl-12 col-md-12">
-                    {% autoescape off %}
-                        <div class="align-self-center">{{ join_form.form_link }}</div>
-                    {% endautoescape %}
-                </div>
+
+                <div class="display-4 text-center">Takım Başvuru Formu:</div>
+                <br><br>
+
+                <h5 class="col-xl-12 col-md-12">
+                    <a href="{{ join_form.form_link }}">{{ join_form.form_link }}</a>
+                </h5>
             {% endif %}
 
     </div>
