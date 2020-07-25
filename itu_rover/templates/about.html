@@ -42,8 +42,8 @@
             {% endif %}
 
             <div class="container mb-5 col-xl-6 col-lg-8 col-md-12" style="color: #575757">
-                <h1 class="display-3">{{ entry.eng_title }}</h1>
-                <h4 class="">{{ entry.eng_detail | markdown }}</h4>
+                <h1 class="entry-heading">{{ entry.eng_title }}</h1>
+                <h4 class="entry-text">{{ entry.eng_detail | markdown }}</h4>
             </div>
 
         {% endfor %}
@@ -81,8 +81,8 @@
             {% endif %}
 
             <div class="container mb-5 col-xl-6 col-lg-8 col-md-12" style="color: #575757">
-                <h1 class="display-3">{{ entry.title }}</h1>
-                <h4 class="">{{ entry.detail | markdown }}</h4>
+                <h1 class="entry-heading">{{ entry.title }}</h1>
+                <h4 class="entry-text">{{ entry.detail | markdown }}</h4>
             </div>
 
         {% endfor %}

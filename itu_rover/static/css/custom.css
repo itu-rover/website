@@ -104,11 +104,11 @@ body {
 
 .entry-heading{
     font-size:48pt;
-    color: rgb(66, 66, 66);
+    color: rgb(82, 82, 82);
     font-weight:500;
 }
 .entry-text{
-    font-size: 14pt;
+    font-size: 16pt;
     color: rgb(87, 87, 87);
     font-weight: 300;
 }
@@ -246,6 +246,7 @@ body {
     right:0;
     width: 0;
     background-color: rgba(0,0,0,0.9);
+    overflow: scroll;
 }
 .logo{
     margin-bottom: 45px
@@ -405,6 +406,12 @@ body {
     }
     .flo-left-but-mobile-right{
         float: right;
+    }
+    .entry-heading{
+        font-size: 32pt;
+    }
+    .entry-text{
+        font-size: 14pt;
     }
 }
 .text-big {

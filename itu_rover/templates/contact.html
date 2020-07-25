@@ -40,11 +40,10 @@
                 <div class="display-4 text-center">Join Us</div>
                 <br><br>
 
-                <div class="col-xl-12 col-md-12">
-                    {% autoescape off %}
-                        <div class="align-self-center">{{ join_form.form_link }}</div>
-                    {% endautoescape %}
-                </div>
+                <h5 class="col-xl-12 col-md-12 text-center">
+                    <a href="{{ join_form.form_link }}">{{ join_form.form_link }}</a>
+                </h5>
+                <br><br><br>
 
             {% endif %}
 
@@ -77,9 +76,10 @@
                 <div class="display-4 text-center">Takım Başvuru Formu:</div>
                 <br><br>
 
-                <h5 class="col-xl-12 col-md-12">
+                <h5 class="col-xl-12 col-md-12 text-center">
                     <a href="{{ join_form.form_link }}">{{ join_form.form_link }}</a>
                 </h5>
+                <br><br><br>
             {% endif %}
 
     </div>

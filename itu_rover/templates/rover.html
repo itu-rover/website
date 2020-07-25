@@ -42,12 +42,12 @@
             {% endif %}
 
             <div class="container mb-5 col-xl-7 col-lg-8 col-md-12" style="color: #707070">
-                <h1 class="display-3">{{ entry.eng_title }}</h1>
-                <h4 class="">{{ entry.eng_detail | markdown }}</h4>
+                <h1 class="entry-heading">{{ entry.eng_title }}</h1>
+                <h4 class="entry-text">{{ entry.eng_detail | markdown }}</h4>
                 {% for subentry in entry.subentries.all %}
                     <div class="mx-3">
-                        <h1 class="display-4">{{ subentry.eng_title }}</h1>
-                        <h4 class="">{{ subentry.eng_detail | markdown }}</h4>
+                        <h1 class="entry-heading">{{ subentry.eng_title }}</h1>
+                        <h4 class="entry-text">{{ subentry.eng_detail | markdown }}</h4>
                         {% if entry.image %}
                             <div class="text-center mb-4">
                                 <img src="{{ subentry.image.url }}" alt="">
@@ -92,12 +92,12 @@
             {% endif %}
 
             <div class="container mb-5 col-xl-7 col-lg-8 col-md-12" style="color: #707070">
-                <h1 class="display-3">{{ entry.title }}</h1>
-                <h4 class="">{{ entry.detail | markdown }}</h4>
+                <h1 class="entry-heading">{{ entry.title }}</h1>
+                <h4 class="entry-text">{{ entry.detail | markdown }}</h4>
                 {% for subentry in entry.subentries.all %}
                     <div class="mx-3">
-                        <h1 class="display-4">{{ subentry.title }}</h1>
-                        <h4 class="">{{ subentry.detail | markdown }}</h4>
+                        <h1 class="entry-heading">{{ subentry.title }}</h1>
+                        <h4 class="entry-text">{{ subentry.detail | markdown }}</h4>
                         {% if entry.image %}
                             <div class="text-center mb-4">
                                 <img src="{{ subentry.image.url }}" alt="">
