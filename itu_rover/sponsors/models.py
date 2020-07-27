@@ -47,6 +47,11 @@ class SponsorshipType(OrderableMixin, TimeStampedModel):
         max_length=30,
         verbose_name='type name',
     )
+    eng_name = models.CharField(
+        max_length=30,
+        verbose_name='English type name',
+        default="eng"
+    )
     description = models.TextField()
 
     def __str__(self):

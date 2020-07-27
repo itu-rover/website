@@ -121,6 +121,23 @@ class Member(Person, TimeStampedModel):
             return "Ekip Üyesi"
         return subteam_str + is_old + " Üyesi"
 
+    def eng_role(self):
+        subteam_str = str(self.subteam.eng_name)
+        is_old = " Old" if self.is_retired else ""
+
+        try:
+            is_team_leader = bool(self.leader)
+        except ObjectDoesNotExist:
+            is_team_leader = False
+
+        if self.subteam and self in self.subteam.leaders.all():
+            return " Leader of " + subteam_str
+        elif is_team_leader:
+            return "Team Leader"
+        elif not self.subteam:
+            return "Ekip Üyesi"
+        return is_old + " Member of " + subteam_str
+
 
 class SubTeam(models.Model):
     """
