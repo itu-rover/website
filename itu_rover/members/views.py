@@ -9,13 +9,15 @@ from .models import SubTeam, TeamAdvisor, Member, TeamLeader, MembersPage as MP
 from oldyears.models import OldYear
 
 
+# MemebersPage class. Members sayfasına istek geldiğinde çalışır. 
+# 'year' parametresini doğru tanımlamak önemlidir.
+# Sistemi tıpkı Sponsorlar sayfasında olduğu gibidir.
 class MembersPage(TemplateView):
     template_name = 'members.html'
     not_found_message = 'Year not found for members page.'
 
     def get_member_context(self, year):
         # defining year
-        # Member.objects.filter(year=OldYear.objects.all().order_by('-year')[0].year)
         if not Member.objects.filter(year=year).exists():
             year = int(year) - 1
 
