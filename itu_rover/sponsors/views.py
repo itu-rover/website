@@ -8,6 +8,9 @@ from .models import SponsorshipType, Sponsor
 from oldyears.models import OldYear
 
 
+# Sponsorlar sayfasına istek yapıldığında class altındaki fonksiyonlar çalışır.
+# Anahtar yer hangi yılın gösterileceğine karar verilmesidir.
+# current_year fonksiyonu ile gelen yıl içerisinde sponsor yoksa bir önceki yılın sponsorları gösterilir.
 class SponsorsPage(TemplateView):
     template_name = 'sponsors.html'
     not_found_message = 'Year not found for sponsors page.'
