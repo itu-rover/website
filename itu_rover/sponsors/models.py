@@ -6,6 +6,9 @@ from core.defaults import current_year
 from members.utils import validate_one_object
 
 
+# Sponsor class. Sponsorlar sayfasında çalıştırılır.
+# Aynı zamanda database'de Sponsors tablosunu oluşturur.
+# ForeignKey'in ne olduğunu bilmekte fayda var.
 class Sponsor(TimeStampedModel):
     """ Represents organizations supporting the project """
     image = models.ImageField(upload_to='images/sponsors')
@@ -41,6 +44,8 @@ class Sponsor(TimeStampedModel):
         return self.name
 
 
+# SponsorshipType class. Sponsorlar sayfasında çalıştırılır.
+# Aynı zamanda database'de SponsorshipTypes tablosunu oluşturur.
 class SponsorshipType(OrderableMixin, TimeStampedModel):
     """ Represents kinds of sponsorships """
     name = models.CharField(
