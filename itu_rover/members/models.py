@@ -6,6 +6,11 @@ from core.defaults import current_year
 from .utils import get_upload_path
 
 
+# Temel insan modelini tanımlar.
+# Member, Team Advisor ve Team Leader modelleri Person modeli bazalınarak kurulur.
+# Her Member, Team Advisor ve Team Leader birer Person'dır.
+# Foreign Key'in ne olduğunun ve hangi amaçla kullanıldığının bilmesi kolaylık sağlayacaktır.
+# eng_role fonksiyonu, sayfaya İngilizce Subteam isimleri basması için düzenlenecek.
 class Person(models.Model):
     """ Abstract base class representing a person """
     first_name = models.CharField(
