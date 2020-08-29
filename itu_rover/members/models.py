@@ -127,7 +127,10 @@ class Member(Person, TimeStampedModel):
         return subteam_str + is_old + " Üyesi"
 
     def eng_role(self):
-        subteam_str = str(self.subteam.eng_name)
+        if self.subteam == None:
+            subteam_str = "Member of Subteam"
+        else:
+            subteam_str = str(self.subteam.eng_name)
         is_old = " Old" if self.is_retired else ""
 
         try:
