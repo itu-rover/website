@@ -198,12 +198,20 @@ class TeamLeader(models.Model):
 
 class TeamAdvisor(Person, TimeStampedModel):
     description = models.CharField(
-        max_length=75,
+        max_length=100,
         verbose_name='description (e.g. department)',
+    )
+    eng_description = models.CharField(
+        max_length=100,
+        verbose_name='eng_description (e.g. department)',
+        default='Team Advisor'
     )
 
     def role(self):
         return "Takım Danışmanı"
+
+    def eng_role(self):
+        return "Team Advisor"
 
 
 class MembersPage(models.Model):

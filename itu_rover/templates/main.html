@@ -17,17 +17,17 @@
 
 
     <!-- WHO WE ARE -->
-
+    <h1>{{ request.path }}</h1>
     <div class="container col-xl-9 col-md-12 info-section" style="margin-top: 7%;">
         <div class="d-inline-block">
             <div class="col-xl-7 col-md-12 flo-left pt-2">
                 <img src="{% static 'img/main_entry.png' %}" alt="">
             </div>
             <div class="col-xl-5 col-md-12 my-auto flo-right">
-                <div class="col-xl-7 col-md-12">
+                <div class="col-xl-11 col-md-12">
                     <h1 class="entry-heading">Who are we?</h1>
                     <p class="entry-text">ITU Rover Team consists of experienced, curious and hardworking students who have come together from various faculties within Istanbul Technical University, have different disciplines, and have successfully completed many successful projects.</p>
-                    <p class="entry-text"><a href="{% url 'about' %}">Click for more.</a></p>
+                    <p class="entry-text"><a href="{% url 'eng_about' %}">Click for more.</a></p>
                 </div>
             </div>
         </div>
@@ -42,10 +42,10 @@
                 <img class="ml-xl-5 ml-md-0" src="{% static 'img/main_rovers.png' %}" alt="" style="float: right">
             </div>
             <div class="col-xl-5 col-md-12 my-auto flo-left">
-                <div class="col-xl-7 col-md-12 flo-right">
+                <div class="col-xl-11 col-md-12 flo-right">
                     <h1 class="entry-heading">What is Rover?</h1>
                     <p class="entry-text">Rovers that help astronaut with the robotic arm, perform well under harsh conditions with the drive system, and can analyze vitality with the science system in space, satellites or planets.</p>
-                    <p class="entry-text"><a href="{% url 'rover' %}">Click for more.</a></p>
+                    <p class="entry-text"><a href="{% url 'eng_rover' %}">Click for more.</a></p>
                 </div>
             </div>
         </div>
@@ -60,10 +60,10 @@
                 <img src="{% static 'img/main_presentations.png' %}" alt="">
             </div>
             <div class="col-xl-5 col-md-12 my-auto flo-right">
-                <div class="col-xl-7 col-md-12">
+                <div class="col-xl-11 col-md-12">
                     <h1 class="entry-heading">Take a Survey</h1>
                     <p class="entry-text">As ITU Rover Team, we aim to make an unmanned ground vehicle capable of performing various tasks. The most important feature of this unmanned ground vehicle is that it belongs to the space research vehicle class. The duties of our vehicle as a space research vehicle (Rover) are as follows:</p>
-                    <p class="entry-text"><a href="{% url 'about' %}">Click for more.</a></p>
+                    <p class="entry-text"><a href="{% url 'eng_about' %}">Click for more.</a></p>
                 </div>
             </div>
         </div>
@@ -78,10 +78,10 @@
                 <img class="ml-xl-5 ml-md-0" src="{% static 'img/main_people.png' %}" alt="">
             </div>
             <div class="col-xl-5 col-md-12 my-auto flo-left">
-                <div class="col-xl-7 col-md-12 flo-right mr-md-3">
+                <div class="col-xl-11 col-md-12 flo-right mr-md-3">
                     <h1 class="entry-heading">Our Successes</h1>
                     <p class="entry-text">In the adventure we started in URC competitions participating as the first team from Turkey in 2017. In 2018, we won the “Science Special Award”, which was given for the first time in the competition history. In 2020, we were the third among 93 teams.</p>
-                    <p class="entry-text"><a href="{% url 'about' %}">Click for more.</a></p>
+                    <p class="entry-text"><a href="{% url 'eng_about' %}">Click for more.</a></p>
                 </div>
             </div>
         </div>
@@ -137,10 +137,10 @@
                 <img src="{% static 'img/main_entry.png' %}" alt="">
             </div>
             <div class="col-xl-5 col-md-12 my-auto flo-right">
-                <div class="col-xl-7 col-md-12">
+                <div class="col-xl-11 col-md-12">
                     <h1 class="entry-heading">Biz Kimiz?</h1>
                     <p class="entry-text">İTÜ Rover Takımı, İstanbul Teknik Üniversitesi bünyesindeki çeşitli fakültelerden bir araya gelmiş, farklı disiplinlerden öğretilere sahip, daha önceden birçok başarılı projelere imza atmış tecrübeli, meraklı ve çalışkan öğrencilerden oluşmaktadır.</p>
-                    <p class="entry-text"><a href="{% url 'about' %}">Dahası için tıklayınız.</a></p>
+                    <p class="entry-text"><a href="{% url 'about' %}">Daha fazlası için tıklayınız.</a></p>
                 </div>
             </div>
         </div>
@@ -155,10 +155,10 @@
                 <img class="ml-xl-5 ml-md-0" src="{% static 'img/main_rovers.png' %}" alt="">
             </div>
             <div class="col-xl-5 col-md-12 my-auto flo-left">
-                <div class="col-xl-7 col-md-12 flo-right">
+                <div class="col-xl-11 col-md-12 flo-right">
                     <h1 class="entry-heading">Rover Nedir?</h1>
                     <p class="entry-text">Uzayda, uydularda veya gezegenlerde üzerinde bulunan robot kol ile astronota yardımcı olan, alt yürür sistemi ile zorlu koşullarda iyi performans sergileyen ve bilim sistemiyle canlılık analizi yapabilen araçlara Rover denir.</p>
-                    <p class="entry-text"><a href="{% url 'rover' %}">Dahası için tıklayınız.</a></p>
+                    <p class="entry-text"><a href="{% url 'rover' %}">Daha fazlası için tıklayınız.</a></p>
                 </div>
             </div>
         </div>
@@ -173,10 +173,10 @@
                 <img src="{% static 'img/main_presentations.png' %}" alt="">
             </div>
             <div class="col-xl-5 col-md-12 my-auto flo-right">
-                <div class="col-xl-7 col-md-12">
+                <div class="col-xl-11 col-md-12">
                     <h1 class="entry-heading">Genel Bakış</h1>
                     <p class="entry-text">İTÜ Rover Takımı olarak, çeşitli görevleri yapabilme kabiliyetine sahip bir insansız kara aracı yapmayı amaçlamaktayız. Bu insansız kara aracının en önemli özelliği, uzay araştırma aracı sınıfına ait olmasıdır. Uzay araştırma aracı (Rover) olarak aracımızın yapma kapasitesi olan görevleri şu şekildedir:</p>
-                    <p class="entry-text"><a href="{% url 'about' %}">Dahası için tıklayınız.</a></p>
+                    <p class="entry-text"><a href="{% url 'about' %}">Daha fazlası için tıklayınız.</a></p>
                 </div>
             </div>
         </div>
@@ -191,10 +191,10 @@
                 <img class="ml-xl-5 ml-md-0" src="{% static 'img/main_people.png' %}" alt="">
             </div>
             <div class="col-xl-5 col-md-12 my-auto flo-left">
-                <div class="col-xl-7 col-md-12 flo-right">
+                <div class="col-xl-11 col-md-12 flo-right">
                     <h1 class="entry-heading">Başarılarımız</h1>
                     <p class="entry-text">URC yarışmalarında 2017 yılında Türkiye’den katılan ilk takım olarak başladığımız serüvende 2018 yılında yarışma tarihinde ilk defa verilen “Bilim Özel Ödülü” nü kazandık. 2020 yılında ise 93 takım arasından 3. olduk.</p>
-                    <p class="entry-text"><a href="{% url 'about' %}">Dahası için tıklayınız.</a></p>
+                    <p class="entry-text"><a href="{% url 'about' %}">Daha fazlası için tıklayınız.</a></p>
                 </div>
             </div>
         </div>

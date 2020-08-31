@@ -11,6 +11,7 @@ class SliderImage(OrderableMixin, TimeStampedModel):
     bg_image = models.ImageField(upload_to=slider_image_upload_to)
     rover_image = models.ImageField(upload_to=slider_image_upload_to)
     grade = models.TextField(blank=True, null=True)
+    eng_grade = models.TextField(blank=True, null=True, default="Grade")
     show_title = models.BooleanField(default=False)
 
     def __str__(self):
