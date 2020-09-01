@@ -127,10 +127,7 @@ class Member(Person, TimeStampedModel):
         return subteam_str + is_old + " Üyesi"
 
     def eng_role(self):
-        if self.subteam == None:
-            subteam_str = "Member of Subteam"
-        else:
-            subteam_str = str(self.subteam.eng_name)
+        subteam_str = str(self.subteam.eng_name)
         is_old = " Old" if self.is_retired else ""
 
         try:
@@ -198,20 +195,17 @@ class TeamLeader(models.Model):
 
 class TeamAdvisor(Person, TimeStampedModel):
     description = models.CharField(
-        max_length=100,
+        max_length=75,
         verbose_name='description (e.g. department)',
     )
     eng_description = models.CharField(
-        max_length=100,
-        verbose_name='eng_description (e.g. department)',
-        default='Team Advisor'
+        max_length=75,
+        verbose_name='eng description (e.g. department)',
+        default="Team Advisor"
     )
 
     def role(self):
         return "Takım Danışmanı"
-
-    def eng_role(self):
-        return "Team Advisor"
 
 
 class MembersPage(models.Model):
