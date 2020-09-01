@@ -110,7 +110,10 @@ class Member(Person, TimeStampedModel):
     objects = MemberManager()
 
     def role(self):
-        subteam_str = str(self.subteam)
+        if self.subteam == None:
+            subteam_str = "Ekip Üyesi"
+        else:
+            subteam_str = str(self.subteam.eng_name)
         is_old = " Eski" if self.is_retired else ""
 
         try:
@@ -127,7 +130,10 @@ class Member(Person, TimeStampedModel):
         return subteam_str + is_old + " Üyesi"
 
     def eng_role(self):
-        subteam_str = str(self.subteam.eng_name)
+        if self.subteam == None:
+            subteam_str = "Member of Subteam"
+        else:
+            subteam_str = str(self.subteam.eng_name)
         is_old = " Old" if self.is_retired else ""
 
         try:
@@ -206,6 +212,9 @@ class TeamAdvisor(Person, TimeStampedModel):
 
     def role(self):
         return "Takım Danışmanı"
+
+    def eng_role(self):
+        return "Team Advisor"
 
 
 class MembersPage(models.Model):
