@@ -1,7 +1,7 @@
 from django.views.generic import TemplateView
 from django.core.exceptions import ObjectDoesNotExist
 from django.http import Http404
-from django.db.models import Prefetch
+from django.db.models import Prefetch, Q
 
 from core.defaults import current_year
 
@@ -29,12 +29,20 @@ class MembersPage(TemplateView):
             members_page = MP.objects.filter(year=year).get()
         except ObjectDoesNotExist:
             members_page = None
+
+
         years_members = Member.objects.filter(year=year)
         subteams = (SubTeam.objects
                     .filter(members__year=year)
                     .prefetch_related(
                         Prefetch('members', queryset=years_members)
                     )).distinct()
+
+        for subteam in subteams:  
+            # if there is not any member in subteam, remove the subteam from queryset
+            if not Member.objects.filter(Q(year=year) | Q(subteam=subteam)).exists():
+                subteams.remove(subteam)
+
         return {
             'subteams': subteams,
             'advisors': TeamAdvisor.objects.filter(year=year),
