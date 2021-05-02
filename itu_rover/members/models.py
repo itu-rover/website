@@ -113,7 +113,7 @@ class Member(Person, TimeStampedModel):
         if self.subteam == None:
             subteam_str = "Ekip Üyesi"
         else:
-            subteam_str = str(self.subteam.eng_name)
+            subteam_str = str(self.subteam.name)
         is_old = " Eski" if self.is_retired else ""
 
         try:
