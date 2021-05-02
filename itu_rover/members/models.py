@@ -120,11 +120,17 @@ class Member(Person, TimeStampedModel):
             is_team_leader = bool(self.leader)
         except ObjectDoesNotExist:
             is_team_leader = False
+        try:
+            is_tech_leader = bool(self.techLeader)
+        except ObjectDoesNotExist:
+            is_tech_leader = False
 
         if self.subteam and self in self.subteam.leaders.all():
             return subteam_str + " Lideri"
         elif is_team_leader:
             return "Takım Lideri"
+        elif is_tech_leader:
+            return "Teknik Lider"
         elif not self.subteam:
             return "Ekip Üyesi"
         return subteam_str + is_old + " Üyesi"
@@ -140,13 +146,19 @@ class Member(Person, TimeStampedModel):
             is_team_leader = bool(self.leader)
         except ObjectDoesNotExist:
             is_team_leader = False
+        try:
+            is_tech_leader = bool(self.techLeader)
+        except ObjectDoesNotExist:
+            is_tech_leader = False
 
         if self.subteam and self in self.subteam.leaders.all():
             return " Leader of " + subteam_str
         elif is_team_leader:
             return "Team Leader"
+        elif is_tech_leader:
+            return "Technical Leader"
         elif not self.subteam:
-            return "Ekip Üyesi"
+            return "Sub-Team Member"
         return is_old + " Member of " + subteam_str
 
 
@@ -193,6 +205,24 @@ class TeamLeader(models.Model):
 
     class Meta:
         verbose_name = "team leader"
+        verbose_name_plural = verbose_name
+
+    def __str__(self):
+        return str(self.member)
+
+
+class TechnicalLeader(models.Model):
+    """ Technical leader of the whole team """
+    member = models.OneToOneField(
+        'Member',
+        on_delete=models.SET_NULL,
+        null=True,
+        related_name='techLeader',
+        verbose_name='technical leader',
+    )
+
+    class Meta:
+        verbose_name = "technical leader"
         verbose_name_plural = verbose_name
 
     def __str__(self):

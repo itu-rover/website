@@ -3,8 +3,8 @@
 {% if "/eng" in request.path %}
 <div class="container col-xl-8 col-md-12">
     <div class="row">
-        <div class="col-xl-7 col-md-12">
-            <h1 class="text-center mb-3">Team Advisors</h1>
+        <div class="col-xl-5 col-md-12">
+            <h1 class="text-center mb-3">Team Advisor</h1>
             <div class="row">
                 {% for advisor in advisors %}
                     <div class="col-xl-8 col-md-12 mx-auto">
@@ -13,11 +13,21 @@
                 {% endfor %}
             </div>
         </div>
-        <div class="col-xl-5 col-md-12 my-auto" >
+        <div class="col-xl-7 col-md-12 my-auto d-flex justify-content-center" >
             {% if leader %}
-                <div class="col-xl-8 col-md-12 mx-auto">
-                    <h1 class="text-center mb-4">Team Leader</h1>
-                    {% include 'pieces/person.html' with person=leader %}
+                <div class="col-xl-6 col-md-12 mx-auto">
+                    <div class="mx-auto">
+                        <h1 class="text-center mb-4">Team Captain</h1>
+                        {% include 'pieces/person.html' with person=leader %}
+                    </div>
+                </div>
+            {% endif %}
+            {% if techLeader %}
+                <div class="col-xl-6 col-md-12 mx-auto">
+                    <div class="mx-auto">
+                        <h1 class="text-center mb-4">Technical Team Leader</h1>
+                        {% include 'pieces/person.html' with person=techLeader %}
+                    </div>
                 </div>
             {% endif %}
         </div>
@@ -43,8 +53,8 @@
 
 <div class="container col-xl-8 col-md-12">
     <div class="row">
-        <div class="col-xl-7 col-md-12">
-            <h1 class="text-center mb-3">Takım Danışmanları</h1>
+        <div class="col-xl-5 col-md-12">
+            <h1 class="text-center mb-3">Takım Danışmanı</h1>
             <div class="row">
                 {% for advisor in advisors %}
                     <div class="col-xl-8 col-md-12 mx-auto">
@@ -53,11 +63,21 @@
                 {% endfor %}
             </div>
         </div>
-        <div class="col-xl-5 col-md-12 my-auto" >
+        <div class="col-xl-7 col-md-12 my-auto justify-content-center d-flex" >
             {% if leader %}
-                <div class="col-xl-8 col-md-12 mx-auto">
-                    <h1 class="text-center mb-4">Takım Lideri</h1>
-                    {% include 'pieces/person.html' with person=leader %}
+                <div class="col-xl-6 col-md-12 mx-auto">
+                    <div class="mx-auto">
+                        <h1 class="text-center mb-4">Takım Kaptanı</h1>
+                        {% include 'pieces/person.html' with person=leader %}
+                    </div>
+                </div>
+            {% endif %}
+            {% if techLeader %}
+                <div class="col-xl-6 col-md-12 mx-auto">
+                    <div class="mx-auto">
+                        <h1 class="text-center mb-4">Teknik Ekip Lideri</h1>
+                        {% include 'pieces/person.html' with person=techLeader %}
+                    </div>
                 </div>
             {% endif %}
         </div>

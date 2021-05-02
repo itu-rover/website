@@ -5,7 +5,7 @@ from django.db.models import Prefetch, Q
 
 from core.defaults import current_year
 
-from .models import SubTeam, TeamAdvisor, Member, TeamLeader, MembersPage as MP
+from .models import SubTeam, TeamAdvisor, Member, TeamLeader, TechnicalLeader, MembersPage as MP
 from oldyears.models import OldYear
 
 
@@ -25,6 +25,10 @@ class MembersPage(TemplateView):
             leader = TeamLeader.objects.filter(member__year=year).get().member
         except ObjectDoesNotExist:
             leader = None
+        try:
+            techLeader = TechnicalLeader.objects.filter(member__year=year).get().member
+        except ObjectDoesNotExist:
+            techLeader = None
         try:
             members_page = MP.objects.filter(year=year).get()
         except ObjectDoesNotExist:
@@ -47,6 +51,7 @@ class MembersPage(TemplateView):
             'subteams': subteams,
             'advisors': TeamAdvisor.objects.filter(year=year),
             'leader': leader,
+            'techLeader': techLeader,
             'subteamless': Member.objects.filter(subteam=None, year=year),
             'page': members_page,
         }

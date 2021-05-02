@@ -1,9 +1,9 @@
 from django.contrib import admin
 from django import forms
 
-from .models import Member, SubTeam, TeamLeader, TeamAdvisor, MembersPage
+from .models import Member, SubTeam, TeamLeader, TechnicalLeader, TeamAdvisor, MembersPage
 
-models = [TeamLeader, TeamAdvisor, MembersPage]
+models = [TeamLeader, TechnicalLeader, TeamAdvisor, MembersPage]
 admin.site.register(models)
 
 
